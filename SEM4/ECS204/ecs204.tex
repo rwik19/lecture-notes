@@ -1,0 +1,382 @@
+\documentclass[10pt, a4paper]{extarticle}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{framed}
+\usepackage{anyfontsize}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem*{thm}{Theorem}
+
+
+\begin{document}
+	\begin{center}
+		\fontsize{25}{60}\selectfont Signals and Systems \\
+		\large Based on lectures by Dr. Kundan Kandhway\\
+		Notes taken by Rwik Dutta
+	\end{center}
+	\hrule
+	\begin{center}
+		These notes are not endorsed by the lecturers, and I have modified them (often
+significantly) after lectures. They are nowhere near accurate representations of what
+was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
+	\end{center}
+	\tableofcontents 
+	
+	\newpage
+
+	\section{What are signals?}
+	A signal is a function of one or more more independent variables. In this course, we will only work with functions of a single variable.
+
+	The signals with domain $\mathbb{R}$(or some union of intervals in $\mathbb{R}$) are called \textbf{continuous-time} signals represented by $x(t)$.
+
+	The signals with domain $\mathbb{Z}$(or some subset of $\mathbb{Z}$) are called \textbf{discrete-time} signals represented by $x[n]$.
+
+	The signals in this course will be \textbf{complex-valued} unless specified otherwise.
+
+	\section{Signal energy and average power}
+	\subsection{Finite time interval}
+	Signal energy and average power over a certain interval $t_1\leq t\leq t_2$ or $n_1\leq n\leq n_2$, is
+	\[E_t=\int_{t_1}^{t_2}|x(t)|^2\ dt,\ P_t=\frac{E_t}{t_2-t_1}\]
+	or\[E_n=\sum_{n=n_1}^{n_2}|x[n]|^2,\ P_n=\frac{E_n}{n_2-n_1+1}\]
+	
+	\subsection{Infinite time interval}
+	For the energies, we can simply take the integral or sum over the entire domain($-\infty\to\infty$) to get $E_\infty$.
+	\[P_{\infty}=\lim_{T\to\infty}\left(\frac{1}{2T}\int_{-T}^{T}|x(t)|^2\ dt\right)\]
+	or\[P_\infty=\lim_{N\to\infty}\left(\frac{1}{2N+1}\sum_{n=-N}^{N}|x[n]|^2\right)\]
+
+	$E_\infty<\infty\implies P_\infty=0$
+
+	\section{Transformation of independent variable}
+	\subsection{Time shift}
+	\[x(t)\to x(t-t_0)\]
+	\[t_0>0\implies\text{Shifted right}\]
+	\[t_0<0\implies\text{Shifted left}\]
+	Similarly. for discrete case.
+	\subsection{Time reversal}
+	\[x(t)\to x(-t)\]
+	Signal is reflected about $y-$axis.
+	Similarly. for discrete case.
+	\subsection{Time scaling}
+	\[x(t)\to x(at),a>0\]
+	Similarly. for discrete case.
+	\subsection{Compound transformation}
+	Suppose, we need to do the following transformation\[x(t)\to x(at-t_0)\tag*{($a,t_0\in \mathbb{R}$)}\]
+	The simplest way to do this is\[\text{Shift}\to\text{Scale}\to\text{Reverse}\]
+
+	Similarly, for discrete case.
+
+	\section{Periodic signals}
+	$x(t)$ is periodic with period $T$ if $x(t+T)=x(t),\ \forall t$. The smallest possible $T$ is called the fundamental period of the signal.
+
+	Similarly. for discrete case.
+	\section{Even and Odd signals}
+	Even: $x(-t)=x(t)$\\
+	Odd: $x(-t)=-x(t)$
+
+	\begin{thm} Every signal is a superposition of an even and an odd signal.
+	\[x(t)=\underbrace{\frac{x(t)+x(-t)}{2}}_{even}+\underbrace{\frac{x(t)-x(-t)}{2}}_{odd}\]
+	\end{thm}
+
+	Similary, for discrete case.
+
+	\section{Continuous-time complex exponential signal}
+	General form: $x(t)=Ce^{at}$, where $C,a\in\mathbb{C}$.
+
+	If $C$ and $a$ are real, we get a real exponential signal.
+	\subsection{Periodic complex exponential}
+	$x(t)=e^{j\omega_0 t}$ is periodic. If $\omega_0\neq 0$, the fundamental period is \[T_0=\frac{2\pi}{|\omega_0|}\] 
+	Energy of $x(t)$ over a period is given by\[E_{\text{period}}=T_0\]
+	\[P_{\text{period}}=1\]
+	The same over the entire domain is
+	\[E_\infty = \infty\]
+	\[P_\infty = 1\]
+	\begin{thm}[Euler]
+		$e^{j\omega_0t}=\cos(\omega_0t)+j\sin(\omega_0t)$
+	\end{thm}
+	The following signals for $k\in \mathbb{Z}$ are called \textbf{harmonically related}
+	\[\phi_k=e^{jk\omega_0 t}\]
+
+	The general complex exponential is thus
+	\[x(t)=Ce^{at}=e^{a_1 t}\left(C_1\cos(a_2 t)-C_2\sin(a_2 t)\right)+je^{a_1 t}\left(C_2\cos(a_2 t)+C_1\sin(a_2 t)\right)\]
+	where $C=C_1+jC_2,\ a=a_1+ja_2$.
+
+	\section{Discrete-time complex exponential signal}
+	General form: $x[n]=Ce^{\beta n}=z^n$, where $C,\beta,z\in \mathbb{C}$.
+	\subsection{Periodic complex exponential}
+	$x[n]=e^{j\omega_0 n}$ is periodic if $\frac{\omega}{2\pi}\in\mathbb{Q}$. 
+
+	Thus, $\exists m,N\in\mathbb{N}\cup\{0\}$ such that $|\frac{\omega}{2\pi}|=\frac{m}{N},\ \gcd(m,N)=1$. $N$ is the fundamental period of the signal.
+	\begin{thm}
+		Let $x[n]$ be the finite superposition of discrete-time periodic complex exponentials with fundamental periods $\{N_k\}$. The fundamental period of $x[n]$ is $\text{lcm}(\{N_k\})$.
+	\end{thm}
+	
+	The following signals(for $k\in\mathbb{Z}$) are said to be \textbf{harmonically related}
+	\[\phi_k=e^{jk\left(\frac{2\pi}{N}\right)n}\]
+	We have the \textbf{non-uniqueness property}
+	\[\phi_k[n]=\phi_{k+N}[n]\]
+	\section{Impulse and Step signals}
+	\subsection{Discrete-time}
+	\[\delta[n]= \begin{cases}
+      0, & n\neq 0 \\
+      1, & n= 0 
+      \end{cases}\]
+	  \[u[n]= \begin{cases} 
+      0, & n< 0 \\
+      1, & n\geq 0 
+      \end{cases}\]
+
+	  These are related by the relations
+	  \[\delta[n]=u[n]-u[n-1]\]
+	  \[u[n]=\sum_{k=-\infty}^n\delta[k]\]
+	  
+
+	  \subsection{Continuous-time}
+	\[\delta(t)= \begin{cases}
+      0, & t\neq 0 \\
+      \infty, & t= 0 
+      \end{cases}\]
+	  \[u(t)= \begin{cases} 
+      0, & t< 0 \\
+      1, & t\geq 0 
+      \end{cases}\]
+
+	  Observe the discontinuity at $t=0$.
+
+	  These are related by the relations
+	  \[u(t)=\int_{-\infty}^{t}\delta(\tau)\ d\tau\]
+	  \[\delta(t)=u'(t)\]
+	  The impulse(delta) function has the properties
+	  \[\int_{-\infty}^{\infty}\delta(t)\ dt=1\]
+	  \[\int_{-\infty}^{\infty}f(t)\delta(t-t_0)\ dt=f(t_0)\]
+	  In fact, for some interval $I$
+	  \[\int_{I}f(t)\delta(t-t_0)\ dt=\begin{cases}
+		f(t_0),& t_0\in I\\
+		0, & \text{otherwise}
+	  \end{cases}\]
+
+	  \section{What are systems?}
+	  A system takes a signal as an input and gives an output signal. Thus, the signal, in some sense, changes or transforms when passed through a system.
+	  Thus, we say
+	  \[x(t)\xrightarrow{system}y(t)\]
+	  \subsection{Interconnections}
+	  Multiple systems can be connected in various ways:
+	  \begin{enumerate}
+		  \item Series
+			\item Parallel
+			\item Feedback
+  \end{enumerate}
+  \subsection{Types of systems}
+  \subsubsection{Memoryless system}
+  Output at certain time is only dependent on the input at that time.
+  \[y(t)=f(x(t))\]
+	Similary, for discrete case.
+  \subsubsection{Identity system}
+  \[y(t)=x(t)\]
+	Similary, for discrete case.
+  \subsubsection{Systems with memory}
+  Accumulator\[y[n]=\sum_{k=-\infty}^nx[k]\]
+  Delay system \[y(t)=x(t-|t_0|)\]
+  \subsubsection{Invertible system}
+  Distinct inputs lead to distinct outputs. An \textbf{inverse system} exists and the input signal can be distinctly obtained from the output signal.
+  \subsubsection{Causal system}
+  Output at any time only depends on input at present or past times.
+  \subsubsection{Stable system}
+  Output is bounded for bounded inputs, i.e.,\[x(t)\leq M_x,\ \forall t\implies y(t)\leq M_y,\ \forall t\]
+	Similary, for discrete case.
+  \subsubsection{Time-invariant system}
+  \[x(t)\to y(t)\implies x(t-t_0)\to y(t-t_0)\]
+	Similary, for discrete case.
+  \subsubsection{Linear system}
+  \[x(t)\to y(t)\implies ax(t)\to ay(t)\tag*{(Homogeneity)}\]
+  \[x_k(t)\to y_k(t)\implies \sum_k x_k(t)\to\sum_k y_k(t)\tag*{(Additivity)}\]
+	Similary, for discrete case.
+
+  In this course, linear time-invariant(LTI) systems will be of importance.
+  \section{LTI systems}
+  \subsection{Sifting}
+  \begin{thm}(Sifting)
+	  Any signal can be decomposed into impulse signals.
+	  \[x[n]=\sum_{k=-\infty}^\infty x[k]\delta[n-k]\]
+	  \[x(t)=\int_{-\infty}^{\infty}x(\tau)\delta(t-\tau)\ d\tau\]
+  \end{thm}
+  Suppose, $\delta[n]\xrightarrow{system}h[n]$. $h[n]$ is called the \textbf{impulse response} of the system. Similary for continuous-time case.
+  \subsection{Convolution}
+	We define the \textbf{convolution} of two signals as
+  \[x_1[n]*x_2[n]=\sum_{k=-\infty}^\infty x_1[k]x_2[n-k]\]
+  \[x_1(t)*x_2(t)=\int_{-\infty}^{\infty}x_1(\tau)x_2(t-\tau)\ d\tau\]
+  It has the following properties
+  \begin{enumerate}
+	  \item Commutative
+	  \item Associative
+	  \item Distributive over addition
+	  \end{enumerate}
+\begin{thm}
+		$x(t)*\delta(t)=x(t)$
+	\end{thm}
+  \begin{thm}
+	  The complete characterization of a LTI system can be done by using its impulse response.
+	  \[\underbrace{y[n]}_{\text{output}}=\underbrace{x[n]}_{\text{input}}\underbrace{*}_{\text{convolution operator}}\underbrace{h[n]}_{\text{impulse response}}\]
+	  i.e.,\[y[n]=x[n]*h[n]\]
+  \end{thm}
+  Similarly, for the continuous-time case.
+
+  	\begin{thm}(Memoryless LTI system)
+		A LTI system is memoryless iff the impulse response is a scaled delta function, i.e., $h[n]=k\delta[n]$ or $h(t)=k\delta(t)$.
+	\end{thm}
+
+	\subsection{Properties of LTI systems}
+	We will represent systems by their impulse response.
+	\subsubsection{Invertibilty}
+	$h(t)$ and $h_1(t)$ are inverse of one another iff \[h(t)*h_1(t)=\delta(t)\]
+	\subsubsection{Causality}
+	\[h(t)=0,\ \forall t<0\implies\text{system is causal}\]
+	\subsubsection{Stability}
+	\[\sum_{k=-\infty}^{\infty}|h[k]|<\infty\implies\text{system is stable}\]
+	\[\int_{-\infty}^{\infty}|h(\tau)|\ d\tau<\infty\implies\text{system is stable}\]
+
+	\subsection{Unit step response}
+	Suppose, $u[n]\xrightarrow{system}s[n]$. $s[n]$ is called the unit step response of the system.\\
+	It is related to the impulse response by the following relations\\
+	Discrete-time:
+	\[h[n]=s[n]-s[n-1]\]
+	  \[s[n]=\sum_{k=-\infty}^nh[k]\]
+	Continuous-time:
+\[s(t)=\int_{-\infty}^{t}h(\tau)\ d\tau\]
+	  \[h(t)=s'(t)\]
+
+	  \subsection{Complex exponential eigenfunctions}
+	  Complex exponentials are \textbf{eigenfunctions} of LTI systems.
+	  \[e^{\omega t}\xrightarrow{LTI}g(\omega)e^{\omega t}\]
+	  Thus, we choose them as \textbf{basis} for our signals.
+		\[x(t)=\sum_ka_ke^{\omega_k t}\implies y(t)=\sum_k a_kg(\omega_k)e^{\omega_k t}\]
+
+		\section{Fourier series of periodic signals}
+		\begin{thm}(Fourier)
+			Let $T$ be the fundamental period of $x(t)$. Similarly, let $N$ be the fundamental period of $x[n]$.\\
+			Continuous:
+			\[x(t)=\sum_{-\infty}^{\infty}a_ke^{jk\left(\frac{2\pi}{T}\right)t}\tag*{(synthesis)}\]
+			\[a_k=\frac{1}{T}\int_Tx(t)e^{-jk\left(\frac{2\pi}{T}\right)t}\ dt\tag*{(analysis)}\]
+			Discrete:
+			\[x[n]=\sum_{k=\langle N\rangle}a_ke^{jk\left(\frac{2\pi}{N}\right)n}\tag*{(synthesis)}\]
+			\[a_k=\frac{1}{N}\sum_{k=\langle N\rangle}x[n]e^{-jk\left(\frac{2\pi}{N}\right)n}\tag*{(analysis)}\]
+			\[a_k=a_{k+N}\]
+		\end{thm}
+		$a_0$ is called the \textbf{dc component} of the signal.
+
+		\subsection{Dirichlet conditions}
+		A continuous-time signal must be \textbf{piecewise continuous} and periodic to have a Fourier series. If Dirichlet conditions are satisfied by a signal $x(t)$, then it is guaranteed to be equal to its Fourier series representation, except at isolated values of $t$ for which $x(t)$ is discontinuous.
+		\begin{enumerate}
+			\item $\int_T |x(t)|<\infty$
+			\item There are finite number of maxima and minima in one period.
+			\item There are only finite number of discontinuities in one period and all of them are finite.
+	\end{enumerate}
+
+	\section{Fourier transform of non-periodic signals}
+	Fourier Transform:
+	\[X(j\omega)=\int_{-\infty}^{\infty}x(t)e^{-j\omega t}\]
+	\[X(j\omega)=\sum_{-\infty}^{\infty}x[n]e^{-j\omega n}\]
+	Inverse Fourier Transform:
+	\[x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\omega)e^{j\omega t}\ d\omega\]
+	\[x[n]=\frac{1}{2\pi}\int_{2\pi}X(j\omega)e^{j\omega}n\ d\omega\]
+$|X(j\omega)|$ vs $\omega$ is called the \textbf{magnitude spectrum} and $\text{Arg}(X(j\omega))$ vs $\omega$ is called the \textbf{phase spectrum}.
+	
+Continuous-time fourier transform exists if the following(Dirichlet) conditions are satisfied:
+		\begin{enumerate}
+			\item $\int_{-\infty}^{\infty} |x(t)|<\infty$ (absolutely integrable)
+			\item There are finite number of maxima and minima over any finite interval.
+			\item There are only finite number of discontinuities in any finite interval and all of them are finite.
+	\end{enumerate}
+	For discrete-time:
+	\begin{enumerate}
+		\item $\sum_{n=-\infty}^{\infty}|x[n]|<\infty$
+		\item $\sum_{n=-\infty}^{\infty}|x[n]|^2<\infty$ (finite energy)
+\end{enumerate}
+\begin{thm}(Parseval's relation)
+	\[\sum_{n=-\infty}^{\infty}|x[n]|^2=\frac{1}{2\pi}\int_{2\pi}|X(e^{j\omega})|^2\ d\omega\]
+\end{thm}
+	
+	\begin{thm}
+		The normalized sinc function($sinc(\theta)=\frac{\sin\theta}{\theta}$) is the FT of the rectangular function.
+	\end{thm}
+	Let $X(j\omega)=\begin{cases}
+		1,& -W\leq\omega\leq W\\
+		0,& \text{otherwise}
+		\end{cases}$. Then we have\[\frac{\sin(Wt)}{\pi t}\xleftrightarrow{\mathcal{F}}X(j\omega)\]
+		\begin{thm}
+			$\int_{-\infty}^{\infty}sinc(x)\ dx=\pi$
+		\end{thm}
+
+		\subsection{Properties of Fourier Transform}
+		\subsubsection{Linearity}
+		\[ax(t)+by(t)\xleftrightarrow{\mathcal{F}}aX(j\omega)+bY(j\omega)\]
+		\[ax[n]+by[n]\xleftrightarrow{\mathcal{F}}aX(e^{j\omega})+bY(e^{j\omega})\]
+		\subsubsection{Time shifting}
+		\[x(t-t_0)\xleftrightarrow{\mathcal{F}}e^{-j\omega t_0}X(j\omega)\]
+		\[x[n-n_0]\xleftrightarrow{\mathcal{F}}e^{-j\omega n_0}X(e^{j\omega})\]
+		\subsubsection{Conjugation}
+		\[x^*(t)\xleftrightarrow{\mathcal{F}}X^*(-j\omega)\]
+		\[x^*[n]\xleftrightarrow{\mathcal{F}}X^*(e^{-j\omega})\]
+		\subsubsection{Differentiation}
+		\[x'(t)\xleftrightarrow{\mathcal{F}}j\omega X(j\omega)\]
+		\[x[n]-x[n-1]\xleftrightarrow{\mathcal{F}}(1-e^{-j\omega})X(e^{j\omega})\]
+		\subsubsection{Integration}
+		\[\int_{-\infty}^t x(\tau)\ d\tau\xleftrightarrow{\mathcal{F}}\frac{1}{j\omega}X(j\omega)+\pi\delta(\omega)X(0)\]
+		\[\sum_{k=-\infty}^n x[k]\xleftrightarrow{\mathcal{F}}\frac{1}{1-e^{-j\omega}}X(e^{j\omega})+\pi X(1)\sum_{k=-\infty}^{\infty}\delta(\omega-2\pi k)\]
+
+		\subsubsection{Time-scaling}
+		\[x(at)\xleftrightarrow{\mathcal{F}}\frac{1}{|a|}X\left(\frac{j\omega}{a}\right)\]
+		\subsubsection{Time-reversal}
+		\[x[-n]\xleftrightarrow{\mathcal{F}}X(e^{-j\omega})\]
+		\subsubsection{Convolution}
+		\[h(t)*x(t)\xleftrightarrow{\mathcal{F}}H(j\omega)X(j\omega)\]
+		\[h[n]*x[n]\xleftrightarrow{\mathcal{F}}H(e^{j\omega})X(e^{j\omega})\]
+
+		\subsubsection{Multiplication}
+		\[s(t)p(t)\xleftrightarrow{\mathcal{F}}\frac{1}{2\pi}S(j\omega)*P(j\omega)\]
+
+		\section{Laplace transform}
+		Laplace transform can be used for analysis of unstable systems too for which FT does not exist.
+		\[X(s)=\int_{-\infty}^{\infty}x(t)e^{-st}\ dt\]
+		When $s=\sigma+j\omega$ is purely imaginary, this becomes the Fourier transform.
+		\subsection{Zeroes and Poles}
+		Suppose, the Laplace transform $X(s)$ is rational and $X(s)=\frac{N(s)}{D(s)}$.
+
+		Zeroes: Roots of $N(s)$
+
+		Poles: Roots of $D(s)$
+
+		If degree of $N(s)>$ degree of $D(s)$ we get poles at infinity.
+
+		If degree of $N(s)<$ degree of $D(s)$ we get zeroes at infinity.
+
+		\subsection{Region of convergence}
+		The range of values for which the Laplace integral converges is called its region of convergence(ROC). It has the following properties:
+		\begin{enumerate}
+			\item ROC consists of the points where the FT of $x(t)e^{-\sigma t}$ converges, i.e.,
+				\[\int_{-\infty}^\infty \left|x(t)e^{-\sigma t}\right|\ dt<\infty\]
+			\item ROC consists of strips parallel to the $j\omega-$axis of the $s-$plane.
+			\item For rational LT, the ROC does not contain any poles. The ROC is bounded by the poles or extends to infinity.
+			\item If $x(t)$ is of finite duration(i.e., non-zero over a finite interval) and absolutely integrable, then ROC is the entire $s-$plane.
+			\item Let $x(t)$ be a \textbf{right-sided signal}, i.e., $\exists T$ such that $x(t)=0,\ \forall t<T$. If the line $\Re(s)=\sigma_0$ is in the ROC of X(s) then all $s$ for which $\Re(s)>\sigma_0$ are also in the ROC.
+			\item Let $x(t)$ be a \textbf{left-sided signal}, i.e., $\exists T$ such that $x(t)=0,\ \forall t>T$. If the line $\Re(s)=\sigma_0$ is in the ROC of X(s) then all $s$ for which $\Re(s)<\sigma_0$ are also in the ROC.
+			\item Let $x(t)$ be a two-sided signal. If the line $\Re(s)=\sigma_0$ is in the ROC of X(s) then the ROC is a strip including that line.
+			\item Let the LT of $x(t)$ be rational. If $x(t)$ is right-sided, the ROC lies to right of the rightmost pole. If $x(t)$ is left-sided, the ROC lies to the left of the leftmost pole. If $x(t)$ is two sided, ROC lies in the region between the rightmost and the leftmost poles.
+	\end{enumerate}
+
+	\section{Z-transform}
+	Z-transform is the discrete-time counterpart of the Laplace transform.
+	\[X(z)=\sum_{n-\infty}^\infty x[n]z^{-n}\]
+	This reduces to the discrete-time FT when $|z|=1$.
+
+	Analogous to the Laplace transform, we have ROC, zeroes and poles.
+
+	$Z-$transform converges when the FT of $x[n]|z|^{-n}$ converges, i.e.,
+	\[\sum_{n=-\infty}^{\infty}\left|x[n]z^{-n}\right|<\infty\]
+\end{document}
