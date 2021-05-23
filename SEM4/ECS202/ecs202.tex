@@ -37,11 +37,11 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\begin{defn}[Data Structure]
 		 The logical or mathematical model of a particular organization of data.
 	\end{defn}
-	\begin{defn}
-		An algorithm is a sequence of computational steps that transform an input into an output. The sequence of steps must terminate for the algorithm to be useful.
+	\begin{defn}[Algorithm]
+		A sequence of computational steps that transform an input into an output. The sequence of steps must terminate for the algorithm to be useful.
 	\end{defn}
 	\subsection{Operations on Data Structures}
-	The four major operations that we will focus in this course are:
+	The four major operations that we will focus on in this course are:
 	\begin{enumerate}
 		\item Traversing: Accessing each record exactly once so that certain items in the record may be processed.
 		\item Searching: Finding the location of the record with a given key value, or finding the locations of all records which satisfy one or more conditions.
@@ -49,7 +49,10 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 		\item Deleting: Removing a record from the structure.
 \end{enumerate}
 	\subsection{Asymptotic Notation}
-	In this course, we will be interested in the behaviour of a given function $f(n)$ for very large values of $n$(called, asyptotic behaviour). We will work with asymptotically positive functions.
+	\begin{defn}[Asymptotic behaviour]
+		The behaviour of a given function $f(n)$ for very large values of $n$, i.e., as $n\to +\infty$.
+	\end{defn}
+	In this course, we will work with asymptotically positive functions.
 	\begin{defn}[$O-$notation]
 		$f(n)=O(g(n))$ if $\exists c,n_0>0$ such that $0\leq f(n)\leq cg(n),\forall n\geq n_0$. Thus, $g(n)$ is an \textbf{asymptotic upper bound} of $f(n)$.
 	\end{defn}
@@ -58,7 +61,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 		\[f(n)=O(n^x),\forall x\geq x_0\]
 	\end{thm}
 	\begin{thm}[Exponential, polynomial, logarithm]
-		Asymptotically, the decreasing order of the functions are: Exponential, polynomial, logarithm.(The bases of the exponential and logarithm function are greater than 1. The bases will generally by 2 for our purposes.)
+		Asymptotically, the decreasing order of the functions are: Exponential, polynomial, logarithm.(The bases of the exponential and logarithm functions are greater than 1. The bases will generally by 2 for our purposes.)
 	\end{thm}
 
 	\begin{defn}[$\Omega-$notation]
@@ -70,12 +73,10 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\hfill\\
 	From now onwards, whenever we compare functions, we will be speaking asymptotically.
 	\subsection{Complexity of an Algorithm}
-	The time and space complexities of an algorithm give us an idea of how much time and memory, respectively, is needed by an algorithm to run. In this course, we will only focus on the time complexity. Accordingly, unless otherwise stated or implied, the term “comlexity” shall refer to the time complexity of the algorithm.
+	The time and space complexities of an algorithm give us an idea of how much time and memory, respectively, is needed by an algorithm to run. In this course, we will only focus on the time complexity. Accordingly, unless otherwise stated or implied, the term “complexity” shall refer to the time complexity of the algorithm.
 
 	\begin{defn}[Time complexity]
-		The time complexity of an algorithm is the function $T(n)$ which gives the running time of the algorithm in terms of the size $n$ of the input data.
-
-		It is often measured by the number of fundamental operations performed. In this course, any operation that takes constant time($T(n)=O(1)$) can be referred to as a fundamental operation.
+		The time complexity of an algorithm is the function $T(n)$ which gives the running time of the algorithm in terms of the size $n$ of the input data. It is often measured by the number of fundamental operations performed.
 
 		We have the following types of complexities:
 		\begin{enumerate}
@@ -126,7 +127,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\section{Array}
 	\begin{defn}[Linear array]
 		A finite list of $n$ homogenous data elements such that each element is indexed from an index set of $n$ consecutive numbers and the data elements are stored in consecutive memory locations.
-		In this course, we will start indexing arrays from $1$.
+		In this course, we will start indexing arrays from $1$.(C and Python start indexing from 0)
 	\end{defn}
 		\subsection{Salient Features}
 		\begin{itemize}
@@ -499,7 +500,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\begin{alg}[Quick sort]
 		Like merge sort, quick sort is a divide and conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. It is seen that randomized quicksort works very well in practical cases. 
 
-		After each pass, all elements to the left of the pivot are smaller than the pivot and all elements ot the right of the pivot are larger than the pivot, thus the pivot is in the correct position.
+		After each pass, all elements to the left of the pivot are smaller than the pivot and all elements to the right of the pivot are larger than the pivot, thus the pivot is in the correct position.
 		\begin{enumerate}
 			\item Select the pivot.
 			\item Use the partition method to get the pivot to its correct position.
