@@ -1,16 +1,12 @@
 \documentclass[10pt, a4paper]{extarticle}
-\usepackage{amsmath}
 \usepackage{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
-\usepackage{enumitem}
 \usepackage[margin=0.75in]{geometry}
-\usepackage{hyperref}
-\usepackage{framed}
 \usepackage{anyfontsize}
-
 \usepackage{amsthm}
+
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}{Lemma}[thm]
@@ -33,6 +29,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\tableofcontents
 	
 	\newpage
+
 	\section{Probability Space}
 	\subsection{Event space}
 	\begin{defn}[$\sigma-$field]
@@ -231,7 +228,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 	\begin{defn}[Conditional expectation]
 		The conditional expectation of $Y$, given $X$ is
 		\[E(Y|X=x)=\sum_iy_if(y|x)\]
-	\end{def}
+	\end{defn}
 
 	\begin{thm}[Linearity of expectation]
 		\[E(cX)=cE(X)\]\[E(X+Y)=E(X)+E(Y)\]

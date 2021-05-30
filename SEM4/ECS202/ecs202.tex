@@ -1,17 +1,10 @@
 \documentclass[10pt, a4paper]{extarticle}
-\usepackage{amsmath}
-\usepackage{physics}
 \usepackage{mathtools}
-\usepackage{amssymb}
-\usepackage{mathrsfs}
-\usepackage{enumitem}
 \usepackage[margin=0.75in]{geometry}
-\usepackage{hyperref}
-\usepackage{framed}
 \usepackage{anyfontsize}
 \usepackage{graphicx}\graphicspath{ {./img/} }
-
 \usepackage{amsthm}
+
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
 \newtheorem{alg}{Algorithm}
@@ -549,7 +542,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 			\item Set TOP = TOP + 1
 			\item Set STACK[TOP] = VALUE. Exit.
 	\end{enumerate}
-	\end{al}
+	\end{alg}
 	\subsection{Pop}
 	\begin{alg}[Pop]
 		The pop operation removes the top element from the stack and returns its value.
@@ -875,7 +868,7 @@ was actually lectured, and in particular, all errors are almost surely mine.\foo
 			\item Every node except root must contain at least $\lceil\frac{t}{2}\rceil-1$ keys. The root may contain minimum 1 key.
 			\item Number of children of a node is equal to the number of keys in it plus 1.
 		\end{itemize}
-		Minimum height: $\leceil\log_m(n+1)\rceil-1$\\
+		Minimum height: $\lceil\log_m(n+1)\rceil-1$\\
 		Maximum height: $\lceil\log_t\frac{n+1}{2}\rceil$\\
 		Complexity for all operations is $O(\log n)$
 	\end{defn}
