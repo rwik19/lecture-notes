@@ -16,628 +16,628 @@
 \newtheorem{eg}{Example}
 
 \begin{document}
-	\begin{center}
-		\fontsize{25}{60}\selectfont Complex Variables \\
-		\large Based on lectures by Dr. Anandateertha Mangasuli\\
-		Notes taken by Rwik Dutta
-	\end{center}
-	\hrule
-	\begin{center}
-		These notes are not endorsed by the lecturers, and I have modified them (often
-significantly) after lectures. They are nowhere near accurate representations of what
-was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
-	\end{center}
-	\tableofcontents
-	
-	\newpage
+\begin{center}
+	\fontsize{25}{60}\selectfont Complex Variables \\
+	\large Based on lectures by Dr. Anandateertha Mangasuli\\
+	Notes taken by Rwik Dutta
+\end{center}
+\hrule
+\begin{center}
+	These notes are not endorsed by the lecturers, and I have modified them (often
+	significantly) after lectures. They are nowhere near accurate representations of what
+	was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
+\end{center}
+\tableofcontents
 
-	\section{Algebra}
-	The set of complex numbers, $\mathbb{C}$ forms a \textbf{field} with additive identity $0$ and multiplicative identity $1$.
-	
-	\begin{defn}[Multiplicative inverse]
+\newpage
+
+\section{Algebra}
+The set of complex numbers, $\mathbb{C}$ forms a \textbf{field} with additive identity $0$ and multiplicative identity $1$.
+
+\begin{defn}[Multiplicative inverse]
 	The multiplicative inverse of $z=x+iy\neq 0$ is given by
 	\[z^{-1}:=\frac{x}{x^2+y^2}+i\frac{-y}{x^2+y^2}\]
-	\end{defn}
-	
-	\begin{defn}[Roots]
+\end{defn}
+
+\begin{defn}[Roots]
 	$n^{th}$ roots of a complex number $z=re^{i\theta}$ is given by
 	\[z^{1/n}:=r^{1/n}e^{i\frac{\theta+2k\pi}{n}},\tag*{($k\in \langle n\rangle)$}\]
-	\end{defn}
-	
-	\begin{defn}[Euler form]
-		\[e^{i\theta}:=\cos\theta+i\sin\theta\]
-		where $\theta\in\mathbb{R}$.
-	\end{defn}
+\end{defn}
 
-	\section{Topology}
-	\begin{defn}[Open disk]
-		An open disk centered at $z_0\in\mathbb{C}$ and radius $R>0$ is the set
-		\[B_R(z_0)=\{z\ |\ |z-z_0|< R\}\]
-	\end{defn}
-	
-	\begin{defn}[$\epsilon-$neighbourhood]
+\begin{defn}[Euler form]
+	\[e^{i\theta}:=\cos\theta+i\sin\theta\]
+	where $\theta\in\mathbb{R}$.
+\end{defn}
+
+\section{Topology}
+\begin{defn}[Open disk]
+	An open disk centered at $z_0\in\mathbb{C}$ and radius $R>0$ is the set
+	\[B_R(z_0)=\{z\ |\ |z-z_0|< R\}\]
+\end{defn}
+
+\begin{defn}[$\epsilon-$neighbourhood]
 	An $\epsilon-$neighbourhood of $z_0$ is the set($\epsilon>0$) $B_\epsilon(z_0)$.
-	\end{defn}
-	
-	\begin{defn}[Deleted $\epsilon-$neighbourhood]
+\end{defn}
+
+\begin{defn}[Deleted $\epsilon-$neighbourhood]
 	A deleted $\epsilon-$neighbourhood of $z_0$ is the set($\epsilon>0$) $B_\epsilon(z_0)\backslash\{z_0\}$.
-	\end{defn}
-	
-	\begin{defn}[Interior, exterior and boundary points]
-		Let $S\subset\mathbb{C}$ and $z_0\in\mathbb{C}$.
+\end{defn}
 
-		$z_0$ is an interior point of $S$ if $\exists \epsilon>0$ such that $B_\epsilon(z_0)\subset S$.
+\begin{defn}[Interior, exterior and boundary points]
+	Let $S\subset\mathbb{C}$ and $z_0\in\mathbb{C}$.
 
-		$z_0$ is an exterior point of $S$ if $\exists \epsilon>0$ such that $B_\epsilon(z_0)\cap S=\varnothing$.
-		
-		$z_0$ is a boundary point of $S$ if it is neither an interior point nor an exterior point.
-	\end{defn}
+	$z_0$ is an interior point of $S$ if $\exists \epsilon>0$ such that $B_\epsilon(z_0)\subset S$.
 
-	\begin{defn}[Open sets]
-		A set is open if every element is an interior point of the set.
-	\end{defn}
-	\begin{defn}[Closed sets]
-		A set is closed if it contains all its boundary points.
-	\end{defn}
-	\begin{defn}[Closure of a set]\label{closure}
-		The union of the set and its boundary points.
-	\end{defn}
-	\begin{defn}[Connected set]
-		$S\subset\mathbb{C}$ is connected if every $z_1,z_2\in S$ can be joined by a finite sequence of line segments lying inside $S$.
-	\end{defn}
-	\begin{defn}[Domain]
-		An open, connected set.
-	\end{defn}
-	\begin{defn}[Bounded set]
-		$S\subset\mathbb{C}$ is bounded if $\exists R>0$ such that\[|z|<R,\forall z\in S\]
-	\end{defn}
+	$z_0$ is an exterior point of $S$ if $\exists \epsilon>0$ such that $B_\epsilon(z_0)\cap S=\varnothing$.
 
-	\section{Differential calculus}
-	\subsection{Limits}
-	\begin{defn}[Limit]
-		Let $f$ be defined in some deleted $\epsilon-$neighbourhood of $z_0$. If $\forall \epsilon>0,\exists\delta>0$ such that
-		\[0<|z-z_0|<\delta\implies|f(z)-w_0|<\epsilon\]
-		then we say
-		\[\lim_{z\to z_0}f(z)=w_0\]
+	$z_0$ is a boundary point of $S$ if it is neither an interior point nor an exterior point.
+\end{defn}
 
-	\end{defn}
-	\begin{thm}[Uniqueness of limit]
-		Limit of a function at a point, if exists, is unique, i.e., if we find $w_1,w_2\in\mathbb{C}$ that satisfy the condition for the limit of a function at some $z_0\in\mathbb{C}$, then $w_1=w_2$.
-	\end{thm}
-	\begin{thm}
-		$\lim_{z\to 0}\frac{\bar{z}}{z}$ does not exist.
-	\end{thm}
-	\begin{thm}[Multivariable limits]
-		Let $f(z)=f(x+iy)=u(x,y)+iv(x,y)$ and $z_0=x_0+iy_0$. $\lim_{z\to z_0}f(z)$ exists iff the multivariable limits
-		\[\lim_{(x,y)\to(x_0,y_0)}u(x,y),\ \lim_{(x,y)\to(x_0,y_0)}v(x,y)\]
-		exist. If they exist,
-		\[\lim_{z\to z_0}f(z)=\left(\lim_{(x,y)\to(x_0,y_0)}u(x,y)\right)+i\left(\lim_{(x,y)\to(x_0,y_0)}v(x,y)\right)\]
-	\end{thm}
+\begin{defn}[Open sets]
+	A set is open if every element is an interior point of the set.
+\end{defn}
+\begin{defn}[Closed sets]
+	A set is closed if it contains all its boundary points.
+\end{defn}
+\begin{defn}[Closure of a set]\label{closure}
+	The union of the set and its boundary points.
+\end{defn}
+\begin{defn}[Connected set]
+	$S\subset\mathbb{C}$ is connected if every $z_1,z_2\in S$ can be joined by a finite sequence of line segments lying inside $S$.
+\end{defn}
+\begin{defn}[Domain]
+	An open, connected set.
+\end{defn}
+\begin{defn}[Bounded set]
+	$S\subset\mathbb{C}$ is bounded if $\exists R>0$ such that\[|z|<R,\forall z\in S\]
+\end{defn}
 
-	\subsection{Continuity}
-	\begin{defn}[Continuity]
-		Let $f$ be defined in some $\epsilon-$neighbourhood of $z_0\in\mathbb{C}$. $f$ is said to be continuous at $z_0$ if
-		\[\lim_{z\to z_0}f(z)=f(z_0)\]
-		provided the limit exists.
-	\end{defn}
-	\begin{thm}
-		Composition of continuous functions(at a point) is continuous(at that point).
-	\end{thm}
-	\begin{thm}\label{bound}
-		Continuous functions are bounded in open, bounded domains.
-		Let $R\subset\mathbb{C}$ be open and bounded. If $f$ is continuous in $R$, then $f$ is bounded in $R$.
-	\end{thm}
-	\begin{thm}
-		Let $f$ be continuous at $z_0$. If $f(z_0)\neq0,\exists \epsilon>0$ such that 
-		\[f(z)\neq 0,\forall z\in B_\epsilon(z_0)\]
-	\end{thm}
-	
-	\subsection{Derivative}
-	From now onwards, $\Omega$ represents an open subset of $\mathbb{C}$ unless stated otherwise.
-	\begin{defn}[Differentiability]
-		$f:\Omega\to\mathbb{C}$ is differentiable at $z_0$ if
-		\[\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}\]
-		exists. This limit is denoted by $f'(z_0)$ and is called the derivative of $f$ at $z_0$. This is equivalent to
-		\[f'(z_0)=\lim_{\Delta z\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\]
-	\end{defn}
-	\begin{eg}
-		Find the points where $f(z)=e^{\bar z}$ is differentiable.
-	\end{eg}
-	\begin{thm}
-		$f(z)=\bar{z}$ is not differentiable anywhere.
+\section{Differential calculus}
+\subsection{Limits}
+\begin{defn}[Limit]
+	Let $f$ be defined in some deleted $\epsilon-$neighbourhood of $z_0$. If $\forall \epsilon>0,\exists\delta>0$ such that
+	\[0<|z-z_0|<\delta\implies|f(z)-w_0|<\epsilon\]
+	then we say
+	\[\lim_{z\to z_0}f(z)=w_0\]
 
-		$f(z)=|z|^2$ is only differentiable at $z=0$.
-	\end{thm}
-	\begin{thm}
-		Differentiability(at a point)$\implies$Continuity(at that point).
-	\end{thm}
+\end{defn}
+\begin{thm}[Uniqueness of limit]
+	Limit of a function at a point, if exists, is unique, i.e., if we find $w_1,w_2\in\mathbb{C}$ that satisfy the condition for the limit of a function at some $z_0\in\mathbb{C}$, then $w_1=w_2$.
+\end{thm}
+\begin{thm}
+	$\lim_{z\to 0}\frac{\bar{z}}{z}$ does not exist.
+\end{thm}
+\begin{thm}[Multivariable limits]
+	Let $f(z)=f(x+iy)=u(x,y)+iv(x,y)$ and $z_0=x_0+iy_0$. $\lim_{z\to z_0}f(z)$ exists iff the multivariable limits
+	\[\lim_{(x,y)\to(x_0,y_0)}u(x,y),\ \lim_{(x,y)\to(x_0,y_0)}v(x,y)\]
+	exist. If they exist,
+	\[\lim_{z\to z_0}f(z)=\left(\lim_{(x,y)\to(x_0,y_0)}u(x,y)\right)+i\left(\lim_{(x,y)\to(x_0,y_0)}v(x,y)\right)\]
+\end{thm}
 
-	\subsection{Cauchy-Riemann equations}
-	\begin{defn}[Cauchy-Riemann equations]
-		Let $u:\mathbb{R}^2\to\mathbb{R},v:\mathbb{R}^2\to\mathbb{R}$. The Cauchy-Riemann equations of $u,v$ are given by
-		\[u_x=v_y\]
-		\[v_x=-u_y\]
-		provided the partial derivatives exist.
+\subsection{Continuity}
+\begin{defn}[Continuity]
+	Let $f$ be defined in some $\epsilon-$neighbourhood of $z_0\in\mathbb{C}$. $f$ is said to be continuous at $z_0$ if
+	\[\lim_{z\to z_0}f(z)=f(z_0)\]
+	provided the limit exists.
+\end{defn}
+\begin{thm}
+	Composition of continuous functions(at a point) is continuous(at that point).
+\end{thm}
+\begin{thm}\label{bound}
+	Continuous functions are bounded in open, bounded domains.
+	Let $R\subset\mathbb{C}$ be open and bounded. If $f$ is continuous in $R$, then $f$ is bounded in $R$.
+\end{thm}
+\begin{thm}
+	Let $f$ be continuous at $z_0$. If $f(z_0)\neq0,\exists \epsilon>0$ such that
+	\[f(z)\neq 0,\forall z\in B_\epsilon(z_0)\]
+\end{thm}
 
-		In polar coordinates, the equivalent set of equations are
-		\[ru_r=v_\theta\]
-		\[u_\theta=-rv_r\]
-	\end{defn}
+\subsection{Derivative}
+From now onwards, $\Omega$ represents an open subset of $\mathbb{C}$ unless stated otherwise.
+\begin{defn}[Differentiability]
+	$f:\Omega\to\mathbb{C}$ is differentiable at $z_0$ if
+	\[\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}\]
+	exists. This limit is denoted by $f'(z_0)$ and is called the derivative of $f$ at $z_0$. This is equivalent to
+	\[f'(z_0)=\lim_{\Delta z\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\]
+\end{defn}
+\begin{eg}
+	Find the points where $f(z)=e^{\bar z}$ is differentiable.
+\end{eg}
+\begin{thm}
+	$f(z)=\bar{z}$ is not differentiable anywhere.
 
-	\begin{thm}
-		If $f=u+iv$ is differentiable at $z_0=x_0+iy_0$, then $u,v$ satisfy the Cauchy-Riemann(CR) equations at $(x_0,y_0)$.
-	\end{thm}
+	$f(z)=|z|^2$ is only differentiable at $z=0$.
+\end{thm}
+\begin{thm}
+	Differentiability(at a point)$\implies$Continuity(at that point).
+\end{thm}
 
-	\begin{thm}
-		If $f$ is differentiable in an open and connected set $\Omega$ such that $f'(z)=0,\ \forall z\in\Omega$, then
-		\[f(z)=\text{constant}, \forall z\in\Omega\]
-	\end{thm}
+\subsection{Cauchy-Riemann equations}
+\begin{defn}[Cauchy-Riemann equations]
+	Let $u:\mathbb{R}^2\to\mathbb{R},v:\mathbb{R}^2\to\mathbb{R}$. The Cauchy-Riemann equations of $u,v$ are given by
+	\[u_x=v_y\]
+	\[v_x=-u_y\]
+	provided the partial derivatives exist.
 
-	\begin{thm}
-		$f=u+iv$ is differentiable at $z_0=x_0+iy_0$ if
-		\begin{enumerate}
-			\item The first-order partial derivatives of $u(x,y),v(x,y)$ exist in some neighbourhood of $(x_0,y_0)$.
-			\item These partial derivatives are continuous at $(x_0,y_0)$.
-			\item $u,v$ satisfy the CR equations at $(x_0,y_0)$.
+	In polar coordinates, the equivalent set of equations are
+	\[ru_r=v_\theta\]
+	\[u_\theta=-rv_r\]
+\end{defn}
+
+\begin{thm}
+	If $f=u+iv$ is differentiable at $z_0=x_0+iy_0$, then $u,v$ satisfy the Cauchy-Riemann(CR) equations at $(x_0,y_0)$.
+\end{thm}
+
+\begin{thm}
+	If $f$ is differentiable in an open and connected set $\Omega$ such that $f'(z)=0,\ \forall z\in\Omega$, then
+	\[f(z)=\text{constant}, \forall z\in\Omega\]
+\end{thm}
+
+\begin{thm}
+	$f=u+iv$ is differentiable at $z_0=x_0+iy_0$ if
+	\begin{enumerate}
+		\item The first-order partial derivatives of $u(x,y),v(x,y)$ exist in some neighbourhood of $(x_0,y_0)$.
+		\item These partial derivatives are continuous at $(x_0,y_0)$.
+		\item $u,v$ satisfy the CR equations at $(x_0,y_0)$.
 	\end{enumerate}
 	If these conditions are satisfied, we have
 	\[f'(z_0)=u_x(x_0,y_0)+iv_x(x_0,y_0)\]
-	\end{thm}
+\end{thm}
 
-	\begin{cor}
-		$f=u+iv$ is differentiable at $z_0=r_0e^{i\theta_0}$ if
-		\begin{enumerate}
-			\item The first-order partial derivatives of $u(r,\theta),v(r,\theta)$ exist in some neighbourhood of $(r_0,\theta_0)$.
-			\item These partial derivatives are continuous at $(r_0,\theta_0)$.
-			\item $u,v$ satisfy the CR equations at $(r_0,\theta_0)$.
+\begin{cor}
+	$f=u+iv$ is differentiable at $z_0=r_0e^{i\theta_0}$ if
+	\begin{enumerate}
+		\item The first-order partial derivatives of $u(r,\theta),v(r,\theta)$ exist in some neighbourhood of $(r_0,\theta_0)$.
+		\item These partial derivatives are continuous at $(r_0,\theta_0)$.
+		\item $u,v$ satisfy the CR equations at $(r_0,\theta_0)$.
 	\end{enumerate}
 	If these conditions are satisfied, we have
 	\[f'(z_0)=e^{-i\theta_0}(u_r(r_0,\theta_0)+iv_r(r_0,\theta_0))\]
-	\end{cor}
+\end{cor}
 
-	\section{Analytic Functions}
-	\subsection{Analytic functions}
-	\begin{defn}[Analytic function]
-		$f$ is analytic at $z_0$ if it is differentiable in some neighbourhood of $z_0$.
-	\end{defn}
+\section{Analytic Functions}
+\subsection{Analytic functions}
+\begin{defn}[Analytic function]
+	$f$ is analytic at $z_0$ if it is differentiable in some neighbourhood of $z_0$.
+\end{defn}
 
-	\begin{defn}[Entire function]
-		A function is entire if it is analytic everywhere in $\mathbb{C}$.
-	\end{defn}
+\begin{defn}[Entire function]
+	A function is entire if it is analytic everywhere in $\mathbb{C}$.
+\end{defn}
 
-	\begin{defn}[Singular point]
-		$z_0$ is a singular point of $f$ if
-		\begin{enumerate}
-			\item $f$ is not analytic at $z_0$
-			\item $f$ is analytic in some deleted neighbourhood of $z_0$.
+\begin{defn}[Singular point]
+	$z_0$ is a singular point of $f$ if
+	\begin{enumerate}
+		\item $f$ is not analytic at $z_0$
+		\item $f$ is analytic in some deleted neighbourhood of $z_0$.
 	\end{enumerate}
-	\end{defn}
+\end{defn}
 
-	\begin{thm}
-		If $f$ is analytic in $\Omega$, then it is continuous in $\Omega$.
-	\end{thm}
+\begin{thm}
+	If $f$ is analytic in $\Omega$, then it is continuous in $\Omega$.
+\end{thm}
 
-	\begin{thm}[Rational functions]
-		A polynomial is an entire function. A rational function is analytic everywhere in its domain.
-	\end{thm}
+\begin{thm}[Rational functions]
+	A polynomial is an entire function. A rational function is analytic everywhere in its domain.
+\end{thm}
 
-	\begin{thm}\label{highorder}
-		If $f=u+iv$ is analytic at $z_0=x_0+iy_0$, then $u,v$ have continuous, partial derivatives of all orders at $(x_0,y_0)$.
-	\end{thm}
+\begin{thm}\label{highorder}
+	If $f=u+iv$ is analytic at $z_0=x_0+iy_0$, then $u,v$ have continuous, partial derivatives of all orders at $(x_0,y_0)$.
+\end{thm}
 
-	\begin{thm}
-		$f=u+iv$ is analytic in a domain $\mathscr{D}$ iff
-		\begin{enumerate}
-			\item The first-order partial derivatives of $u,v$ exist in $\mathscr{D}$.
-			\item These partial derivatives are continuous in $\mathscr{D}$.
-			\item $u,v$ satisfy the CR equations in $\mathscr{D}$.
+\begin{thm}
+	$f=u+iv$ is analytic in a domain $\mathscr{D}$ iff
+	\begin{enumerate}
+		\item The first-order partial derivatives of $u,v$ exist in $\mathscr{D}$.
+		\item These partial derivatives are continuous in $\mathscr{D}$.
+		\item $u,v$ satisfy the CR equations in $\mathscr{D}$.
 	\end{enumerate}
-	\end{thm}
+\end{thm}
 
-	\subsection{Harmonic conjugates}
-	\begin{defn}[Laplace equation]
-		Let $f:\mathbb{R}^2\to\mathbb{R}$. The Laplacian of $f$ at $(x_0,y_0)$ is defined as
-		\[\pdv[2]{f}{x}+\pdv[2]{f}{y}\]
-		evaluated at $(x_0,y_0)$ and is denoted by $\nabla^2f(x_0,y_0)$ or $\Delta f(x_0,y_0)$.
+\subsection{Harmonic conjugates}
+\begin{defn}[Laplace equation]
+	Let $f:\mathbb{R}^2\to\mathbb{R}$. The Laplacian of $f$ at $(x_0,y_0)$ is defined as
+	\[\pdv[2]{f}{x}+\pdv[2]{f}{y}\]
+	evaluated at $(x_0,y_0)$ and is denoted by $\nabla^2f(x_0,y_0)$ or $\Delta f(x_0,y_0)$.
 
-		The Laplace equation of $f$ is given by
-		\[\Delta f=0\]
-	\end{defn}
+	The Laplace equation of $f$ is given by
+	\[\Delta f=0\]
+\end{defn}
 
-	\begin{defn}[Harmonic function]
-		$H:\mathbb{R}^2\to\mathbb{R}$ is harmonic in a domain $\mathscr{D}$ if
-		\begin{enumerate}
-			\item First and second order partial derivative of $H$ exist in $\mathscr{D}$.
-			\item $H$ satisfies Laplace equation in $\mathscr{D}$.
+\begin{defn}[Harmonic function]
+	$H:\mathbb{R}^2\to\mathbb{R}$ is harmonic in a domain $\mathscr{D}$ if
+	\begin{enumerate}
+		\item First and second order partial derivative of $H$ exist in $\mathscr{D}$.
+		\item $H$ satisfies Laplace equation in $\mathscr{D}$.
 	\end{enumerate}
-	\end{defn}
+\end{defn}
 
-	\begin{thm}
-		If $f=u+iv$ is analytic in $\mathscr{D}$, then $u,v$ are harmonic in $\mathscr{D}$.
-	\end{thm}
+\begin{thm}
+	If $f=u+iv$ is analytic in $\mathscr{D}$, then $u,v$ are harmonic in $\mathscr{D}$.
+\end{thm}
 
-	\begin{defn}[Harmonic conjugates]
-		Let $u,v$ be harmonic in $\mathscr{D}$. If they satisfy the CR equations in $\mathscr{D}$, $v$ is called the harmonic conjugate of $u$ in $\mathscr{D}$.
-	\end{defn}
-	
-	\begin{thm}
-		Let $v(x,y)$ be a harmonic conjugate of $u(x,y)$. The set of all harmonic conjugates of $u$ is given by
-		\[\{v(x,y)+k\ |\ k\in \mathbb{R}\}\]
-	\end{thm}
+\begin{defn}[Harmonic conjugates]
+	Let $u,v$ be harmonic in $\mathscr{D}$. If they satisfy the CR equations in $\mathscr{D}$, $v$ is called the harmonic conjugate of $u$ in $\mathscr{D}$.
+\end{defn}
 
-	\begin{defn}[Level curve]
-		Let $f:\mathbb{R}^2\to\mathbb{R}$ be a multivariable function. $f(x,y)=c, c\in\mathbb{R}$ is called a level curve of $f$.
-	\end{defn}
-	\begin{eg}
-		Sketch the family of level curves of the real and imaginary parts of $f(z)=\frac{1}{z-1}$.
-	\end{eg}
+\begin{thm}
+	Let $v(x,y)$ be a harmonic conjugate of $u(x,y)$. The set of all harmonic conjugates of $u$ is given by
+	\[\{v(x,y)+k\ |\ k\in \mathbb{R}\}\]
+\end{thm}
 
-	\begin{thm}
-		If $v$ is a harmonic conjugate of $u$, then their level curves always intersect orthogonally in the $xy-$plane.
-	\end{thm}
+\begin{defn}[Level curve]
+	Let $f:\mathbb{R}^2\to\mathbb{R}$ be a multivariable function. $f(x,y)=c, c\in\mathbb{R}$ is called a level curve of $f$.
+\end{defn}
+\begin{eg}
+	Sketch the family of level curves of the real and imaginary parts of $f(z)=\frac{1}{z-1}$.
+\end{eg}
 
-	\begin{thm}
-		$f=u+iv$ is analytic in $\mathscr{D}$ iff $v$ is a harmonic conjugate of $u$ in $\mathscr{D}$.
-	\end{thm}
-	\begin{eg}
-		Let $u(x,y)=2x(1-y),\ v(x,y)=x^2-y^2+2y$. Show that $v$ is a harmonic conjugate of $u$.
-	\end{eg}
-	\begin{eg}
-		Let $u(x,y)=\cos x\cosh y,\ v(x,y)=-\sin x\sinh y$. Show that $v$ is a harmonic conjugate of $u$.(\textit{Hint: }$\cos z$ is analytic, Definition \ref{complexcos})
-	\end{eg}
+\begin{thm}
+	If $v$ is a harmonic conjugate of $u$, then their level curves always intersect orthogonally in the $xy-$plane.
+\end{thm}
 
-	\section{Important functions}
-	\subsection{Exponential}
-	\begin{defn}[Exponential function]
-		\[\exp(x+iy):=e^{x}e^{iy}\]
-		where $e^x$ is the real exponential function.
+\begin{thm}
+	$f=u+iv$ is analytic in $\mathscr{D}$ iff $v$ is a harmonic conjugate of $u$ in $\mathscr{D}$.
+\end{thm}
+\begin{eg}
+	Let $u(x,y)=2x(1-y),\ v(x,y)=x^2-y^2+2y$. Show that $v$ is a harmonic conjugate of $u$.
+\end{eg}
+\begin{eg}
+	Let $u(x,y)=\cos x\cosh y,\ v(x,y)=-\sin x\sinh y$. Show that $v$ is a harmonic conjugate of $u$.(\textit{Hint: }$\cos z$ is analytic, Definition \ref{complexcos})
+\end{eg}
 
-		Domain: $\mathbb{C}$
+\section{Important functions}
+\subsection{Exponential}
+\begin{defn}[Exponential function]
+	\[\exp(x+iy):=e^{x}e^{iy}\]
+	where $e^x$ is the real exponential function.
 
-		Range: $\mathbb{C}\backslash\{0\}$
+	Domain: $\mathbb{C}$
 
-		Analytic: $\mathbb{C}$
-	\end{defn}
+	Range: $\mathbb{C}\backslash\{0\}$
 
-	\subsection{Logarithm}
-	\begin{defn}[Logarithm multi-valued function]
-		Let $z=re^{i\theta}$.
-		\[\log(z):=\ln r+i\theta\]
-		where $\ln$ is the real logarithm function.
+	Analytic: $\mathbb{C}$
+\end{defn}
 
-		Domain: $\mathbb{C}\backslash\{0\}$
+\subsection{Logarithm}
+\begin{defn}[Logarithm multi-valued function]
+	Let $z=re^{i\theta}$.
+	\[\log(z):=\ln r+i\theta\]
+	where $\ln$ is the real logarithm function.
 
-		Range: $\mathbb{C}$
+	Domain: $\mathbb{C}\backslash\{0\}$
 
-		When we put in the restriction $-\pi<\theta\leq\pi$, we get the principle logarithm $\text{Log}(z)$.
+	Range: $\mathbb{C}$
 
-	\end{defn}
-	\begin{defn}[Branch of logarithm]
-		As the complex logarithm is multi-valued, we often restrict $\theta$ to intervals of length $2\pi$. These functions are called branches of the logarithm function. We have already defined the principle branch.
-	\end{defn}
+	When we put in the restriction $-\pi<\theta\leq\pi$, we get the principle logarithm $\text{Log}(z)$.
 
-	\begin{thm}
-		A branch of the logarithm function is analytic in $\mathbb{C}\backslash\{x\in\mathbb{R}\ |\ x\leq 0\}$.
-	\end{thm}
-	\begin{cor}
-		$\text{Log}(z)$ is analytic if $-\pi<\text{Arg}(z)<\pi$.
-	\end{cor}
+\end{defn}
+\begin{defn}[Branch of logarithm]
+	As the complex logarithm is multi-valued, we often restrict $\theta$ to intervals of length $2\pi$. These functions are called branches of the logarithm function. We have already defined the principle branch.
+\end{defn}
 
-	\begin{thm}\label{logderivative}
-		$\dv{}{z}\text{Log}(z)=\frac{1}{z},-\pi<\text{Arg}(z)<\pi$
-	\end{thm}
+\begin{thm}
+	A branch of the logarithm function is analytic in $\mathbb{C}\backslash\{x\in\mathbb{R}\ |\ x\leq 0\}$.
+\end{thm}
+\begin{cor}
+	$\text{Log}(z)$ is analytic if $-\pi<\text{Arg}(z)<\pi$.
+\end{cor}
 
-	\subsection{Power}
-	\begin{defn}[Power function]
-		\[z^c:=\exp(c\log z)\]
-		This is also a multi-valued function and its branches are defined by the branch of the logarithm in the function.
+\begin{thm}\label{logderivative}
+	$\dv{}{z}\text{Log}(z)=\frac{1}{z},-\pi<\text{Arg}(z)<\pi$
+\end{thm}
 
-		Domain: $\mathbb{C}\backslash\{0\}$
+\subsection{Power}
+\begin{defn}[Power function]
+	\[z^c:=\exp(c\log z)\]
+	This is also a multi-valued function and its branches are defined by the branch of the logarithm in the function.
 
-		Range: $\mathbb{C}\backslash\{0\}$
+	Domain: $\mathbb{C}\backslash\{0\}$
 
-		Analytic: Any branch is analytic in its domain
-	\end{defn}
-	\begin{thm}
-		$\dv{}{z}z^c=cz^{c-1}$
-	\end{thm}
+	Range: $\mathbb{C}\backslash\{0\}$
 
-	\subsection{Trigonometric}
-	\begin{defn}[Cosine function]\label{complexcos}
-		\[\cos(z):=\frac{e^{iz}+e^{-iz}}{2}\]
-		
-		Domain: $\mathbb{C}$
+	Analytic: Any branch is analytic in its domain
+\end{defn}
+\begin{thm}
+	$\dv{}{z}z^c=cz^{c-1}$
+\end{thm}
 
-		Range: $\mathbb{C}$
+\subsection{Trigonometric}
+\begin{defn}[Cosine function]\label{complexcos}
+	\[\cos(z):=\frac{e^{iz}+e^{-iz}}{2}\]
 
-		Analytic: $\mathbb{C}$
-	\end{defn}
-	\begin{defn}[Sine function]
-		\[\sin(z):=\frac{e^{iz}-e^{-iz}}{2}\]
-		
-		Domain: $\mathbb{C}$
+	Domain: $\mathbb{C}$
 
-		Range: $\mathbb{C}$
+	Range: $\mathbb{C}$
 
-		Analytic: $\mathbb{C}$
-	\end{defn}
-	Using these, we may define $\tan,\sec,$ cosec. These are analytic in their domains. The complex trigonometric functions satisfy most of the relations satisfied by the real trigonometric functions.
+	Analytic: $\mathbb{C}$
+\end{defn}
+\begin{defn}[Sine function]
+	\[\sin(z):=\frac{e^{iz}-e^{-iz}}{2}\]
 
-	\subsection{Hyperbolic}
-	\begin{defn}[Hyperbolic cosine function]
-		\[\cosh(z):=\frac{e^{z}+e^{-z}}{2}\]
-		
-		Domain: $\mathbb{C}$
+	Domain: $\mathbb{C}$
 
-		Range: $\mathbb{C}$
+	Range: $\mathbb{C}$
 
-		Analytic: $\mathbb{C}$
-	\end{defn}
-	\begin{defn}[Hyperbolic sine function]
-		\[\sinh(z):=\frac{e^{z}-e^{-z}}{2}\]
-		
-		Domain: $\mathbb{C}$
+	Analytic: $\mathbb{C}$
+\end{defn}
+Using these, we may define $\tan,\sec,$ cosec. These are analytic in their domains. The complex trigonometric functions satisfy most of the relations satisfied by the real trigonometric functions.
 
-		Range: $\mathbb{C}$
+\subsection{Hyperbolic}
+\begin{defn}[Hyperbolic cosine function]
+	\[\cosh(z):=\frac{e^{z}+e^{-z}}{2}\]
 
-		Analytic: $\mathbb{C}$
-	\end{defn}
-	Using these, we may define $\tanh,\sech,$ cosech. These are analytic in their domains. The complex hyperbolic functions satisfy most of the relations satisfied by the real hyperbolic functions.
+	Domain: $\mathbb{C}$
 
-	\section{Integral calculus}
-	\subsection{Fundamental Theorem of Calculus}
-	\begin{defn}
-		Let $f:[a,b]\to\mathbb{C}$ such that $f(t)=u(t)+iv(t)$.
-		\[\int_{a}^bf(t)\ dt:=\int_a^bu(t)\ dt+i\int_a^bv(t)\ dt\]
-	\end{defn}
-	\begin{thm}
-		\[\left|\int_{a}^bf(t)\ dt\right|\leq\int_{a}^b|f(t)|\ dt\]
-	\end{thm}
-	\begin{eg}
-		Let $x\in[-1,1],\theta\in\mathbb{R}, n\in\mathbb{N}\cup\{0\}$. Show that
-		\[\left|\frac{1}{\pi}\int_0^\pi (x+i\sqrt{1-x^2}\cos\theta)^n\ d\theta\right|\leq 1\]
-	\end{eg}
+	Range: $\mathbb{C}$
 
-	\begin{thm}[Fundamental Theorem of Calculus]
-		\hfill
-		\begin{enumerate}
-			\item Let $f:[a,b]\to\mathbb{C}$ be a continuous function.
-				\[F(x)=\int_a^x f(t)\ dt\implies F'(x)=f(x),\forall x\in[a,b]\]
-			\item Let $f:[a,b]\to\mathbb{C}$ be a continuous function.
-		\[F'(t)=f(t),\forall t\in[a,b]\implies\int_a^bf(t)\ dt=F(b)-F(a)\]
+	Analytic: $\mathbb{C}$
+\end{defn}
+\begin{defn}[Hyperbolic sine function]
+	\[\sinh(z):=\frac{e^{z}-e^{-z}}{2}\]
+
+	Domain: $\mathbb{C}$
+
+	Range: $\mathbb{C}$
+
+	Analytic: $\mathbb{C}$
+\end{defn}
+Using these, we may define $\tanh,\sech,$ cosech. These are analytic in their domains. The complex hyperbolic functions satisfy most of the relations satisfied by the real hyperbolic functions.
+
+\section{Integral calculus}
+\subsection{Fundamental Theorem of Calculus}
+\begin{defn}
+	Let $f:[a,b]\to\mathbb{C}$ such that $f(t)=u(t)+iv(t)$.
+	\[\int_{a}^bf(t)\ dt:=\int_a^bu(t)\ dt+i\int_a^bv(t)\ dt\]
+\end{defn}
+\begin{thm}
+	\[\left|\int_{a}^bf(t)\ dt\right|\leq\int_{a}^b|f(t)|\ dt\]
+\end{thm}
+\begin{eg}
+	Let $x\in[-1,1],\theta\in\mathbb{R}, n\in\mathbb{N}\cup\{0\}$. Show that
+	\[\left|\frac{1}{\pi}\int_0^\pi (x+i\sqrt{1-x^2}\cos\theta)^n\ d\theta\right|\leq 1\]
+\end{eg}
+
+\begin{thm}[Fundamental Theorem of Calculus]
+	\hfill
+	\begin{enumerate}
+		\item Let $f:[a,b]\to\mathbb{C}$ be a continuous function.
+		      \[F(x)=\int_a^x f(t)\ dt\implies F'(x)=f(x),\forall x\in[a,b]\]
+		\item Let $f:[a,b]\to\mathbb{C}$ be a continuous function.
+		      \[F'(t)=f(t),\forall t\in[a,b]\implies\int_a^bf(t)\ dt=F(b)-F(a)\]
 	\end{enumerate}
-	\end{thm}
-	\begin{eg}
-		Evaluate(using a complex-valued function)\[\int_0^\pi e^{2t}\cos t\ dt\]
-	\end{eg}
+\end{thm}
+\begin{eg}
+	Evaluate(using a complex-valued function)\[\int_0^\pi e^{2t}\cos t\ dt\]
+\end{eg}
 
-	\subsection{Arcs and Contours}
-	\begin{defn}[Arc]
-		Let $z:[a,b]\to\mathbb{C}$. The set
-		\[C=\{z(t)\ |\ a\leq t\leq b\}\]
-		is called an arc in $\mathbb{C}$.
+\subsection{Arcs and Contours}
+\begin{defn}[Arc]
+	Let $z:[a,b]\to\mathbb{C}$. The set
+	\[C=\{z(t)\ |\ a\leq t\leq b\}\]
+	is called an arc in $\mathbb{C}$.
 
-		$C$ is a \textbf{simple arc} in [a,b] if $\forall t_1,t_2\in[a,b]$,\[t_1\neq t_2\implies z(t_1)\neq z(t_2)\]
+	$C$ is a \textbf{simple arc} in [a,b] if $\forall t_1,t_2\in[a,b]$,\[t_1\neq t_2\implies z(t_1)\neq z(t_2)\]
 
-		$C$ is a simple, closed arc or a \textbf{Jordan curve} in $[a,b]$ if
-		\begin{enumerate}
-			\item $C$ is simple in $(a,b)$.
-			\item $z(a)=z(b)$
+	$C$ is a simple, closed arc or a \textbf{Jordan curve} in $[a,b]$ if
+	\begin{enumerate}
+		\item $C$ is simple in $(a,b)$.
+		\item $z(a)=z(b)$
 	\end{enumerate}
-	
+
 	$C$ is a \textbf{differentiable arc} if $z$ is continuously differentiable in $[a,b]$.
 
 	$C$ is a \textbf{smooth arc} if it is differentiable and $z'(t)\neq 0,\forall t\in[a,b]$.
-	\end{defn}
+\end{defn}
 
-	\begin{defn}[Orientation of arc]
-		Let $C$ be an arc as defined earlier. If $z(t)$ moves in the counter-clockwise direction in the complex plane as $t$ increases, $C$ is said to be positively oriented. Otherwise, it is negatively oriented.
-	\end{defn}
+\begin{defn}[Orientation of arc]
+	Let $C$ be an arc as defined earlier. If $z(t)$ moves in the counter-clockwise direction in the complex plane as $t$ increases, $C$ is said to be positively oriented. Otherwise, it is negatively oriented.
+\end{defn}
 
-	\begin{defn}[Reparameterization]
-		Let $C$ be the arc
-		\[C:z(t), t\in[a,b]\] Let $\varphi:[c,d]\to [a,b]$ be a continuously differentiable, strictly increasing bijective mapping such that \[t=\varphi(s)\]
-		We get a reparametrization of $C$
-		\[C:Z(s), s\in[c,d]\]
-		where $Z(s)=z(\varphi(s))$.
-	\end{defn}
+\begin{defn}[Reparameterization]
+	Let $C$ be the arc
+	\[C:z(t), t\in[a,b]\] Let $\varphi:[c,d]\to [a,b]$ be a continuously differentiable, strictly increasing bijective mapping such that \[t=\varphi(s)\]
+	We get a reparametrization of $C$
+	\[C:Z(s), s\in[c,d]\]
+	where $Z(s)=z(\varphi(s))$.
+\end{defn}
 
-	\begin{defn}[Length of arc]
-		Let $C:z(t),t\in[a,b]$ be a differentiable arc.
-		\[\text{length}(C):=\int_a^b|z'(t)|\ dt\]
-	\end{defn}
+\begin{defn}[Length of arc]
+	Let $C:z(t),t\in[a,b]$ be a differentiable arc.
+	\[\text{length}(C):=\int_a^b|z'(t)|\ dt\]
+\end{defn}
 
-	\begin{defn}[Contour]
-		A piecewise smooth curve.
+\begin{defn}[Contour]
+	A piecewise smooth curve.
 
-		Contours in $\mathbb{C}$ are analogous to intervals in $\mathbb{R}$, in a sense that we will integrate functions along contours.
-		
-		The \textbf{negative of a contour} is defined as
-		\[C:z(t),t\in[a,b]\]
-		\[-C:z(-t),-t\in[-b,-a]\]
-	\end{defn}
+	Contours in $\mathbb{C}$ are analogous to intervals in $\mathbb{R}$, in a sense that we will integrate functions along contours.
 
-	\subsection{Contour integral}
-	\begin{defn}[Contour integral]
-		Let
+	The \textbf{negative of a contour} is defined as
+	\[C:z(t),t\in[a,b]\]
+	\[-C:z(-t),-t\in[-b,-a]\]
+\end{defn}
 
-		$f:\Omega\to\mathbb{C}$
+\subsection{Contour integral}
+\begin{defn}[Contour integral]
+	Let
 
-		$C:z(t),t\in[a,b]$
+	$f:\Omega\to\mathbb{C}$
 
-		$f(z(t))$ be a piecewise continuous function of $t$.
-		\[\int_Cf(z)\ dz:=\int_a^bf(z(t))z'(t)\ dt\]
-	\end{defn}
-	\begin{thm}
-		\[\int_{C_1+C_2}f(z)\ dz=\int_{C_1}f(z)\ dz+\int_{C_2}f(z)\ dz\]
-		\[\int_{-C}f(z)\ dz=-\int_C f(z)\ dz\]
-	\end{thm}
-	\begin{eg}
-		Let $C$ be the contour consisting of the semicircle $e^{i\theta},\theta\in[0,\pi]$ along with the part of the the real axis $x, x\in[-1,1]$. Let
-		\[f(z)=f(re^{i\theta})=\sqrt{r}e^{i\frac{\theta}{2}}\tag*{($r>0, \frac{-\pi}{2}<\theta<\frac{3\pi}{2}$)}\]
-		Find $\int_C f(z)\ dz$.(\textit{Hint:} Set $f(0)=0$)
-	\end{eg}
+	$C:z(t),t\in[a,b]$
 
-	\begin{thm}[Bound of a contour integral]
-		Let
+	$f(z(t))$ be a piecewise continuous function of $t$.
+	\[\int_Cf(z)\ dz:=\int_a^bf(z(t))z'(t)\ dt\]
+\end{defn}
+\begin{thm}
+	\[\int_{C_1+C_2}f(z)\ dz=\int_{C_1}f(z)\ dz+\int_{C_2}f(z)\ dz\]
+	\[\int_{-C}f(z)\ dz=-\int_C f(z)\ dz\]
+\end{thm}
+\begin{eg}
+	Let $C$ be the contour consisting of the semicircle $e^{i\theta},\theta\in[0,\pi]$ along with the part of the the real axis $x, x\in[-1,1]$. Let
+	\[f(z)=f(re^{i\theta})=\sqrt{r}e^{i\frac{\theta}{2}}\tag*{($r>0, \frac{-\pi}{2}<\theta<\frac{3\pi}{2}$)}\]
+	Find $\int_C f(z)\ dz$.(\textit{Hint:} Set $f(0)=0$)
+\end{eg}
 
-		$f:\Omega\to\mathbb{C}$
+\begin{thm}[Bound of a contour integral]
+	Let
 
-		$C:z(t),t\in[a,b]$ be a contour of length $L$
+	$f:\Omega\to\mathbb{C}$
 
-		$f(z(t))$ be a piecewise continuous function of $t$, i.e. it has an upper bound(Theorem \ref{bound}) $M>0$ in $[a,b]$.
-		We have,
-		\[\left|\int_Cf(z)\ dz\right|\leq ML\]
-	\end{thm}
-	\begin{eg}
-		Let $C$ be the right-triangle formed by the two axes and the line segment joining $-4$ and $3i$, oriented anticlockwise. Show that \[\left|\int_C (e^z-\bar{z})\ dz\right|\leq 60\]
-	\end{eg}
-	\begin{eg}
-		Let $C$ be the circle $|z|=R,R>1$, oriented anticlockwise. Show that 
-		\[\left|\int_C \frac{\text{Log}(z)}{z^2}\ dz\right|<2\pi\left(\frac{\pi+\ln R}{R}\right)\]
-	\end{eg}
+	$C:z(t),t\in[a,b]$ be a contour of length $L$
 
-	\subsection{Antiderivative}
-	\begin{defn}[Antiderivative]
+	$f(z(t))$ be a piecewise continuous function of $t$, i.e. it has an upper bound(Theorem \ref{bound}) $M>0$ in $[a,b]$.
+	We have,
+	\[\left|\int_Cf(z)\ dz\right|\leq ML\]
+\end{thm}
+\begin{eg}
+	Let $C$ be the right-triangle formed by the two axes and the line segment joining $-4$ and $3i$, oriented anticlockwise. Show that \[\left|\int_C (e^z-\bar{z})\ dz\right|\leq 60\]
+\end{eg}
+\begin{eg}
+	Let $C$ be the circle $|z|=R,R>1$, oriented anticlockwise. Show that
+	\[\left|\int_C \frac{\text{Log}(z)}{z^2}\ dz\right|<2\pi\left(\frac{\pi+\ln R}{R}\right)\]
+\end{eg}
+
+\subsection{Antiderivative}
+\begin{defn}[Antiderivative]
 	Let $f$ and $F$ be defined in $\Omega$ such that
 	\[F'(z)=f(z),\forall z\in\Omega\]
 	$F$ is called the anti-derivative of $f$ in $\Omega$.
-	\end{defn}
+\end{defn}
 
-	\begin{thm}
-		Antiderivatives, if exist, are analytic.
-	\end{thm}
+\begin{thm}
+	Antiderivatives, if exist, are analytic.
+\end{thm}
 
-	\begin{thm}
-		If $F_1,F_2$ are antiderivatives of $f$ in $\Omega$, $\exists k\in\mathbb{C}$ such that
-		\[F_2(z)=F_1(z)+k,\forall z\in\Omega\]
-	\end{thm}
+\begin{thm}
+	If $F_1,F_2$ are antiderivatives of $f$ in $\Omega$, $\exists k\in\mathbb{C}$ such that
+	\[F_2(z)=F_1(z)+k,\forall z\in\Omega\]
+\end{thm}
 
-	\begin{thm}\label{conservative}
-		Let $f$ be a continuous function defined on $\Omega$. The following statements are equivalent:
-		\begin{itemize}
-			\item $f$ has an antiderivative $F$ in $\Omega$.
-			\item Let $C_1,C_2$ be two contours in $\Omega$ with the same end-points $z_1,z_2$ and same orientation $z_1\to z_2$.
-				\[\int_{C_1}f(z)\ dz=\int_{C_2}f(z)\ dz\]
-				In fact, this integral is equal to $F(z_2)-F(z_1)$.
-			\item If $C$ is a closed contour in $\Omega$,
-				\[\int_Cf(z)\ dz=0\]
-		\end{itemize}
-	\end{thm}
-	\begin{eg}
-		Let $C$ be the unit circle centered at 0 and $f(z)=\frac{1}{z}$. Show that $f$ does not have an antiderivative in its domain.
+\begin{thm}\label{conservative}
+	Let $f$ be a continuous function defined on $\Omega$. The following statements are equivalent:
+	\begin{itemize}
+		\item $f$ has an antiderivative $F$ in $\Omega$.
+		\item Let $C_1,C_2$ be two contours in $\Omega$ with the same end-points $z_1,z_2$ and same orientation $z_1\to z_2$.
+		      \[\int_{C_1}f(z)\ dz=\int_{C_2}f(z)\ dz\]
+		      In fact, this integral is equal to $F(z_2)-F(z_1)$.
+		\item If $C$ is a closed contour in $\Omega$,
+		      \[\int_Cf(z)\ dz=0\]
+	\end{itemize}
+\end{thm}
+\begin{eg}
+	Let $C$ be the unit circle centered at 0 and $f(z)=\frac{1}{z}$. Show that $f$ does not have an antiderivative in its domain.
 
-		Can we find an antiderivative of $f$ in some open subset of its domain?(\textit{Hint: }Theorem \ref{logderivative})
-	\end{eg}
-	\begin{eg}
-		Let $C$ be any simple contour with end-points $-3,3$ lying below the real axis, oriented $-3\to 3$.
-		\[f(z)=\exp(\frac{1}{2}\log z)\tag*{($0<\arg z<2\pi$)}\]
-		Find $\int_C f(z)\ dz$.
-	\end{eg}
+	Can we find an antiderivative of $f$ in some open subset of its domain?(\textit{Hint: }Theorem \ref{logderivative})
+\end{eg}
+\begin{eg}
+	Let $C$ be any simple contour with end-points $-3,3$ lying below the real axis, oriented $-3\to 3$.
+	\[f(z)=\exp(\frac{1}{2}\log z)\tag*{($0<\arg z<2\pi$)}\]
+	Find $\int_C f(z)\ dz$.
+\end{eg}
 
-	\section{Cauchy's Theorem}
-	\subsection{Cauchy's Theorem}
-	\begin{defn}[Simply-connected domain]
-		A domain $\mathscr{D}$ is simply-connected if every simple, closed contour within it encloses only points in $\mathscr{D}$.
-	\end{defn}
+\section{Cauchy's Theorem}
+\subsection{Cauchy's Theorem}
+\begin{defn}[Simply-connected domain]
+	A domain $\mathscr{D}$ is simply-connected if every simple, closed contour within it encloses only points in $\mathscr{D}$.
+\end{defn}
 
-	\begin{thm}
-		If $C$ is a simple, closed contour, the set of points inside $C$ form a simply-connected domain.
-	\end{thm}
+\begin{thm}
+	If $C$ is a simple, closed contour, the set of points inside $C$ form a simply-connected domain.
+\end{thm}
 
-	\begin{thm}[Cauchy]
-		Let $f$ be analytic in a simply-connected domain $\mathscr{D}$. For any simple, closed contour $C\subset D$,
-		\[\int_Cf(z)=0\]
-	\end{thm}
-	\begin{eg}
-		Let $C$ be the unit circle. Find
-		\[\int_C z|z|^4\ dz\]
-	\end{eg}
-	\begin{cor}
-		If $f$ is analytic in a simply-connected domain $\mathscr{D}$, it has an antiderivative in $\mathscr{D}$.(Thoerem \ref{conservative})
-		Let $F$ be the antiderivative of $f$ in $\mathscr{D}$ and $C$ be any contour in $\mathscr{D}$ with endpoints $z_1,z_2$ and orientation $z_1\to z_2$.
-		\[\int_Cf(z)\ dz=F(z_2)-F(z_1)\]
-	\end{cor}
-	\begin{cor}
-		If $f$ is analytic on and inside a simple, closed contour $C$,
-		\[\int_C f(z)\ dz=0\]
-	\end{cor}
-	
-	\subsection{Cauchy's Integral Formula}
-	\begin{thm}[Cauchy's integral formula]
-		Let $f$ be analytic inside and on a simple, closed, positive contour $C$. If $z_0$ is a point inside $C$,
-		\[f(z_0)=\frac{1}{2\pi i}\int_C\frac{f(z)}{z-z_0}\ dz\]
-		Hence, the value of the function inside $C$ is completely defined by its value on $C$. 
-	\end{thm}
-	\begin{eg}
-		Let $C$ be the square whose sides lie along $x=\pm2,y=\pm2$, oriented anticlockwise. Find
-		\[\int_C\frac{\cos z}{z(z^2+8)}\ dz\]
-	\end{eg}
-	\begin{eg}
-		Let $C$ be the circle $|z|=3$, oriented anticlockwise.
-		\[g(z)=\int_C\frac{2s^2-s-2}{s-z}\ dz\]
-		Find $g(2)$ and $g(4)$.
-	\end{eg}
-	\begin{cor}[Gauss' mean value theorem]
-		Let $f$ be analytic in $B_r(z_0)$.
-		\[f(z_0)=\frac{1}{2\pi}\int_{0}^{2\pi}f(z_0+re^{i\theta})\ d\theta\]
-	\end{cor}
-	\begin{lem}
-		Let $f$ be analytic inside and on a simple, closed, positive contour $C$. If $z_0$ is a point inside $C$, $f$ is infinitely differentiable at $z_0$. The $n^{th}$ derivative of $f$ at $z_0$ is given by
-		\[f^{n}(z_0)=\frac{n!}{2\pi i}\int_C\frac{f(z)}{(z-z_0)^{n+1}}\ dz\tag*{($n=1,2,\cdots$)}\]
-	\end{lem}
-	\begin{eg}
-		Let $C$ be the circle $|z-i|=2$, oriented anticlockwise. Find
-		\[\int_C \frac{dz}{(z^2+4)^2}\]
-		(\textit{Hint}: $z^2+4=(z+2i)(z-2i)$)
-	\end{eg}
-	\begin{thm}
-		If $f$ is analytic at $z_0$ then its derivatives of all orders exist and are analytic at $z_0$.
-	\end{thm}
-	\begin{cor}
-		Theorem \ref{highorder}
-	\end{cor}
+\begin{thm}[Cauchy]
+	Let $f$ be analytic in a simply-connected domain $\mathscr{D}$. For any simple, closed contour $C\subset D$,
+	\[\int_Cf(z)=0\]
+\end{thm}
+\begin{eg}
+	Let $C$ be the unit circle. Find
+	\[\int_C z|z|^4\ dz\]
+\end{eg}
+\begin{cor}
+	If $f$ is analytic in a simply-connected domain $\mathscr{D}$, it has an antiderivative in $\mathscr{D}$.(Thoerem \ref{conservative})
+	Let $F$ be the antiderivative of $f$ in $\mathscr{D}$ and $C$ be any contour in $\mathscr{D}$ with endpoints $z_1,z_2$ and orientation $z_1\to z_2$.
+	\[\int_Cf(z)\ dz=F(z_2)-F(z_1)\]
+\end{cor}
+\begin{cor}
+	If $f$ is analytic on and inside a simple, closed contour $C$,
+	\[\int_C f(z)\ dz=0\]
+\end{cor}
 
-	\subsection{Morera's Theorem}
-	\begin{thm}[Morera]
-		Let $f$ be continuous in $\Omega$ and $C$ be a closed contour in $\Omega$.
-		\[\int_Cf(z)\ dz=0,\forall C\implies f \text{ is analytic in }\Omega\]
-	\end{thm}
+\subsection{Cauchy's Integral Formula}
+\begin{thm}[Cauchy's integral formula]
+	Let $f$ be analytic inside and on a simple, closed, positive contour $C$. If $z_0$ is a point inside $C$,
+	\[f(z_0)=\frac{1}{2\pi i}\int_C\frac{f(z)}{z-z_0}\ dz\]
+	Hence, the value of the function inside $C$ is completely defined by its value on $C$.
+\end{thm}
+\begin{eg}
+	Let $C$ be the square whose sides lie along $x=\pm2,y=\pm2$, oriented anticlockwise. Find
+	\[\int_C\frac{\cos z}{z(z^2+8)}\ dz\]
+\end{eg}
+\begin{eg}
+	Let $C$ be the circle $|z|=3$, oriented anticlockwise.
+	\[g(z)=\int_C\frac{2s^2-s-2}{s-z}\ dz\]
+	Find $g(2)$ and $g(4)$.
+\end{eg}
+\begin{cor}[Gauss' mean value theorem]
+	Let $f$ be analytic in $B_r(z_0)$.
+	\[f(z_0)=\frac{1}{2\pi}\int_{0}^{2\pi}f(z_0+re^{i\theta})\ d\theta\]
+\end{cor}
+\begin{lem}
+	Let $f$ be analytic inside and on a simple, closed, positive contour $C$. If $z_0$ is a point inside $C$, $f$ is infinitely differentiable at $z_0$. The $n^{th}$ derivative of $f$ at $z_0$ is given by
+	\[f^{n}(z_0)=\frac{n!}{2\pi i}\int_C\frac{f(z)}{(z-z_0)^{n+1}}\ dz\tag*{($n=1,2,\cdots$)}\]
+\end{lem}
+\begin{eg}
+	Let $C$ be the circle $|z-i|=2$, oriented anticlockwise. Find
+	\[\int_C \frac{dz}{(z^2+4)^2}\]
+	(\textit{Hint}: $z^2+4=(z+2i)(z-2i)$)
+\end{eg}
+\begin{thm}
+	If $f$ is analytic at $z_0$ then its derivatives of all orders exist and are analytic at $z_0$.
+\end{thm}
+\begin{cor}
+	Theorem \ref{highorder}
+\end{cor}
 
-	\begin{thm}
-		Let $\mathscr{D}$ be a simply-connected domain and $f$ be continuous in $\mathscr{D}$. Let $C$ represent a closed contour in $\mathscr{D}$.
-		\[\int_Cf(z)\ dz=0,\forall C\iff f \text{ is analytic in }\Omega\]
-	\end{thm}
+\subsection{Morera's Theorem}
+\begin{thm}[Morera]
+	Let $f$ be continuous in $\Omega$ and $C$ be a closed contour in $\Omega$.
+	\[\int_Cf(z)\ dz=0,\forall C\implies f \text{ is analytic in }\Omega\]
+\end{thm}
 
-	\subsection{Cauchy's Inequality}
-	\begin{thm}[Cauchy's inequality]
-		Let
-		\[D_R(z_0)=\{z\ |\ |z-z_0|\leq R\}\]
-		\[C_R(z_0)=\{z\ |\ |z-z_0|=R\}\]
-		$f$ is an analytic function in $D_R(z_0)$ such that $M_R$ is the maximum value of $|f(z)|$ on $C_R(z_0)$.
-		\[\left|f^n(z_0)\right|\leq \frac{n!\ M_R}{R^n}\tag*{($n=1,2,\cdots$)}\]
-	\end{thm}
-	\begin{eg}
-		$f$ is an entire function such that
-		\[|f(z)|\leq A|z|,\forall z\in\mathbb{C}\tag*{($A\in\mathbb{R}$)}\]
-		Show that $f(z)=az,a\in\mathbb{C}$.
-	\end{eg}
-	\begin{lem}[Liouville]
-		A bounded, entire function is a constant function.
-	\end{lem}
+\begin{thm}
+	Let $\mathscr{D}$ be a simply-connected domain and $f$ be continuous in $\mathscr{D}$. Let $C$ represent a closed contour in $\mathscr{D}$.
+	\[\int_Cf(z)\ dz=0,\forall C\iff f \text{ is analytic in }\Omega\]
+\end{thm}
 
-	\subsection{Fundamental Theorem of Algebra}
-	\begin{thm}[Fundamental theorem of algebra]
-		Every non-constant polynomial has at least one zero.
-	\end{thm}
+\subsection{Cauchy's Inequality}
+\begin{thm}[Cauchy's inequality]
+	Let
+	\[D_R(z_0)=\{z\ |\ |z-z_0|\leq R\}\]
+	\[C_R(z_0)=\{z\ |\ |z-z_0|=R\}\]
+	$f$ is an analytic function in $D_R(z_0)$ such that $M_R$ is the maximum value of $|f(z)|$ on $C_R(z_0)$.
+	\[\left|f^n(z_0)\right|\leq \frac{n!\ M_R}{R^n}\tag*{($n=1,2,\cdots$)}\]
+\end{thm}
+\begin{eg}
+	$f$ is an entire function such that
+	\[|f(z)|\leq A|z|,\forall z\in\mathbb{C}\tag*{($A\in\mathbb{R}$)}\]
+	Show that $f(z)=az,a\in\mathbb{C}$.
+\end{eg}
+\begin{lem}[Liouville]
+	A bounded, entire function is a constant function.
+\end{lem}
 
-	\subsection{Maximum modulus principle}
-	
+\subsection{Fundamental Theorem of Algebra}
+\begin{thm}[Fundamental theorem of algebra]
+	Every non-constant polynomial has at least one zero.
+\end{thm}
 
-	\begin{thm}[Maximum modulus principle]
-		If $f$ is a non-constant, analytic function in $\mathscr{D}$, $|f(z)|$ has no maximum value in $\mathscr{D}$.
-	\end{thm}
-	\begin{cor}
-		Let $f$ be a non-constant, analytic function in a bounded domain $\Omega$ such that it is continuous on $\overline{\Omega}$(closure of $\Omega$, Definition \ref{closure}). The maximum value of $|f(z)|$ in $\overline{\Omega}$ exists and lies on the boundary of $\Omega$.
-	\end{cor}
+\subsection{Maximum modulus principle}
+
+
+\begin{thm}[Maximum modulus principle]
+	If $f$ is a non-constant, analytic function in $\mathscr{D}$, $|f(z)|$ has no maximum value in $\mathscr{D}$.
+\end{thm}
+\begin{cor}
+	Let $f$ be a non-constant, analytic function in a bounded domain $\Omega$ such that it is continuous on $\overline{\Omega}$(closure of $\Omega$, Definition \ref{closure}). The maximum value of $|f(z)|$ in $\overline{\Omega}$ exists and lies on the boundary of $\Omega$.
+\end{cor}
 \end{document}

@@ -16,581 +16,581 @@
 \newtheorem{eg}{Example}
 
 \begin{document}
-	\begin{center}
-		\fontsize{25}{60}\selectfont Probability and Statistics \\
-		\large Based on lectures by Dr. Angshuman Bhattacharya\\
-		Notes taken by Rwik Dutta
-	\end{center}
-	\hrule
-	\begin{center}
-		These notes are not endorsed by the lecturers, and I have modified them (often
-significantly) after lectures. They are nowhere near accurate representations of what
-was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
-	\end{center}
-	\tableofcontents
-	
-	\newpage
+\begin{center}
+	\fontsize{25}{60}\selectfont Probability and Statistics \\
+	\large Based on lectures by Dr. Angshuman Bhattacharya\\
+	Notes taken by Rwik Dutta
+\end{center}
+\hrule
+\begin{center}
+	These notes are not endorsed by the lecturers, and I have modified them (often
+	significantly) after lectures. They are nowhere near accurate representations of what
+	was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
+\end{center}
+\tableofcontents
 
-	\section{Probability Space}
-	\subsection{Event space}
-	\begin{defn}[$\sigma-$field]
-		Let $\mathscr{A}$ be a collection of subsets of $\Omega$($A\in \mathscr{A}\Rightarrow A\subset \Omega$). $\mathscr{A}$ is called a $\sigma-$algebra(or, $\sigma-$field) of subsets of $\Omega$ if
-		\begin{enumerate}
-			\item $\mathscr{A}$ is non-empty.
-			\item $A\in\mathscr{A}\Rightarrow A^C\in\mathscr{A}$
-			\item If $A,B\in \mathscr{A}$, $A\cup B\in\mathscr{A}$ and $A\cap B\in\mathscr{A}$.
+\newpage
+
+\section{Probability Space}
+\subsection{Event space}
+\begin{defn}[$\sigma-$field]
+	Let $\mathscr{A}$ be a collection of subsets of $\Omega$($A\in \mathscr{A}\Rightarrow A\subset \Omega$). $\mathscr{A}$ is called a $\sigma-$algebra(or, $\sigma-$field) of subsets of $\Omega$ if
+	\begin{enumerate}
+		\item $\mathscr{A}$ is non-empty.
+		\item $A\in\mathscr{A}\Rightarrow A^C\in\mathscr{A}$
+		\item If $A,B\in \mathscr{A}$, $A\cup B\in\mathscr{A}$ and $A\cap B\in\mathscr{A}$.
 	\end{enumerate}
-	\end{defn}
-	\begin{thm}
-		A $\sigma-$algebra $\mathscr{A}$ of subsets of $\Omega$ contains $\Omega$ and $\varnothing$.
-	\end{thm}
-	\begin{thm}
-		The power set of $\Omega(\Omega\neq\varnothing)$ forms a $\sigma-$algebra of subsets of $\Omega$.
+\end{defn}
+\begin{thm}
+	A $\sigma-$algebra $\mathscr{A}$ of subsets of $\Omega$ contains $\Omega$ and $\varnothing$.
+\end{thm}
+\begin{thm}
+	The power set of $\Omega(\Omega\neq\varnothing)$ forms a $\sigma-$algebra of subsets of $\Omega$.
 
-		This will be assumed to be the event space, unless mentioned otherwise.
-	\end{thm}
-	\begin{defn}[Event space, sample space]
-		An event space $\mathscr{A}$ of $\Omega$ is a $\sigma-$algebra of subsets of $\Omega$. The elements of $\mathscr{A}$ are called events.
+	This will be assumed to be the event space, unless mentioned otherwise.
+\end{thm}
+\begin{defn}[Event space, sample space]
+	An event space $\mathscr{A}$ of $\Omega$ is a $\sigma-$algebra of subsets of $\Omega$. The elements of $\mathscr{A}$ are called events.
 	$\Omega$ is called the sample space.
-	\end{defn}
-	
-	\subsection{Probability measure}
-	\begin{defn}
-		Let $\mathscr{A}$ be an event space of $\Omega$. $P:\mathscr{A}\to \mathbb{R}$ is called a probability measure of $\mathscr{A}$ if
-		\begin{enumerate}
-			\item $P(A)\geq 0,\ \forall A\in\mathscr{A}$
-			\item $P(\Omega)=1$
-			\item Let $A,B\in\mathscr{A}$. If $A\cap B =\varnothing$,
-				\[P(A\cup B)=P(A)+P(B)\]
+\end{defn}
+
+\subsection{Probability measure}
+\begin{defn}
+	Let $\mathscr{A}$ be an event space of $\Omega$. $P:\mathscr{A}\to \mathbb{R}$ is called a probability measure of $\mathscr{A}$ if
+	\begin{enumerate}
+		\item $P(A)\geq 0,\ \forall A\in\mathscr{A}$
+		\item $P(\Omega)=1$
+		\item Let $A,B\in\mathscr{A}$. If $A\cap B =\varnothing$,
+		      \[P(A\cup B)=P(A)+P(B)\]
 	\end{enumerate}
-	\end{defn}
-	\begin{thm}
-		$P(A)\leq 1,\ \forall A\in\mathscr{A}$. Hence, range of $P$ is $[0,1]$.
-	\end{thm}
-	\begin{thm}
-		$P(A^C)=1-P(A)$
-	\end{thm}
-		\begin{cor}
-			$\underbrace{P\left(\bigcup\limits_{i=1}^\infty A_i\right)}_{\text{at least one of the events occurs}}=1-\underbrace{P\left(\bigcap\limits_{i=1}^\infty A_i^C\right)}_{\text{none of the events occur}}$
-		\end{cor}
-	\begin{thm}
-		$A\subset B\implies P(A)\leq P(B)$
-	\end{thm}
-	\begin{thm}
-		$P(A\cup B)\leq P(A)+P(B)$
-	\end{thm}
-	
-	\begin{thm}
-		\hfill
-		\begin{enumerate}
-			\item If $A_1\subset A_2\subset A_3\subset\cdots$ and $A=\bigcup\limits_{n\geq 1} A_n$,
-				\[P(A)=\lim\limits_{n\to\infty}P(A_n)\]
-			\item If $A_1\supset A_2\supset A_3\supset\cdots$ and $A=\bigcap\limits_{n\geq 1} A_n$,
-				\[P(A)=\lim\limits_{n\to\infty}P(A_n)\]
+\end{defn}
+\begin{thm}
+	$P(A)\leq 1,\ \forall A\in\mathscr{A}$. Hence, range of $P$ is $[0,1]$.
+\end{thm}
+\begin{thm}
+	$P(A^C)=1-P(A)$
+\end{thm}
+\begin{cor}
+	$\underbrace{P\left(\bigcup\limits_{i=1}^\infty A_i\right)}_{\text{at least one of the events occurs}}=1-\underbrace{P\left(\bigcap\limits_{i=1}^\infty A_i^C\right)}_{\text{none of the events occur}}$
+\end{cor}
+\begin{thm}
+	$A\subset B\implies P(A)\leq P(B)$
+\end{thm}
+\begin{thm}
+	$P(A\cup B)\leq P(A)+P(B)$
+\end{thm}
+
+\begin{thm}
+	\hfill
+	\begin{enumerate}
+		\item If $A_1\subset A_2\subset A_3\subset\cdots$ and $A=\bigcup\limits_{n\geq 1} A_n$,
+		      \[P(A)=\lim\limits_{n\to\infty}P(A_n)\]
+		\item If $A_1\supset A_2\supset A_3\supset\cdots$ and $A=\bigcap\limits_{n\geq 1} A_n$,
+		      \[P(A)=\lim\limits_{n\to\infty}P(A_n)\]
 	\end{enumerate}
-	\end{thm}
-	\begin{defn}[Probability space]
-		If $\Omega$ is a sample space, $\mathscr{A}$ is an event space of $\Omega$ and $P$ is a probability measure of $\mathscr{A}$, $(\Omega, \mathscr{A}, P)$ is called a probability space.
-	\end{defn}
+\end{thm}
+\begin{defn}[Probability space]
+	If $\Omega$ is a sample space, $\mathscr{A}$ is an event space of $\Omega$ and $P$ is a probability measure of $\mathscr{A}$, $(\Omega, \mathscr{A}, P)$ is called a probability space.
+\end{defn}
 
-	\section{Uniform Probability Spaces}
-	\begin{defn}[Symmetric probability space]
-		$(\Omega, \mathscr{A}, P)$ (where $\Omega$ is a finite set) is called a symmetric probability space if $P(A)=P(B)$ for all singleton sets $A,B\in\mathscr{A}$.
-	\end{defn}
-	\begin{thm}
-		$P\left(\{x\}\right)=\frac{1}{|\Omega|},\ \forall x\in\Omega$. Also, $P(A)=\frac{|A|}{|\Omega|},\ \forall A\subset\Omega$.
-	\end{thm}
-	
-	\begin{defn}[Cardinality of uncountable set]
-		If $A\subset \mathbb{R}^n$, $|A|$ denotes the $n$-dimensional volume of the region $A$.
-	\end{defn}
-	\begin{defn}[Uniform probability space]
-		Let $\Omega\subset\mathbb{R}^n$ where $|\Omega|$ is finite. $(\Omega,\mathcal{P}(\Omega), P)$ is called an uniform probability space if $P(A)=\frac{|A|}{|\Omega|},\ \forall A\subset\Omega$.
-	\end{defn}
+\section{Uniform Probability Spaces}
+\begin{defn}[Symmetric probability space]
+	$(\Omega, \mathscr{A}, P)$ (where $\Omega$ is a finite set) is called a symmetric probability space if $P(A)=P(B)$ for all singleton sets $A,B\in\mathscr{A}$.
+\end{defn}
+\begin{thm}
+	$P\left(\{x\}\right)=\frac{1}{|\Omega|},\ \forall x\in\Omega$. Also, $P(A)=\frac{|A|}{|\Omega|},\ \forall A\subset\Omega$.
+\end{thm}
 
-	\section{Conditional Probability}
-	\begin{defn}[Conditional probability]
-		Let $A,B$ be two events such that $P(A)\neq 0$. The conditional probability of $B$ given $A$ denoted by $P(B|A)$ is
-		\[P(B|A)=\frac{P(B\cap A)}{P(A)}\]
-	\end{defn}
-	\begin{thm}[Principle of total probability]
-		Let $A_k, 1\leq k\leq n$ be mutually disjoint events in $\Omega$ such that $\bigcup_{k=1}^n A_k=\Omega$ and $P(A_k)\neq 0,\forall 1\leq k\leq n$.
-		\[P(B)=\sum_{k=1}^n P(A_k)P(B|A_k),\ \forall B\in\mathscr{A}\]
-	\end{thm}
+\begin{defn}[Cardinality of uncountable set]
+	If $A\subset \mathbb{R}^n$, $|A|$ denotes the $n$-dimensional volume of the region $A$.
+\end{defn}
+\begin{defn}[Uniform probability space]
+	Let $\Omega\subset\mathbb{R}^n$ where $|\Omega|$ is finite. $(\Omega,\mathcal{P}(\Omega), P)$ is called an uniform probability space if $P(A)=\frac{|A|}{|\Omega|},\ \forall A\subset\Omega$.
+\end{defn}
 
-	\subsection{Baye's Rule}
-	\begin{thm}[Baye's rule]
-		Let $A_k, 1\leq k\leq n$ be mutually disjoint events in $\Omega$ such that $\bigcup_{k=1}^n A_k=\Omega$ and $P(A_k)\neq 0,\forall 1\leq k\leq n$. If $B\in\mathscr{A}$ such that $P(B)\neq 0$,
-		\[P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^n P(A_k)P(B|A_k)}\]
-	\end{thm}
-	
-	\subsection{Independence}
-	\begin{defn}
-		Two events $A$ and $B$ are independent iff $P(A\cap B)=P(A)P(B)$.
-	\end{defn}
-	\begin{thm}
-		If $P(A)>0$, $A,B$ are independent iff $P(B|A)=P(B)$.
-	\end{thm}
+\section{Conditional Probability}
+\begin{defn}[Conditional probability]
+	Let $A,B$ be two events such that $P(A)\neq 0$. The conditional probability of $B$ given $A$ denoted by $P(B|A)$ is
+	\[P(B|A)=\frac{P(B\cap A)}{P(A)}\]
+\end{defn}
+\begin{thm}[Principle of total probability]
+	Let $A_k, 1\leq k\leq n$ be mutually disjoint events in $\Omega$ such that $\bigcup_{k=1}^n A_k=\Omega$ and $P(A_k)\neq 0,\forall 1\leq k\leq n$.
+	\[P(B)=\sum_{k=1}^n P(A_k)P(B|A_k),\ \forall B\in\mathscr{A}\]
+\end{thm}
+
+\subsection{Baye's Rule}
+\begin{thm}[Baye's rule]
+	Let $A_k, 1\leq k\leq n$ be mutually disjoint events in $\Omega$ such that $\bigcup_{k=1}^n A_k=\Omega$ and $P(A_k)\neq 0,\forall 1\leq k\leq n$. If $B\in\mathscr{A}$ such that $P(B)\neq 0$,
+	\[P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^n P(A_k)P(B|A_k)}\]
+\end{thm}
+
+\subsection{Independence}
+\begin{defn}
+	Two events $A$ and $B$ are independent iff $P(A\cap B)=P(A)P(B)$.
+\end{defn}
+\begin{thm}
+	If $P(A)>0$, $A,B$ are independent iff $P(B|A)=P(B)$.
+\end{thm}
 
 
-	\section{Combinatorial Analysis}
-	\begin{defn}(Ordered sample)
-		A random sample of size $r$ from population $S$ is the $r-$tuple $(x_1,x_2,\cdots,x_r),\ x_i\in S$.
+\section{Combinatorial Analysis}
+\begin{defn}(Ordered sample)
+	A random sample of size $r$ from population $S$ is the $r-$tuple $(x_1,x_2,\cdots,x_r),\ x_i\in S$.
 
-		It is called a random sample \textbf{without replacement} if $x_i=x_j\Rightarrow i=j(r\leq|S|)$. Otherwise, it is a random sampling \textbf{with replacement}.
-	\end{defn}
-	\begin{thm}
-		The number of possible random samples with replacement of size $r$ from a population of size $n$ is $n^r$.
+	It is called a random sample \textbf{without replacement} if $x_i=x_j\Rightarrow i=j(r\leq|S|)$. Otherwise, it is a random sampling \textbf{with replacement}.
+\end{defn}
+\begin{thm}
+	The number of possible random samples with replacement of size $r$ from a population of size $n$ is $n^r$.
 
-		It is the number of ways in which $r$ balls can be picked from $n$ distinct balls, with replacement, where the order of picking matters.
-	\end{thm}
+	It is the number of ways in which $r$ balls can be picked from $n$ distinct balls, with replacement, where the order of picking matters.
+\end{thm}
 
-	\subsection{Permutations}
-	\begin{thm}[Permutation]
-		The number of possible random samples without replacement of size $r$ from a population of size $n$ is
-		\[^nP_r=\frac{n!}{(n-r)!}\]
-		It is the number of ways in which $r$ balls can be picked from $n$ distinct balls, where the order of picking matters.
-	\end{thm}
+\subsection{Permutations}
+\begin{thm}[Permutation]
+	The number of possible random samples without replacement of size $r$ from a population of size $n$ is
+	\[^nP_r=\frac{n!}{(n-r)!}\]
+	It is the number of ways in which $r$ balls can be picked from $n$ distinct balls, where the order of picking matters.
+\end{thm}
 
-	\subsection{Combinations}
-	\begin{thm}[Combinations]
-		The number of ways in which $r$ balls can be picked from $n$ distinct balls, where the order of picking does not matter is
-		\[^nC_r=\frac{n!}{(n-r)!\ r!}\]
-	\end{thm}
-	\begin{thm}
-		The number of $r-$tuples $(x_1,x_2,\cdots,x_r),\ x_i\in\mathbb{N}\cup\{0\}$ that satisfy($n\in\mathbb{N}$)
-		\[x_1+x_2+\cdots+x_r=n\] is $\binom{n+r-1}{r-1}$. If $x_i\in\mathbb{N}$, we have $\binom{n-1}{r-1}$ solutions.
-	\end{thm}
+\subsection{Combinations}
+\begin{thm}[Combinations]
+	The number of ways in which $r$ balls can be picked from $n$ distinct balls, where the order of picking does not matter is
+	\[^nC_r=\frac{n!}{(n-r)!\ r!}\]
+\end{thm}
+\begin{thm}
+	The number of $r-$tuples $(x_1,x_2,\cdots,x_r),\ x_i\in\mathbb{N}\cup\{0\}$ that satisfy($n\in\mathbb{N}$)
+	\[x_1+x_2+\cdots+x_r=n\] is $\binom{n+r-1}{r-1}$. If $x_i\in\mathbb{N}$, we have $\binom{n-1}{r-1}$ solutions.
+\end{thm}
 
-	\section{Discrete Random Variable}
-	\begin{defn}[Discrete random variable]
-		A discrete real-valued random variable $X$ on a probability space $(\Omega,\mathscr{A},P)$ is a function $X$ with domain $\Omega$ and range a
-		finite or countably infinite subset $\{x_1,x_2,\cdots\}$ of $\mathbb{R}$
-		such that $\{\omega : X(\omega) = x_i\}$ is an event for all $i$.
-	\end{defn}
-	
-	\subsection{Discrete Density}
-	\begin{defn}[Discrete density]
-		$f_X:\mathbb{R}\to[0,1]$,
-		\[f_X(x)=P(X=x)\]
-		is the discrete density of random variable $X$.
-	\end{defn}
+\section{Discrete Random Variable}
+\begin{defn}[Discrete random variable]
+	A discrete real-valued random variable $X$ on a probability space $(\Omega,\mathscr{A},P)$ is a function $X$ with domain $\Omega$ and range a
+	finite or countably infinite subset $\{x_1,x_2,\cdots\}$ of $\mathbb{R}$
+	such that $\{\omega : X(\omega) = x_i\}$ is an event for all $i$.
+\end{defn}
 
-	\subsection{Joint Density}
-	\begin{defn}[Discrete random vector]
-		A discrete real-valued random vector $\vb{X}$ on a probability space $(\Omega,\mathscr{A},P)$ is a function $\vb{X}$ with domain $\Omega$ and range a
+\subsection{Discrete Density}
+\begin{defn}[Discrete density]
+	$f_X:\mathbb{R}\to[0,1]$,
+	\[f_X(x)=P(X=x)\]
+	is the discrete density of random variable $X$.
+\end{defn}
+
+\subsection{Joint Density}
+\begin{defn}[Discrete random vector]
+	A discrete real-valued random vector $\vb{X}$ on a probability space $(\Omega,\mathscr{A},P)$ is a function $\vb{X}$ with domain $\Omega$ and range a
 	finite or countably infinite subset $\{\vb{x}_1,\vb{x}_2,\cdots\}$ of $\mathbb{R}^r$
-		such that $\{\omega : \vb{X}(\omega) = \vb{x}_i\}$ is an event for all $i$.
+	such that $\{\omega : \vb{X}(\omega) = \vb{x}_i\}$ is an event for all $i$.
 
-		The density is the function $f(\vb{x})=P(\vb{X}=\vb{x})$ or 
-		\[f_{X_1,X_2,\cdots X_r}(x_1,x_2,\cdots,x_r)=P(X_1=x_1,X_2=x_2,\cdots,X_r=x_r)\] where $X_i$ are components of $\vb{X}$. $f_{X_1,X_2,\cdots X_r}$ is called the \textbf{joint density} of the random variables $X_1,X_2,\cdots X_r$.
-	\end{defn}
+	The density is the function $f(\vb{x})=P(\vb{X}=\vb{x})$ or
+	\[f_{X_1,X_2,\cdots X_r}(x_1,x_2,\cdots,x_r)=P(X_1=x_1,X_2=x_2,\cdots,X_r=x_r)\] where $X_i$ are components of $\vb{X}$. $f_{X_1,X_2,\cdots X_r}$ is called the \textbf{joint density} of the random variables $X_1,X_2,\cdots X_r$.
+\end{defn}
 
-	\subsection{Independence}
-	\begin{defn}[Independent random variables]
-		Two random variables $X,Y$ are independent iff
-		\[f_{X,Y}(x,y)=f_X(x)f_Y(y),\forall x,y\in\mathbb{R}\]
-	\end{defn}
-	
-	\subsection{Sum}
-	\begin{thm}[Sum of random variables]
-		\[f_{X+Y}(z)=P(X=x,Y=z-x)=\sum_x f_{X,Y}(x,z-x)\]
-	\end{thm}
+\subsection{Independence}
+\begin{defn}[Independent random variables]
+	Two random variables $X,Y$ are independent iff
+	\[f_{X,Y}(x,y)=f_X(x)f_Y(y),\forall x,y\in\mathbb{R}\]
+\end{defn}
 
-	\subsection{Conditional Density}
-	\begin{defn}[Conditional density]
-		$P(Y=y|X=x)=\frac{P(X=x,Y=y)}{P(X=x)}=\frac{f_{X,Y}(x,y)}{f_X(x)}$
-		\[f_{Y|X}(y|x):=
-			\begin{cases}
-				\frac{f_{X,Y}(x,y)}{f_X(x)},&f_X(x)\neq 0\\
-				0,&f_X(x)=0
-			\end{cases}
-		\]
-		is called the conditional density of $Y$ given $X$.
-	\end{defn}
-	
-	\subsection{Probability Generating Function}
-	\begin{defn}[Probability generating function]
-		$\Phi_X:[-1,1]\to\mathbb{R}$,
-		\[\Phi_X(t)=\sum_{x=0}^\infty f_X(x)t^x\]
-	\end{defn}
+\subsection{Sum}
+\begin{thm}[Sum of random variables]
+	\[f_{X+Y}(z)=P(X=x,Y=z-x)=\sum_x f_{X,Y}(x,z-x)\]
+\end{thm}
 
-	\subsection{Expectation}
-	\begin{defn}[Expectation of discrete random variable]
-		Let the range of $X$ be $\{x_1,x_2,\cdots\}$. The expectation of $X$ is
-		\[E(X)=\sum_{i=1}^\infty x_if_X(x_i)\]
-	\end{defn}
-
-	\begin{thm}
-		Let $\varphi$ be defined on the range of $X$ and $Z=\varphi(X)$.
-		\[E(Z)=\sum_{i}\varphi(x_i)f_X(x_i)\]
-	\end{thm}
-
-	\begin{defn}[Conditional expectation]
-		The conditional expectation of $Y$, given $X$ is
-		\[E(Y|X=x)=\sum_iy_if(y|x)\]
-	\end{defn}
-
-	\begin{thm}[Linearity of expectation]
-		\[E(cX)=cE(X)\]\[E(X+Y)=E(X)+E(Y)\]
-	\end{thm}
-	
-
-	\begin{thm}
-		$P(X\geq Y)=1\implies E(X)\geq E(Y)$. Moreover, $E(X)=E(Y)\iff P(X=Y)=1$.
-	\end{thm}
-
-	\begin{thm}
-		$|E(X)|\leq E(|X|)$
-	\end{thm}
-	\begin{lem}
-		$P(|X|\leq M)=1\implies |E(X)|\leq M$
-	\end{lem}
-	\begin{lem}
-		$P(|X-Y|\leq M)=1\implies |E(X)-E(Y)|\leq M$
-	\end{lem}
-
-	\begin{thm}
-		If $X,Y$ are independent, $E(XY)=E(X)E(Y)$
-	\end{thm}
-	
-	\subsection{Variance}
-	\begin{defn}[Moment]
-		Let $X$ be a random variable with expectation $\mu$. The $r^{th}$ moment of $X$ is $E(X^r)$ and the $r^{th}$ central moment is $E((X-\mu)^r)$
-	\end{defn}
-
-	\begin{defn}[Variance]
-		The $2^{nd}$ central moment.
-		\[V(X)=E((X-\mu)^2)=E(X^2)-\mu^2\]
-		$V(X)$ is denoted by $\sigma^2$, where $\sigma\geq 0$ is called the \textbf{standard deviation} of the $X$.
-	\end{defn}
-
-	\begin{thm}
-		\[V(X+b)=V(x)\]\[V(aX)=a^2V(X)\]
-	\end{thm}
-
-
-	\begin{thm}
-		\[\mu=\Phi'_X(1)\]\[E(X^2)=\Phi''_X(1)+\Phi'_X(1)\]
-	\end{thm}
-
-	\subsection{Covariance and Correlation}
-	\begin{thm}[Variance of sum]
-		\[V(X+Y)=V(X)+V(Y)+2E[(X-E(X))(Y-E(Y))]\]
-	\end{thm}
-	\begin{defn}[Covariance]
-		The covariance of $X,Y$ is given by
-		\[Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)\]
-	\end{defn}
-	\begin{thm}
-		$X,Y$ are independent $\implies Cov(X,Y)=0$
-	\end{thm}
-
-	\begin{defn}[Correlation coefficient]
-		The correlation coefficient of $X,Y$ is
-		\[\rho(X,Y)=\frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}}\]
-	\end{defn}
-
-	\subsection{Schwartz and Chebyshev's Inequalities}
-	\begin{thm}[Schwartz inequality]
-		$[E(XY)]^2\leq E(X^2)E(Y^2)$
-	\end{thm}
-	\begin{cor}
-		$[Cov(X,Y)]^2\leq V(X)V(Y)$. This means $|\rho(X,Y)|\leq 1$.
-	\end{cor}
-
-	\begin{thm}[Chebyshev's inequality]
-		\[P(|X-\mu|\geq t)\leq \frac{\sigma^2}{t^2}, \forall t>0\]
-	\end{thm}
-
-
-	\section{Important Discrete Densities}
-	\subsection{Uniform}
-	\[\text{DiscreteUnif}(a,b)\sim f(x)=\begin{cases}
-		\frac{1}{b-a+1},&a\leq x\in\mathbb{Z}\leq b\\
-		0,&\text{otherwise}
-	\end{cases}\]
-	\[\mu = \frac{a+b}{2}\]
-	\[\sigma^2=\frac{(a+b-1)^2-1}{12}\]
-
-	\subsection{Bernoulli}
-	\[\text{Ber}(p)\sim f(x)=
-	\begin{cases}
-		p,&x=1\\
-		1-p,&x=0\\
-		0,&\text{otherwise}
-	\end{cases}
+\subsection{Conditional Density}
+\begin{defn}[Conditional density]
+	$P(Y=y|X=x)=\frac{P(X=x,Y=y)}{P(X=x)}=\frac{f_{X,Y}(x,y)}{f_X(x)}$
+	\[f_{Y|X}(y|x):=
+		\begin{cases}
+			\frac{f_{X,Y}(x,y)}{f_X(x)}, & f_X(x)\neq 0 \\
+			0,                           & f_X(x)=0
+		\end{cases}
 	\]
-	\[\mu=p\]
-	\[\sigma^2=p-p^2\]
+	is called the conditional density of $Y$ given $X$.
+\end{defn}
 
-	\subsection{Binomial}
-	\[\text{Binom}(n;p)\sim f(x)=\begin{cases}
-		\binom{n}{x}p^x(1-p)^{n-x},&x=0,1,\cdots,n\\
-		0,&\text{otherwise}
+\subsection{Probability Generating Function}
+\begin{defn}[Probability generating function]
+	$\Phi_X:[-1,1]\to\mathbb{R}$,
+	\[\Phi_X(t)=\sum_{x=0}^\infty f_X(x)t^x\]
+\end{defn}
+
+\subsection{Expectation}
+\begin{defn}[Expectation of discrete random variable]
+	Let the range of $X$ be $\{x_1,x_2,\cdots\}$. The expectation of $X$ is
+	\[E(X)=\sum_{i=1}^\infty x_if_X(x_i)\]
+\end{defn}
+
+\begin{thm}
+	Let $\varphi$ be defined on the range of $X$ and $Z=\varphi(X)$.
+	\[E(Z)=\sum_{i}\varphi(x_i)f_X(x_i)\]
+\end{thm}
+
+\begin{defn}[Conditional expectation]
+	The conditional expectation of $Y$, given $X$ is
+	\[E(Y|X=x)=\sum_iy_if(y|x)\]
+\end{defn}
+
+\begin{thm}[Linearity of expectation]
+	\[E(cX)=cE(X)\]\[E(X+Y)=E(X)+E(Y)\]
+\end{thm}
+
+
+\begin{thm}
+	$P(X\geq Y)=1\implies E(X)\geq E(Y)$. Moreover, $E(X)=E(Y)\iff P(X=Y)=1$.
+\end{thm}
+
+\begin{thm}
+	$|E(X)|\leq E(|X|)$
+\end{thm}
+\begin{lem}
+	$P(|X|\leq M)=1\implies |E(X)|\leq M$
+\end{lem}
+\begin{lem}
+	$P(|X-Y|\leq M)=1\implies |E(X)-E(Y)|\leq M$
+\end{lem}
+
+\begin{thm}
+	If $X,Y$ are independent, $E(XY)=E(X)E(Y)$
+\end{thm}
+
+\subsection{Variance}
+\begin{defn}[Moment]
+	Let $X$ be a random variable with expectation $\mu$. The $r^{th}$ moment of $X$ is $E(X^r)$ and the $r^{th}$ central moment is $E((X-\mu)^r)$
+\end{defn}
+
+\begin{defn}[Variance]
+	The $2^{nd}$ central moment.
+	\[V(X)=E((X-\mu)^2)=E(X^2)-\mu^2\]
+	$V(X)$ is denoted by $\sigma^2$, where $\sigma\geq 0$ is called the \textbf{standard deviation} of the $X$.
+\end{defn}
+
+\begin{thm}
+	\[V(X+b)=V(x)\]\[V(aX)=a^2V(X)\]
+\end{thm}
+
+
+\begin{thm}
+	\[\mu=\Phi'_X(1)\]\[E(X^2)=\Phi''_X(1)+\Phi'_X(1)\]
+\end{thm}
+
+\subsection{Covariance and Correlation}
+\begin{thm}[Variance of sum]
+	\[V(X+Y)=V(X)+V(Y)+2E[(X-E(X))(Y-E(Y))]\]
+\end{thm}
+\begin{defn}[Covariance]
+	The covariance of $X,Y$ is given by
+	\[Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)\]
+\end{defn}
+\begin{thm}
+	$X,Y$ are independent $\implies Cov(X,Y)=0$
+\end{thm}
+
+\begin{defn}[Correlation coefficient]
+	The correlation coefficient of $X,Y$ is
+	\[\rho(X,Y)=\frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}}\]
+\end{defn}
+
+\subsection{Schwartz and Chebyshev's Inequalities}
+\begin{thm}[Schwartz inequality]
+	$[E(XY)]^2\leq E(X^2)E(Y^2)$
+\end{thm}
+\begin{cor}
+	$[Cov(X,Y)]^2\leq V(X)V(Y)$. This means $|\rho(X,Y)|\leq 1$.
+\end{cor}
+
+\begin{thm}[Chebyshev's inequality]
+	\[P(|X-\mu|\geq t)\leq \frac{\sigma^2}{t^2}, \forall t>0\]
+\end{thm}
+
+
+\section{Important Discrete Densities}
+\subsection{Uniform}
+\[\text{DiscreteUnif}(a,b)\sim f(x)=\begin{cases}
+		\frac{1}{b-a+1}, & a\leq x\in\mathbb{Z}\leq b \\
+		0,               & \text{otherwise}
 	\end{cases}\]
-	\[\mu=np\]
-	\[\sigma^2=np(p-1)\]
+\[\mu = \frac{a+b}{2}\]
+\[\sigma^2=\frac{(a+b-1)^2-1}{12}\]
 
-	\subsection{Geometric}
-	\[\text{Geom}(p)\sim f(x)=\begin{cases}
-		p(1-p)^x,&x=0,1,\cdots,n\\
-		0,&\text{otherwise}
+\subsection{Bernoulli}
+\[\text{Ber}(p)\sim f(x)=
+	\begin{cases}
+		p,   & x=1              \\
+		1-p, & x=0              \\
+		0,   & \text{otherwise}
+	\end{cases}
+\]
+\[\mu=p\]
+\[\sigma^2=p-p^2\]
+
+\subsection{Binomial}
+\[\text{Binom}(n;p)\sim f(x)=\begin{cases}
+		\binom{n}{x}p^x(1-p)^{n-x}, & x=0,1,\cdots,n   \\
+		0,                          & \text{otherwise}
 	\end{cases}\]
-	\[\mu=\frac{1-p}{p}\]
-	\[\sigma^2=\frac{1-p}{p^2}\]
+\[\mu=np\]
+\[\sigma^2=np(p-1)\]
 
-	\subsection{Negative binomial}
-	\[\text{NegBinom}(\alpha;p)\sim f(x)=\begin{cases}
-		\binom{\alpha +x-1}{x}p^\alpha(1-p)^x,&x=0,1,\cdots,n\\
-		0,&\text{otherwise}
+\subsection{Geometric}
+\[\text{Geom}(p)\sim f(x)=\begin{cases}
+		p(1-p)^x, & x=0,1,\cdots,n   \\
+		0,        & \text{otherwise}
 	\end{cases}\]
-	\[\mu=\frac{p\alpha}{1-p}\]
-	\[\sigma^2=\frac{p\alpha}{(1-p)^2}\]
+\[\mu=\frac{1-p}{p}\]
+\[\sigma^2=\frac{1-p}{p^2}\]
 
-	\subsection{Hypergeometric}
+\subsection{Negative binomial}
+\[\text{NegBinom}(\alpha;p)\sim f(x)=\begin{cases}
+		\binom{\alpha +x-1}{x}p^\alpha(1-p)^x, & x=0,1,\cdots,n   \\
+		0,                                     & \text{otherwise}
+	\end{cases}\]
+\[\mu=\frac{p\alpha}{1-p}\]
+\[\sigma^2=\frac{p\alpha}{(1-p)^2}\]
+
+\subsection{Hypergeometric}
 \[\text{HyperGeom}(r,r_1;n)\sim f(x)=\begin{cases}
-		\frac{\binom{r_1}{x}\binom{r-r_1}{n-x}}{\binom{r}{n}},&x=0,1,\cdots,n\\
-		0,&\text{otherwise}
+		\frac{\binom{r_1}{x}\binom{r-r_1}{n-x}}{\binom{r}{n}}, & x=0,1,\cdots,n   \\
+		0,                                                     & \text{otherwise}
 	\end{cases}\]
-	\[\mu=\frac{nr_1}{r}\]
-	\[\sigma^2=\frac{nr_1(r-r_1)(r-n)}{r^2(r-1)}\]
-	Consider a population of $r$ objects, of which $r_1$ are of one type and $r_2=r-r_1$ are of a second type. Suppose a random sample of size $n$ is drawn from the pouplation. Let $X$ be the number of objects of the first type in the sample.
-	
-	\subsection{Poisson}
-	\[\text{Poisson}(\lambda)\sim f(x)=\begin{cases}
-		\frac{\lambda^xe^{-\lambda}}{x!},&x=0,1,\cdots,n\\
-		0,&\text{otherwise}
-	\end{cases}\]
-	\[\mu=\lambda\]
-	\[\sigma^2=\lambda\]
-	\[\Phi(z)=e^{\lambda(z-1)}\]
+\[\mu=\frac{nr_1}{r}\]
+\[\sigma^2=\frac{nr_1(r-r_1)(r-n)}{r^2(r-1)}\]
+Consider a population of $r$ objects, of which $r_1$ are of one type and $r_2=r-r_1$ are of a second type. Suppose a random sample of size $n$ is drawn from the pouplation. Let $X$ be the number of objects of the first type in the sample.
 
-	\subsection{Multinomial}
-	\[\text{Multinom}(n;p_1,p_2,\cdots,p_n)\sim f(x_1,x_2,\cdots,x_n)
+\subsection{Poisson}
+\[\text{Poisson}(\lambda)\sim f(x)=\begin{cases}
+		\frac{\lambda^xe^{-\lambda}}{x!}, & x=0,1,\cdots,n   \\
+		0,                                & \text{otherwise}
+	\end{cases}\]
+\[\mu=\lambda\]
+\[\sigma^2=\lambda\]
+\[\Phi(z)=e^{\lambda(z-1)}\]
+
+\subsection{Multinomial}
+\[\text{Multinom}(n;p_1,p_2,\cdots,p_n)\sim f(x_1,x_2,\cdots,x_n)
 	\begin{cases}
-		\frac{n!}{x_1!\ x_2!\cdots x_r!}p_1^{x_1}p_2^{x_2}\cdots p_n^{x_n},& x_i\in\mathbb{N}\cup\{0\},\ x_1+x_2+\cdots + x_r=n\\
-		0,&\text{otherwise}
+		\frac{n!}{x_1!\ x_2!\cdots x_r!}p_1^{x_1}p_2^{x_2}\cdots p_n^{x_n}, & x_i\in\mathbb{N}\cup\{0\},\ x_1+x_2+\cdots + x_r=n \\
+		0,                                                                  & \text{otherwise}
 	\end{cases}
+\]
+We have, $X_i\sim$ Binom$(n;p_i)$.
+
+\begin{thm}
+	Let $X_1,X_2,\cdots,X_r$ be pair-wise independent. Let $Y=X_1+X_2+\cdots+X_r$.
+	\begin{itemize}
+		\item $X_i\sim$ Binom$(n_i;p)\implies Y\sim$ Binom$(\sum_i n_i;p)$
+		\item $X_i\sim$ NegBinom$(\alpha_i;p)\implies Y\sim$ NegBinom$(\sum_i\alpha_i;p)$
+		\item $X_i\sim$ Poisson$(\lambda)\implies Y\sim$ Poisson$(\sum_i\lambda_i)$
+		\item $X_i\sim$ Geom$(p)\implies Y\sim$ NegBinom$(r;p)$.
+	\end{itemize}
+\end{thm}
+
+\section{Continuous Random Variable}
+\begin{defn}[Continuous random varibale]
+	A continuous random variable $X$ on a probability space $(\Omega,\mathscr{A},P)$ is a real-valued function $X:\Omega\to\mathbb{R}$ such that for $x\in\mathbb{R}$, $\{\omega|X(\omega)\leq x\}$ is an event.
+	\[P(X=x)=0,\forall x\]
+\end{defn}
+\subsection{Continuous Distribution}
+\begin{defn}[Continuous distribution]
+	$F_X:\mathbb{R}\to[0,1]$
+	\[F_X(x)=P(X\leq x)\]
+	is called the distribution of continuous random varibale $X$.
+\end{defn}
+\begin{thm}
+	A continuous distribution is right-continuous and non-decreasing.
+\end{thm}
+\begin{cor}
+	If $F$ is a continuous distribution,
+	\[\lim_{x\to{-\infty}}F(x)=0\]
+	\[\lim_{x\to{+\infty}}F(x)=1\]
+\end{cor}
+\subsection{Continuous Density}
+\begin{defn}[Continuous density function]
+	$f_X:\mathbb{R}\to\mathbb{R}$
+	\[\int_{-\infty}^\infty f_X(x)\ dx=1\]
+	\[F(x)=\int_{-\infty}^x f(t)\ dt,\ \forall x\in\mathbb{R}\]
+	If such a density $f_X$ exists, $X$ and $F_X$ are called absolutely continuous.
+\end{defn}
+\begin{thm}
+	If $F_X$ is continuously differentiable(or, $f$ is continuous) at $x_0$,
+	\[f(x_0)=F'(x_0)\]
+\end{thm}
+
+\subsection{Change of Variable}
+\begin{thm}[Change of variable]
+	Let $Y=\varphi(X)$, where $\varphi$ is differentiable and strictly increasing or decreasing in an interval $I$. Let $f_X(x)=0,\forall x\notin I$.
+	\[f_Y(y)=
+		\begin{cases}
+			f\left(\varphi^{-1}(y)\right)\left|\frac{d}{dy}\left(\varphi^{-1}(y)\right)\right|, & \forall y\in\varphi(I) \\
+			0,                                                                                  & \text{otherwise}
+		\end{cases}
 	\]
-	We have, $X_i\sim$ Binom$(n;p_i)$.
+\end{thm}
 
-	\begin{thm}
-		Let $X_1,X_2,\cdots,X_r$ be pair-wise independent. Let $Y=X_1+X_2+\cdots+X_r$.
-		\begin{itemize}
-			\item $X_i\sim$ Binom$(n_i;p)\implies Y\sim$ Binom$(\sum_i n_i;p)$
-			\item $X_i\sim$ NegBinom$(\alpha_i;p)\implies Y\sim$ NegBinom$(\sum_i\alpha_i;p)$
-			\item $X_i\sim$ Poisson$(\lambda)\implies Y\sim$ Poisson$(\sum_i\lambda_i)$
-			\item $X_i\sim$ Geom$(p)\implies Y\sim$ NegBinom$(r;p)$.
-		\end{itemize}
-	\end{thm}
+\subsection{Joint distribution}
+\begin{defn}[Joint distribution]
+	$F:\mathbb{R}^2\to[0,1]$
+	\[F_{X,Y}(x,y)=P(X\leq x,Y\leq y)\]
+\end{defn}
+\begin{thm}
+	Probability in a rectangular region is given by
+	\[P(a<X\leq b,c<Y\leq d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)\]
+\end{thm}
 
-	\section{Continuous Random Variable}
-	\begin{defn}[Continuous random varibale]
-		A continuous random variable $X$ on a probability space $(\Omega,\mathscr{A},P)$ is a real-valued function $X:\Omega\to\mathbb{R}$ such that for $x\in\mathbb{R}$, $\{\omega|X(\omega)\leq x\}$ is an event.
-		\[P(X=x)=0,\forall x\]
-	\end{defn}
-	\subsection{Continuous Distribution}
-	\begin{defn}[Continuous distribution]
-		$F_X:\mathbb{R}\to[0,1]$
-		\[F_X(x)=P(X\leq x)\]
-		is called the distribution of continuous random varibale $X$.
-	\end{defn}
-	\begin{thm}
-		A continuous distribution is right-continuous and non-decreasing.
-	\end{thm}
-	\begin{cor}
-		If $F$ is a continuous distribution,
-		\[\lim_{x\to{-\infty}}F(x)=0\]
-		\[\lim_{x\to{+\infty}}F(x)=1\]
-	\end{cor}
-	\subsection{Continuous Density}
-	\begin{defn}[Continuous density function]
-		$f_X:\mathbb{R}\to\mathbb{R}$
-		\[\int_{-\infty}^\infty f_X(x)\ dx=1\]
-		\[F(x)=\int_{-\infty}^x f(t)\ dt,\ \forall x\in\mathbb{R}\]
-		If such a density $f_X$ exists, $X$ and $F_X$ are called absolutely continuous.
-	\end{defn}
-	\begin{thm}
-		If $F_X$ is continuously differentiable(or, $f$ is continuous) at $x_0$,
-		\[f(x_0)=F'(x_0)\]
-	\end{thm}
-	
-	\subsection{Change of Variable}
-	\begin{thm}[Change of variable]
-		Let $Y=\varphi(X)$, where $\varphi$ is differentiable and strictly increasing or decreasing in an interval $I$. Let $f_X(x)=0,\forall x\notin I$.
-		\[f_Y(y)=
-			\begin{cases}
-				f\left(\varphi^{-1}(y)\right)\left|\frac{d}{dy}\left(\varphi^{-1}(y)\right)\right|,&\forall y\in\varphi(I)\\
-				0,&\text{otherwise}
-			\end{cases}
-		\]
-	\end{thm}
+\subsection{Joint Density}
+\begin{defn}[Joint density]
+	$f:\mathbb{R}^2\to\mathbb{R}$
+	\[\int_{-\infty}^\infty \int_{-\infty}^\infty f(x,y)\ dx\ dy=1\]
+	\[F(x,y)=\int_{-\infty}^x \int_{-\infty}^y f(u,v)\ dv\ du\]
+\end{defn}
 
-	\subsection{Joint distribution}
-	\begin{defn}[Joint distribution]
-		$F:\mathbb{R}^2\to[0,1]$
-		\[F_{X,Y}(x,y)=P(X\leq x,Y\leq y)\]
-	\end{defn}
-	\begin{thm}
-		Probability in a rectangular region is given by
-		\[P(a<X\leq b,c<Y\leq d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)\]
-	\end{thm}
+\begin{thm}
+	If $f$ is continuous at $(x_0,y_0)$,
+	\[f(x_0,y_0)=F_{xy}(x_0,y_0)\]
+\end{thm}
 
-	\subsection{Joint Density}
-	\begin{defn}[Joint density]
-		$f:\mathbb{R}^2\to\mathbb{R}$
-		\[\int_{-\infty}^\infty \int_{-\infty}^\infty f(x,y)\ dx\ dy=1\]
-		\[F(x,y)=\int_{-\infty}^x \int_{-\infty}^y f(u,v)\ dv\ du\]
-	\end{defn}
+\subsection{Independence}
+\begin{defn}[Independence]
+	$X,Y$ are independent iff
+	\[F(x,y)=F_X(x)F_y(y),\forall x,y\in\mathbb{R}\]
+	or,
+	\[f(x,y)=f_X(x)f_Y(y),\forall x,y\in\mathbb{R}\]
+\end{defn}
+\begin{thm}
+	Let $X_1,X_2,\cdots, X_n$ be pair-wise independent. Suppose, $Y=\varphi(X_1,X_2,\cdots,X_n)$ and $Z=\psi(X_{m+1},X_{m+2},\cdots,X_n)$ where $1\leq m<n$. $Y,Z$ are independent.
+\end{thm}
 
-	\begin{thm}
-		If $f$ is continuous at $(x_0,y_0)$,
-		\[f(x_0,y_0)=F_{xy}(x_0,y_0)\]
-	\end{thm}
-
-	\subsection{Independence}
-	\begin{defn}[Independence]
-		$X,Y$ are independent iff
-		\[F(x,y)=F_X(x)F_y(y),\forall x,y\in\mathbb{R}\]
-		or,
-		\[f(x,y)=f_X(x)f_Y(y),\forall x,y\in\mathbb{R}\]
-	\end{defn}
-	\begin{thm}
-		Let $X_1,X_2,\cdots, X_n$ be pair-wise independent. Suppose, $Y=\varphi(X_1,X_2,\cdots,X_n)$ and $Z=\psi(X_{m+1},X_{m+2},\cdots,X_n)$ where $1\leq m<n$. $Y,Z$ are independent.
-	\end{thm}
-
-	\subsection{Sum}
-	\begin{thm}[Sum of continuous random variables]
+\subsection{Sum}
+\begin{thm}[Sum of continuous random variables]
 	\[F_{X+Y}(z)=\int_{-\infty}^z\int_{-\infty}^\infty f_{X,Y}(x,v-x)\ dx\ dv\]
 	\[f_{X+Y}(z)=\int_{-\infty}^\infty f_{X,Y}(x,z-x)\ dx=f_X(z)*f_Y(z)\]
-	\end{thm}
+\end{thm}
 
-	\subsection{Conditional Density}
-	\begin{defn}[Conditional density]
-		The conditional density of $Y$ given $X$ is defined as
-		\[f_{Y|X}(y|x):=
-			\begin{cases}
-				\frac{f_{X,Y}(x,y)}{f_X(x)},&0<f_X(x)<\infty\\
-				0,&\text{otherwise}
-			\end{cases}
-		\]
-
-		\[P(a\leq Y\leq b|X=x)=\int_a^b f_{Y|X}(y|x)\ dy\]
-		
-	\end{defn}
-	\begin{thm}[Baye's rule]
-		\[f_{X|Y}(x|y)=\frac{f_X(x)f_{Y|X}(y|x)}{\int_{-\infty}^{\infty}f_X(x)f_{Y|X}(y|x)\ dx}\]
-	\end{thm}
-
-	\subsection{Expectation}
-	\begin{defn}[Expectation of continuous random variable]
-		\[E(X)=\int_{-\infty}^\infty xf(x)\ dx\]
-	\end{defn}
-	\begin{thm}
-		Let $X_1,X_2,\cdots,X_n$ have joint density $f$ and $Z=\varphi(X_1,\cdots,X_n)$.
-		\[E(Z)=\int \varphi(x_1,\cdots,x_n)f(x_1,\cdots,x_n)\ d\vb{x}\]
-	\end{thm}
-	\begin{defn}[Conditional expectation]
-		\[E[Y|X=x]=\int_{-\infty}^\infty yf(y|x)\ dy=\frac{\int_{-\infty}^\infty yf(x,y)\ dy}{f_X(x)}\]
-		is called the conditional expectation of $Y$ given $X$ or the regression function of $Y$ on $X$.
-	\end{defn}
-
-	\subsection{Moments}
-	Moments, variance, covariance, correlation are defined like the discrete case.
-
-	\section{Important Continuous Densities}
-	\subsection{Symmetric}
-	$f$ is symmetric if $f(-x)=f(x),\forall x$. If $X$ and $-X$ have the same distribution, $X$ is called a symmetric random variable.
-
-	\subsection{Standard Normal}
-	\[\Phi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\]
-	\[\mu=0\]
-	\[\sigma^2=1\]
-	$\Phi$ is symmetric. The density and distribution have the same function.
-
-	\subsection{Normal}
-	For $\sigma>0$,
-	\[n(\mu,\sigma^2)\sim f(x)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
-		\[F(x)=\Phi\left(\frac{y-\mu}{\sigma}\right)\]
-	$X\sim \Phi\implies \mu+\sigma X\sim n(\mu,\sigma^2)$
-
-	\subsection{Exponential}
-	\[\text{Exp}(\lambda)\sim f(x)=
+\subsection{Conditional Density}
+\begin{defn}[Conditional density]
+	The conditional density of $Y$ given $X$ is defined as
+	\[f_{Y|X}(y|x):=
 		\begin{cases}
-			\lambda e^{-\lambda x},&x\geq 0\\
-			0,&x<0
+			\frac{f_{X,Y}(x,y)}{f_X(x)}, & 0<f_X(x)<\infty  \\
+			0,                           & \text{otherwise}
 		\end{cases}
 	\]
-	\[F(x)=
-		\begin{cases}
-			1- e^{-\lambda x},&x\geq 0\\
-			0,&x<0
-		\end{cases}
-	\]
-	\[\mu=\frac{1}{\lambda}\]
-	\[\sigma^2=\frac{1}{\lambda^2}\]
 
-	\subsection{Gamma}
-	\[\Gamma(\alpha,\lambda)\sim f(x)=
-		\begin{cases}
-			\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1} e^{-\lambda x},&x> 0\\
-			0,&x\leq 0
-		\end{cases}
-	\]
-	where $\Gamma(x)=\int_0^\infty t^{x-1}e^{-t}\ dt, x>0$.
-	\[\mu=\frac{\alpha}{\lambda}\]
-	\[\sigma^2=\frac{\alpha}{\gamma^2}\]
-	Exp$(\lambda)\sim \gamma(1,\lambda)$
+	\[P(a\leq Y\leq b|X=x)=\int_a^b f_{Y|X}(y|x)\ dy\]
 
-	\subsection{Cauchy}
-	\[\text{Cauchy}(\alpha,\gamma)\sim f(x)=\frac{1}{\pi\gamma\left[1+\left(\frac{x-\alpha}{\gamma}\right)^2\right]}\]
-	\[F(x)=\frac{1}{\pi}\tan^{-1}\left(\frac{x-\alpha}{\gamma}\right)+\frac{1}{2}\]
+\end{defn}
+\begin{thm}[Baye's rule]
+	\[f_{X|Y}(x|y)=\frac{f_X(x)f_{Y|X}(y|x)}{\int_{-\infty}^{\infty}f_X(x)f_{Y|X}(y|x)\ dx}\]
+\end{thm}
 
-	\subsection{Standard Bivariate Normal}
-	\[f(x,y)=\frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}\]
+\subsection{Expectation}
+\begin{defn}[Expectation of continuous random variable]
+	\[E(X)=\int_{-\infty}^\infty xf(x)\ dx\]
+\end{defn}
+\begin{thm}
+	Let $X_1,X_2,\cdots,X_n$ have joint density $f$ and $Z=\varphi(X_1,\cdots,X_n)$.
+	\[E(Z)=\int \varphi(x_1,\cdots,x_n)f(x_1,\cdots,x_n)\ d\vb{x}\]
+\end{thm}
+\begin{defn}[Conditional expectation]
+	\[E[Y|X=x]=\int_{-\infty}^\infty yf(y|x)\ dy=\frac{\int_{-\infty}^\infty yf(x,y)\ dy}{f_X(x)}\]
+	is called the conditional expectation of $Y$ given $X$ or the regression function of $Y$ on $X$.
+\end{defn}
 
-	\begin{thm}
-		Let $X\sim$ Exp$(\lambda)$ and $a,b\geq 0$.
-		\begin{enumerate}
-			\item $P(X>a+b)=P(X>a)P(X>b)$
-			\item $P(X>a+b|X>a)=P(x>b)$
+\subsection{Moments}
+Moments, variance, covariance, correlation are defined like the discrete case.
+
+\section{Important Continuous Densities}
+\subsection{Symmetric}
+$f$ is symmetric if $f(-x)=f(x),\forall x$. If $X$ and $-X$ have the same distribution, $X$ is called a symmetric random variable.
+
+\subsection{Standard Normal}
+\[\Phi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\]
+\[\mu=0\]
+\[\sigma^2=1\]
+$\Phi$ is symmetric. The density and distribution have the same function.
+
+\subsection{Normal}
+For $\sigma>0$,
+\[n(\mu,\sigma^2)\sim f(x)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
+\[F(x)=\Phi\left(\frac{y-\mu}{\sigma}\right)\]
+$X\sim \Phi\implies \mu+\sigma X\sim n(\mu,\sigma^2)$
+
+\subsection{Exponential}
+\[\text{Exp}(\lambda)\sim f(x)=
+	\begin{cases}
+		\lambda e^{-\lambda x}, & x\geq 0 \\
+		0,                      & x<0
+	\end{cases}
+\]
+\[F(x)=
+	\begin{cases}
+		1- e^{-\lambda x}, & x\geq 0 \\
+		0,                 & x<0
+	\end{cases}
+\]
+\[\mu=\frac{1}{\lambda}\]
+\[\sigma^2=\frac{1}{\lambda^2}\]
+
+\subsection{Gamma}
+\[\Gamma(\alpha,\lambda)\sim f(x)=
+	\begin{cases}
+		\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1} e^{-\lambda x}, & x> 0    \\
+		0,                                                                & x\leq 0
+	\end{cases}
+\]
+where $\Gamma(x)=\int_0^\infty t^{x-1}e^{-t}\ dt, x>0$.
+\[\mu=\frac{\alpha}{\lambda}\]
+\[\sigma^2=\frac{\alpha}{\gamma^2}\]
+Exp$(\lambda)\sim \gamma(1,\lambda)$
+
+\subsection{Cauchy}
+\[\text{Cauchy}(\alpha,\gamma)\sim f(x)=\frac{1}{\pi\gamma\left[1+\left(\frac{x-\alpha}{\gamma}\right)^2\right]}\]
+\[F(x)=\frac{1}{\pi}\tan^{-1}\left(\frac{x-\alpha}{\gamma}\right)+\frac{1}{2}\]
+
+\subsection{Standard Bivariate Normal}
+\[f(x,y)=\frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}\]
+
+\begin{thm}
+	Let $X\sim$ Exp$(\lambda)$ and $a,b\geq 0$.
+	\begin{enumerate}
+		\item $P(X>a+b)=P(X>a)P(X>b)$
+		\item $P(X>a+b|X>a)=P(x>b)$
 	\end{enumerate}
 	Both these statements are equivalent. If they hold for some $X$, $X$ is either exponentially distributed or $P(X>0)=0$.
-	\end{thm}
+\end{thm}
 
-	\begin{thm}
-		$X\sim n(0,\sigma^2)\implies X^2\sim \Gamma\left(\frac{1}{2},\frac{1}{2\sigma^2}\right)$
-	\end{thm}
+\begin{thm}
+	$X\sim n(0,\sigma^2)\implies X^2\sim \Gamma\left(\frac{1}{2},\frac{1}{2\sigma^2}\right)$
+\end{thm}
 
-	\begin{thm}
-		$X_i\sim\Gamma(\alpha_i,\lambda)\implies \sum_iX_i\sim \Gamma(\sum_i\alpha_i,\lambda)$
-	\end{thm}
+\begin{thm}
+	$X_i\sim\Gamma(\alpha_i,\lambda)\implies \sum_iX_i\sim \Gamma(\sum_i\alpha_i,\lambda)$
+\end{thm}
 
-	\begin{thm}
-		$X_i\sim n(\mu_i,\sigma_i^2)\implies \sum_iX_i\sim n(\sum_i\mu_i,\sum_i\sigma_i^2)$
-	\end{thm}
+\begin{thm}
+	$X_i\sim n(\mu_i,\sigma_i^2)\implies \sum_iX_i\sim n(\sum_i\mu_i,\sum_i\sigma_i^2)$
+\end{thm}
 
-	\begin{thm}
-		Here are some important results that may be useful in computations:
-		\begin{itemize}
-			\item $\int_{-\infty}^{\infty}e^{-\frac{x^2}{2}}\ dx=\sqrt{2\pi}$
-			\item $\int_0^{\infty} x^{\alpha-1}e^{-\lambda x}\ dx=\frac{\Gamma(\alpha)}{\lambda^\alpha}$
-			\item $\Gamma(x+1)=x\Gamma(x)$
-			\item $\Gamma(1)=1,\ \Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$
-			\item $\Gamma(n)=(n-1)!,\ \forall n\in\mathbb{N}$
-			\item $\Gamma\left(\frac{n}{2}\right)=\frac{\sqrt{\pi}(n-1)!}{2^{n-1}\left(\frac{n-1}{2}\right)!}, \forall \text{ odd natural number }n$
-		\end{itemize}
-	\end{thm}
+\begin{thm}
+	Here are some important results that may be useful in computations:
+	\begin{itemize}
+		\item $\int_{-\infty}^{\infty}e^{-\frac{x^2}{2}}\ dx=\sqrt{2\pi}$
+		\item $\int_0^{\infty} x^{\alpha-1}e^{-\lambda x}\ dx=\frac{\Gamma(\alpha)}{\lambda^\alpha}$
+		\item $\Gamma(x+1)=x\Gamma(x)$
+		\item $\Gamma(1)=1,\ \Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$
+		\item $\Gamma(n)=(n-1)!,\ \forall n\in\mathbb{N}$
+		\item $\Gamma\left(\frac{n}{2}\right)=\frac{\sqrt{\pi}(n-1)!}{2^{n-1}\left(\frac{n-1}{2}\right)!}, \forall \text{ odd natural number }n$
+	\end{itemize}
+\end{thm}
 
 
-	\section{Central Limit Theorem}
-	\begin{thm}[Central limit theorem]
-		Let $X_1,X_2,\cdots$ be independent, identically distributed random variables with mean $\mu$ and variance $\sigma^2$. Let $S_n=\sum_iX_i$.
-		\[\lim_{n\to\infty}P\left(\frac{S_n-n\mu}{\sigma\sqrt{n}}\leq x\right)=\Phi(x),\ \forall x\in\mathbb{R}\]
-	\end{thm}
+\section{Central Limit Theorem}
+\begin{thm}[Central limit theorem]
+	Let $X_1,X_2,\cdots$ be independent, identically distributed random variables with mean $\mu$ and variance $\sigma^2$. Let $S_n=\sum_iX_i$.
+	\[\lim_{n\to\infty}P\left(\frac{S_n-n\mu}{\sigma\sqrt{n}}\leq x\right)=\Phi(x),\ \forall x\in\mathbb{R}\]
+\end{thm}
 
-	\begin{cor}
-		For very large $n$, $\frac{S_n-n\mu}{\sigma\sqrt{n}}\sim\Phi$.
-	\end{cor}
+\begin{cor}
+	For very large $n$, $\frac{S_n-n\mu}{\sigma\sqrt{n}}\sim\Phi$.
+\end{cor}
 \end{document}
