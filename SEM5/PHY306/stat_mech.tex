@@ -7,6 +7,7 @@
 \usepackage[margin=0.75in]{geometry}
 \usepackage{anyfontsize}
 \usepackage{amsthm}
+\usepackage{framed}
 
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
@@ -14,7 +15,7 @@
 \newtheorem{cor}{Corollary}[thm]
 \newtheorem{defn}{Definition}
 \newtheorem{eg}{Example}
-\newtheorem{notation}{Notation}
+\newtheorem*{note*}{Note}
 
 \begin{document}
 \begin{center}
@@ -32,64 +33,6 @@
 
 \newpage
 
-\section{Mathematical Background}
-\subsection{Dirac Delta Function}
-\begin{defn}[Heaviside Step Function]
-	\[\Theta(x)=\begin{cases}
-			1, & x>0 \\
-			0, & x<0
-		\end{cases}\]
-\end{defn}
-
-\begin{defn}[Dirac Delta Function]
-	The set of ``functions" $\delta_\epsilon:\mathbb{R}\to\mathbb{R}$ that satisfy
-	\[\lim_{\epsilon\to 0^+}\delta_\epsilon(x)=\begin{cases}
-		+\infty,&x=0\\
-		0,&x\neq 0
-	\end{cases}\]
-	\[\lim_{\epsilon\to0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x)\ dx=1\]
-\end{defn}
-
-\begin{eg}
-	The Gaussian \[\delta_\epsilon(x)=\frac{1}{\epsilon\sqrt{\pi}}e^{-\frac{x^2}{\epsilon^2}}\] is a Dirac delta function.
-\end{eg}
-
-\begin{notation}
-	\[\int_{-\infty}^{\infty}\delta(x)\ dx\equiv \lim_{\epsilon\to0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x)\ dx\]
-	Any integral involving the Dirac delta function must be interpreted as the corresponding integral of $\delta_\epsilon$ as $\epsilon\to 0^+$.
-\end{notation}
-
-\begin{thm}[Properties of the delta function]
-	\hfill
-	\begin{enumerate}
-		\item $\delta(-x)=\delta(x)$
-		\item $\delta(ax)=\frac{1}{|a|}\delta(x),\ a\neq 0$
-		\item $\int_{-\infty}^{\infty}\delta(x-c)f(x)\ dx=f(c)$, for any function $f:\mathbb{R}\to\mathbb{R}$.
-		\item $\delta(f(x))=\sum_i\frac{1}{|f'(x_i)|}\delta(x-x_i)$ if $f(x_i)=0$
-\end{enumerate}
-\end{thm}
-
-\subsection{Gaussian Integral}
-\begin{thm}
-	\[\int_{-\infty}^{\infty}e^{-x^2}\ dx=\sqrt{\pi}\]
-\end{thm}
-
-\begin{thm}[Important Results of Gaussian integral]
-	\hfill
-	\begin{enumerate}
-		\item $\int_{-\infty}^{\infty}e^{-ax^2+bx}\ dx=e^{\frac{b^2}{4a}}\sqrt{\frac{\pi}{a}}$
-\end{enumerate}
-\end{thm}
-
-\begin{thm}
-	In general,\[\int_0^\infty x^n e^{-ax^2}\ dx\propto a^{-\frac{n+1}{2}}\]
-	and in particular,
-	\[\int_0^\infty x^n e^{-ax^2}\ dx=\begin{cases}
-		\frac{(n-1)(n-3)\cdots 3\cdot 1}{2^{\frac{n}{2}+1}a^{\frac{n}{2}}}\sqrt{\frac{\pi}{a}},&n\text{ even}\\
-		\frac{[\frac{1}{2}(n-1)]!}{2a^{\frac{n+1}{2}}},&n\text{ odd}
-	\end{cases}\]
-\end{thm}
-
 \section{Ensemble}
 \begin{defn}[Macroscopic variables]
 	The variables of a system that can be controlled externally or determined experimentally. They are also called thermodynamic variables.
@@ -104,4 +47,25 @@
 \begin{defn}[Ensemble]
 	Set of identical copies of the same system which are same at the macroscopic level but different at the microscopic level.
 \end{defn}
+\subsection{Phase Space}
+In the case of 1D motion of a single particle, the phase space is represented by the $p,q$--plane, where $p,q$ represent the momentum and position of the paticle, respectively. The collection of points $(q,p)$ that are possible classical states of the particle is called the phase space trajectory(or surface) of the particle. This trajectory can be found by
+\[E=\mathcal{H}(q,p)=\frac{p^2}{2m}+V(q)\]
+where $E$ represents the classically allowed energy states of the system.
+\begin{eg}[Classical Harmonic Oscillator]
+	In this case $E$ is a constant of motion and $V(q)=-\frac{1}{2}m\omega^2q^2$. So we have
+	\[\frac{p^2}{2m}-\frac{1}{2}m\omega^2q^2=E\]
+	This is an ellipse in the $p,q$--plane. The direction of the trajectory depends on the boundary conditions.
+\end{eg}
+\begin{framed}
+	Thus, the phase space trajectory tells us about the possible states of the particle(or, system) and how one state evolves into another.
+\end{framed}
+\hfill\\
+Now, we extend this idea to $N$ particles in 3 dimensions. This time instead of just two quantities $p,q$, we require the 3 position and 3 momentum coordinates of each of the $N$ particles. Provided there are no additional constrains, in general, we require a $6N$ dimensional phase space to describe the states of this system. Thus, $E=\mathcal{H}$ represents a $6N-1$ dimensional hypersurface in this phase space.
+\begin{note*}
+	$\mathcal{H}$ is a function of all the $6N$ positions and momenta.
+\end{note*}
+\begin{note*}
+	If $E$ is piecewise continuous, we get $6N$ dimensional regions in the phase space.
+\end{note*}
+
 \end{document}
