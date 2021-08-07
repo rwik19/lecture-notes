@@ -1,0 +1,107 @@
+\documentclass[10pt, a4paper]{extarticle}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{anyfontsize}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}[thm]
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{defn}{Definition}
+\newtheorem{eg}{Example}
+\newtheorem{notation}{Notation}
+
+\begin{document}
+\begin{center}
+	\fontsize{25}{60}\selectfont Statistical Mechanics \\
+	\large Based on lectures by Dr. Suvankar Dutta\\
+	Notes taken by Rwik Dutta
+\end{center}
+\hrule
+\begin{center}
+	These notes are not endorsed by the lecturers, and I have modified them (often
+	significantly) after lectures. They are nowhere near accurate representations of what
+	was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
+\end{center}
+\tableofcontents
+
+\newpage
+
+\section{Mathematical Background}
+\subsection{Dirac Delta Function}
+\begin{defn}[Heaviside Step Function]
+	\[\Theta(x)=\begin{cases}
+			1, & x>0 \\
+			0, & x<0
+		\end{cases}\]
+\end{defn}
+
+\begin{defn}[Dirac Delta Function]
+	The set of ``functions" $\delta_\epsilon:\mathbb{R}\to\mathbb{R}$ that satisfy
+	\[\lim_{\epsilon\to 0^+}\delta_\epsilon(x)=\begin{cases}
+		+\infty,&x=0\\
+		0,&x\neq 0
+	\end{cases}\]
+	\[\lim_{\epsilon\to0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x)\ dx=1\]
+\end{defn}
+
+\begin{eg}
+	The Gaussian \[\delta_\epsilon(x)=\frac{1}{\epsilon\sqrt{\pi}}e^{-\frac{x^2}{\epsilon^2}}\] is a Dirac delta function.
+\end{eg}
+
+\begin{notation}
+	\[\int_{-\infty}^{\infty}\delta(x)\ dx\equiv \lim_{\epsilon\to0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x)\ dx\]
+	Any integral involving the Dirac delta function must be interpreted as the corresponding integral of $\delta_\epsilon$ as $\epsilon\to 0^+$.
+\end{notation}
+
+\begin{thm}[Properties of the delta function]
+	\hfill
+	\begin{enumerate}
+		\item $\delta(-x)=\delta(x)$
+		\item $\delta(ax)=\frac{1}{|a|}\delta(x),\ a\neq 0$
+		\item $\int_{-\infty}^{\infty}\delta(x-c)f(x)\ dx=f(c)$, for any function $f:\mathbb{R}\to\mathbb{R}$.
+		\item $\delta(f(x))=\sum_i\frac{1}{|f'(x_i)|}\delta(x-x_i)$ if $f(x_i)=0$
+\end{enumerate}
+\end{thm}
+
+\subsection{Gaussian Integral}
+\begin{thm}
+	\[\int_{-\infty}^{\infty}e^{-x^2}\ dx=\sqrt{\pi}\]
+\end{thm}
+
+\begin{thm}[Important Results of Gaussian integral]
+	\hfill
+	\begin{enumerate}
+		\item $\int_{-\infty}^{\infty}e^{-ax^2+bx}\ dx=e^{\frac{b^2}{4a}}\sqrt{\frac{\pi}{a}}$
+\end{enumerate}
+\end{thm}
+
+\begin{thm}
+	In general,\[\int_0^\infty x^n e^{-ax^2}\ dx\propto a^{-\frac{n+1}{2}}\]
+	and in particular,
+	\[\int_0^\infty x^n e^{-ax^2}\ dx=\begin{cases}
+		\frac{(n-1)(n-3)\cdots 3\cdot 1}{2^{\frac{n}{2}+1}a^{\frac{n}{2}}}\sqrt{\frac{\pi}{a}},&n\text{ even}\\
+		\frac{[\frac{1}{2}(n-1)]!}{2a^{\frac{n+1}{2}}},&n\text{ odd}
+	\end{cases}\]
+\end{thm}
+
+\section{Ensemble}
+\begin{defn}[Macroscopic variables]
+	The variables of a system that can be controlled externally or determined experimentally. They are also called thermodynamic variables.
+
+	For e.g., volume, pressure, temperature, etc.
+\end{defn}
+\begin{defn}[Microscopic variables]
+	These parameters are not under any control.
+
+	For e.g., the coordinates of a molecule of a gaseuos system.
+\end{defn}
+\begin{defn}[Ensemble]
+	Set of identical copies of the same system which are same at the macroscopic level but different at the microscopic level.
+\end{defn}
+\end{document}
