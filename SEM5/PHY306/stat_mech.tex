@@ -65,7 +65,69 @@ Now, we extend this idea to $N$ particles in 3 dimensions. This time instead of 
 	$\mathcal{H}$ is a function of all the $6N$ positions and momenta.
 \end{note*}
 \begin{note*}
-	If $E$ is piecewise continuous, we get $6N$ dimensional regions in the phase space.
+	If $E$ is continuous, say we have energy between $E$ and $E+\Delta E$, we get a $6N$ dimensional region in the phase space.
 \end{note*}
 
+\subsection{Ensemble of a classical gas}
+We need to understand the ensemble for a gas of $N$ particles in volume $V$ and energy between $E$ and $E+\Delta E$.
+All the states of this system can be represented as a $6N$ dimensional region $\Gamma$ in the $6N$ dimensional phase space.
+
+Say, we have an initial state $(q,p)$ of our system. Here, $(q,p)$ is a shorthand notation for $(q_1,\cdots,q_{3N},p_1,\cdots,p_{3N})$. $(q,p)$ represents some point in $\Gamma$. As time passes, the point `swims' in $\Gamma$. From here onwards, when we say `phase space of the system' we will be talking about $\Gamma$, i.e., the region of allowed states.
+
+Now, our system can be in any point(state) in $\Gamma$ but its macroscopic properties would not change, i.e. energy would still lie between $E$ and $\Delta E$ and its volume would still be $V$.
+
+Hence, the region $\Gamma$ forms an ensemble. Every point in $\Gamma$ is an ensemble member called a \emph{microstate}. Each microstate represents the system at some point in time.
+
+\begin{defn}[Unit cell in phase space]
+	We assume that there exists some small hypercube in the phase space inside which all points represent the same state. The volume of the cube is given by $h_0^{3N}$.
+
+	Ideally, this hypercube should be infinesimally small as every point represents a different state. Hence, we will later take the limit as $h_0\to 0$.
+
+	Also, the physics of our system(measurable quantities) should not depend on $h_0$.
+\end{defn}
+\begin{note*}
+	A unit cell represents a microstate of the system as all points in it are equivalent.
+\end{note*}
+\begin{note*}
+	$h_0$ has the dimension of angular momentum.
+\end{note*}
+
+A differential volume in the phase space is given by
+\[dq_1\cdots dq_{3N}dp_1\cdots dp_{3N}\equiv d^{3N}q\ d^{3N}p\]
+The total number of microstates(unit cells) in this differential volume is then
+\[\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}\]
+\begin{framed}
+Suppose, the probability of finding the system in a microstate $(q,p)$ at time $t$ is $\rho(q,p,t)$.\\
+All points within a differential volume element containing $(q,p)$ effectively represent the same microstate. Hence, the `probability' of finding the system in the volume $d^{3N}q\ d^{3N}p$ is given by \[\rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}\]
+\begin{note*}
+	This probability is not normalized. To normalize this
+	\begin{align*}
+		\mathcal{N}\int_{\Gamma}\rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}=1\\
+		\implies \mathcal{N}=\frac{1}{\int_{\Gamma}\rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}}
+	\end{align*}
+\end{note*}
+\end{framed}
+We want to calculate the average(over all the possible microstates) of any macroscopic property $F(q,p,t)$ of the system. This average is called the
+\begin{framed}
+	\begin{defn}[Ensemble average]
+		\begin{align*}
+			\langle F\rangle_E&=\frac{\int_{\Gamma}F\ \rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}}{\int_{\Gamma}\rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}}\\
+							  &=\frac{\int_{\Gamma}F\rho(q,p,t)d^{3N}q\ d^{3N}p}{\int_{\Gamma}\rho(q,p,t)d^{3N}q\ d^{3N}p}
+		\end{align*}
+		The denominator is for normalization purposes.
+	\end{defn}
+	\begin{note*}
+		The ensemble average of a macroscopic parameter does not depend on $h_0$.
+	\end{note*}
+\end{framed}
+
+In actual experiments, we measure the
+\begin{framed}
+	\begin{defn}[Time average]
+		\[\langle F\rangle_T=\lim_{T\to +\infty}\frac{1}{T}\int_0^T F(t)\ dt\]
+	\end{defn}
+\end{framed}
+\begin{note*}
+	For the formulation of statistical mechanics to be valid, we must have $\langle F\rangle_E=\langle F\rangle_T$.
+\end{note*}
 \end{document}
