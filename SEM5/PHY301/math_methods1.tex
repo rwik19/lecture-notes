@@ -36,16 +36,16 @@
 \newpage
 
 \section{Vector Analysis}
-Let $\{\hat{e_i}\}$ be an orthonormal basis, i.e., $\hat{e_i}\cdot\hat{e_j}=\delta_{ij}$(where $\delta_{ij}$ represents the Kroneker delta function), of our vector space. For any vector $\vb{A}$ we have
-\[\vb{A}=\sum_{i}A_i\hat{e_i}\]
+Let $\{\vu{e_i}\}$ be an orthonormal basis, i.e., $\vu{e_i}\cdot\vu{e_j}=\delta_{ij}$(where $\delta_{ij}$ represents the Kroneker delta function), of our vector space. For any vector $\vb{A}$ we have
+\[\vb{A}=\sum_{i}A_i\vu{e_i}\]
 where $A_i$ belong to the scalar field over which the vector space is defined, like $\mathbb{R}$ or $\mathbb{C}$.
 \subsection{Products}
 \begin{framed}
 	\begin{defn}[Vector Product]
 		We define a vector product on our basis set
-		\[\hat{e_i}\times\hat{e_j}=\sum_k \epsilon_{ijk}\ \hat{e_k}\]
+		\[\vu{e_i}\times\vu{e_j}=\sum_k \epsilon_{ijk}\ \vu{e_k}\]
 		The R.H.S. is a vector itself, hence, the name. Using this and the fact that vector product is distributive over addition we arrive at
-		\[\vb{C}=\vb{A}\times\vb{B}=\sum_i \hat{e_i}\sum_{jk}\epsilon_{ijk}A_jB_k\]
+		\[\vb{C}=\vb{A}\times\vb{B}=\sum_i \vu{e_i}\sum_{jk}\epsilon_{ijk}A_jB_k\]
 		where \[C_i=\sum_{jk}\epsilon_{ijk}A_jB_k\]
 	\end{defn}
 \end{framed}
@@ -62,7 +62,7 @@ We can also calculate
 \begin{framed}
 	\begin{thm}[Vector triple product]
 		\begin{align*}
-			\vb{A}\times(\vb{B}\times\vb{C}) & =\sum_i \hat{e_i}\sum_{jk}\epsilon_{ijk}A_j\sum_{pq}\epsilon_{kpq}B_pC_q \\
+			\vb{A}\times(\vb{B}\times\vb{C}) & =\sum_i \vu{e_i}\sum_{jk}\epsilon_{ijk}A_j\sum_{pq}\epsilon_{kpq}B_pC_q \\
 			                                 & =\vb{B}(\vb{A}\cdot\vb{C})-\vb{C}(\vb{A}\cdot\vb{B})
 		\end{align*}
 		The vector product is not associative, hence the position of the parenthesis is important in the triple product.
@@ -97,29 +97,29 @@ This is a special property of vectors in physics. There is another kind of quant
 
 \subsection{Differential Calculus}
 We require the del operator
-\[\grad\equiv \sum_i\hat{e_i}\pdv{}{i}\] in Cartesian coordinates. Using this we can define quantities like
+\[\grad\equiv \sum_i\vu{e_i}\pdv{}{i}\] in Cartesian coordinates. Using this we can define quantities like
 \begin{framed}
 	\begin{defn}[Gradient]
 		\[\text{Grad }f=\grad f\]
 		A small change in a scalar field along $\vb{r}$ is given by
 		\[df=\vb{r}\cdot\grad f\]
-		Say, the direction of $\grad f$ is given by some $\hat{r}$. We have the most rapid increase in $f$ along $\hat{r}$ and $|\grad f|=\frac{Df}{D\hat{r}}$ is the directional derivative of $f$ along $\hat{r}$.
+		Say, the direction of $\grad f$ is given by some $\vu{r}$. We have the most rapid increase in $f$ along $\vu{r}$ and $|\grad f|=\frac{Df}{D\vu{r}}$ is the directional derivative of $f$ along $\vu{r}$.
 	\end{defn}
 
 	\begin{defn}[Divergence]
-		\[\text{Div }\vb{A}=\grad\cdot\vb{A}\]
+		\[\text{Div }\vb{A}=\div\vb{A}\]
 		This gives a measure of the accumulation or depletion of $\vb{A}$ at a point. In other words, it finds how strongly a point acts as a source or sink.
 	\end{defn}
 
 	\begin{defn}[Curl]
-		\[\text{Curl }\vb{A}=\grad\times\vb{A}\]
+		\[\text{Curl }\vb{A}=\curl\vb{A}\]
 		This gives a measure of the circulation of $\vb{A}$ at a point.
 	\end{defn}
 
 	\begin{defn}[Laplacian]
-		\[\grad^2 f=\grad\cdot(\grad f)\]
+		\[\laplacian f=\div(\grad f)\]
 		The Laplacian is also defined for a vector field as
-		\[\grad^2\vb{A}=\sum_i \hat{e_i}\grad^2A_i\]
+		\[\laplacian\vb{A}=\sum_i \vu{e_i}\laplacian A_i\]
 	\end{defn}
 \end{framed}
 These can also be calculated in curvilinear coordinate systems as given in \href{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}{this Wikipedia article}. 
@@ -128,11 +128,16 @@ Some useful properties of vector derivatives are
 \begin{framed}
 	\begin{thm}
 		\begin{align*}
-			\grad\times(\grad f)&=0\\
-			\grad\cdot(\grad\times\vb{A})&=0\\
-		\grad\times(\grad\times\vb{A})&=\grad(\grad\cdot\vb{A})-\grad^2\vb{A}
+			\curl(\grad f)&=0\\
+			\div(\curl\vb{A})&=0\\
+		\curl(\curl\vb{A})&=\grad(\div\vb{A})-\laplacian\vb{A}
 		\end{align*}
 		The last one is only valid in Cartesian coordinates.
+	\end{thm}
+\end{framed}
+\begin{framed}
+	\begin{thm}[Exact differential]
+		$\sum_i A_i\ di$ is an exact differential iff $\curl \vb{A}=0$.
 	\end{thm}
 \end{framed}
 \subsection{Integral Calculus}
@@ -140,9 +145,9 @@ A very useful quantity for integration is
 \begin{framed}
 	\begin{thm}[Infintesimal length]
 	\begin{align*}
-		d\vb{l}&=dx\ \hat{e_x}+dy\ \hat{e_y}+dz\ \hat{e_z}\\
-			   &=dr\ \hat{e_r}+r\ d\theta\ \hat{e_\theta}+r\sin\theta\ d\phi\ \hat{e_\phi}\\
-			   &=ds\ \hat{e_s}+s\ d\phi\ \hat{e_\phi}+dz\ \hat{e_z}
+		d\vb{l}&=dx\ \vu{e_x}+dy\ \vu{e_y}+dz\ \vu{e_z}\\
+			   &=dr\ \vu{e_r}+r\ d\theta\ \vu{e_\theta}+r\sin\theta\ d\phi\ \vu{e_\phi}\\
+			   &=ds\ \vu{e_s}+s\ d\phi\ \vu{e_\phi}+dz\ \vu{e_z}
 	\end{align*}
 \end{thm}
 \end{framed}
@@ -169,12 +174,15 @@ Some important theorems that will help simplify integrals are
 		\[\int_C(\grad f)\cdot d\vb{l}=f(\vb{b})-f(\vb{a})\]
 		where $\vb{a}, \vb{b}$ are the endpoints of $C$(which is directed from $\vb{a}$ to $\vb{b}$).
 	\end{thm}
+	\begin{thm}[Green]
+		\[\oint_{\partial S}P(x,y)\ dx+Q(x,y)\ dy=\iint_S\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ dA\]
+	\end{thm}
 	\begin{thm}[Gauss]
-		\[\varoiint_{\partial V} \vb{A}\cdot d\pmb{\sigma}=\iiint_V \grad\cdot \vb{A}\ d\tau\]
+		\[\varoiint_{\partial V} \vb{A}\cdot d\pmb{\sigma}=\iiint_V \div \vb{A}\ d\tau\]
 	\end{thm}
 
 	\begin{thm}[Stokes]
-		\[\oint_{\partial S} \vb{A}\cdot d\vb{l}=\iint_S (\grad\times\vb{A})\cdot d\pmb{\sigma}\]
+		\[\oint_{\partial S} \vb{A}\cdot d\vb{l}=\iint_S (\curl\vb{A})\cdot d\pmb{\sigma}\]
 	\end{thm}
 	\hfill\\
 	Note that $C,S,V$ need to be ``sufficiently nice" for these to be valid, which is often the case in physics.
