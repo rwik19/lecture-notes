@@ -18,6 +18,7 @@
 \newtheorem{defn}{Definition}
 \newtheorem{eg}{Example}
 \newtheorem{ex}{Exercise}
+\newtheorem*{note*}{Note}
 
 \begin{document}
 \begin{center}
@@ -108,12 +109,12 @@ We require the del operator
 
 	\begin{defn}[Divergence]
 		\[\text{Div }\vb{A}=\div\vb{A}\]
-		This gives a measure of the accumulation or depletion of $\vb{A}$ at a point. In other words, it finds how strongly a point acts as a source or sink.
+		This gives a measure of the accumulation or depletion of $\vb{A}$ at a point. In other words, it finds how strongly a point acts as a source or sink. It is also known as the \emph{source density} of the vector field.
 	\end{defn}
 
 	\begin{defn}[Curl]
 		\[\text{Curl }\vb{A}=\curl\vb{A}\]
-		This gives a measure of the circulation of $\vb{A}$ at a point.
+		This gives a measure of the circulation of $\vb{A}$ at a point. It is also known as the \emph{circulation density} of the vector field.
 	\end{defn}
 
 	\begin{defn}[Laplacian]
@@ -138,6 +139,22 @@ Some useful properties of vector derivatives are
 \begin{framed}
 	\begin{thm}[Exact differential]
 		$\sum_i A_i\ di$ is an exact differential iff $\curl \vb{A}=0$.
+	\end{thm}
+\end{framed}
+Two special kinds of vector fields that often appear in physics are
+\begin{framed}
+	\begin{defn}[Solenoidal]
+		\[\div\vb{A}=0\]
+	\end{defn}
+	\begin{defn}[Irrotational]
+		\[\curl\vb{A}=0\]
+	\end{defn}
+\end{framed}
+Vector fields can be decomposed into solenoidal and irrotational components using
+\begin{framed}
+	\begin{thm}[Helmholtz]
+		Suppose, $\div \vb{F}$ and $\curl\vb{F}$ vanish at infinity and $\vb{F}$ is smooth. $\exists f,\vb{A}$ such that
+		\[\vb{F}=\underbrace{-\grad f}_{\text{irrotational}}+\underbrace{\curl\vb{A}}_{\text{solenoidal}}\]
 	\end{thm}
 \end{framed}
 \subsection{Integral Calculus}
@@ -186,6 +203,44 @@ Some important theorems that will help simplify integrals are
 	\end{thm}
 	\hfill\\
 	Note that $C,S,V$ need to be ``sufficiently nice" for these to be valid, which is often the case in physics.
+\end{framed}
+
+\subsection{Orthogonal Curvilinear Coordinate Systems}
+Let $\vu{q_i}$ be the unit vectors of our generalized system. We would like to transform among coordinate systems.
+\begin{note*}
+	A vector $\vb{A}$ can be written as $\sum_i A_i\vu{q_i}$ in the generalized coordinate system. However, the position $\vb{r}\neq \sum_i q_i\vu{q_i}$, in general though the equality holds in Cartesian system.
+\end{note*}
+The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^2=dx^2+dy^2+dz^2$ in Cartesian coordinates. This arc length is invariant of our coordinate system.
+\[ds^2=\sum_{ij}g_{ij}\ dq_i\ dq_j\]
+		The $g_{ij}$ depend on the geometry of the coordinate system and are given by
+		\[g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\]
+		For orthogonality,
+		\[g_{ij}=0,\ i\neq j\]\[\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\]
+		We can take $g_{ii}=h_i^2>0$. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
+\begin{framed}
+	\begin{thm}[Scale factors]
+		\[ds^2=\sum_i(h_i\ dq_i)^2\]
+		\[d\vb{r}=\sum_i h_i\ dq_i\vu{q_i}\]
+		\[\pdv{\vb{r}}{q_i}=h_i\vu{q_i}\]
+	\end{thm}
+\end{framed}
+Thus, we can define our differential operators as
+\begin{framed}
+	\begin{defn}[Gradient]
+		\[\grad{\phi}=\frac{1}{h_1}\pdv{\phi}{q_i}\vu{q_i}\]
+	\end{defn}
+	\begin{defn}[Divergence]
+		\[\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{ijk}\epsilon_{ijk}\pdv{A_i}{q_i}h_jh_j\]
+	\end{defn}
+	\begin{defn}[Curl]
+		\[\curl{\vb{A}}=\frac{1}{h_1h_2h_3}\left|
+			\begin{matrix}
+				h_1\vu{q_1}&h_2\vu{q_2}&h_3\vu{q_3}\\
+				\pdv{}{q_1}&\pdv{}{q_2}&\pdv{}{q_3}\\
+				h_1A_1&h_2A_2&h_3A_3
+			\end{matrix}
+		\right|\]
+	\end{defn}
 \end{framed}
 
 \end{document}
