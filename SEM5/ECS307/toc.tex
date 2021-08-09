@@ -1,0 +1,67 @@
+\documentclass[10pt, a4paper]{extarticle}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{anyfontsize}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}[thm]
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{defn}{Definition}
+\newtheorem{eg}{Example}
+
+\begin{document}
+\begin{center}
+	\fontsize{25}{60}\selectfont Theory of Computation \\
+	\large Based on lectures by Dr. Arpit Sharma\\
+	Notes taken by Rwik Dutta
+\end{center}
+\hrule
+\begin{center}
+	These notes are not endorsed by the lecturers, and I have modified them (often
+	significantly) after lectures. They are nowhere near accurate representations of what
+	was actually lectured, and in particular, all errors are almost surely mine.\footnote[1]{This is how Dexter Chua describes his lecture notes from Cambridge. I could not have described mine in any better way.}
+\end{center}
+\tableofcontents
+
+\newpage
+
+\section{Finite Automata}
+\begin{defn}[Deterministic Finite Automaton]
+	A collection $(Q,\Sigma,\delta,q_0,F)$ such that
+	\begin{enumerate}
+		\item $Q$ is a finite set of \emph{states}.
+		\item $\Sigma$ is a finite \emph{alphabet}.
+		\item $\delta:Q\times\Sigma\to Q$ is the \emph{transition function}.
+		\item $q_0\in Q$ is the start state.
+		\item $F\subseteq Q$ is the set of \emph{accepting states}.
+\end{enumerate}
+\end{defn}
+We will use automata to solve set membership problems, i.e., given a finite alphabet $\Sigma$ and a finite language $L\subset \Sigma^*$, we need to find whether a given string $x\in L$.
+
+\begin{defn}[Language of Automaton]
+	$L(M)$ of an automaton $M$ is the set of all strings $x$ that are accepted by the automaton.
+\end{defn}
+
+\begin{defn}[Extended transition function]
+	Let $M(Q,\Sigma,\delta,q_0,F)$ be a finite automaton. The extended transition function is given by
+	\begin{align*}
+		\delta^*&:Q\to\Sigma^*\\
+		\delta^*(q,\epsilon)&=q\\
+		\delta^*(q,xa)&=\delta(\delta^*(q,x),a)
+	\end{align*}
+	for all $q\in Q, x\in\Sigma^*, a\in\Sigma$. $\epsilon\in\Sigma^*$ represents the empty string.
+\end{defn}
+\hfill\\
+Hence, $x\in L(M)$ if $\delta^*(q_0,x)\in F$.
+
+\begin{defn}[Regular language]
+	A language $L$ is a regular language if $\exists$ some finite automaton $M$ such that $L(M)=L$.
+\end{defn}
+
+\end{document}
