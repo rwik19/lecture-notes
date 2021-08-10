@@ -38,16 +38,17 @@ We need to learn about the minimum number of coordinates required to completely 
 \begin{eg}[One degree of freedom]
 	A particle moving in a straight line. Its position can be completely described by a single number $l$ which is its distance from some predefined origin.
 
-	A particle moving on a circle. We need the value of $\theta$ which is angle from some predefined origin and axis. The distance $l$ from some predefined point on the circle also works.
+	A particle moving on a circle. We need the value of $\theta$ which is the angle from some predefined origin and axis. The distance $l$ from some predefined point on the circle also works.
 \end{eg}
 
 For $N$ particles in 3 dimensional space, we have $3N$ degrees of freedom.
 \[\vb{r}=(\vb{r_1},\cdots,\vb{r_N})\] where each $\vb{r_i}=(r^x_i,r^y_i,r^z_i)$. Here, we have assumed that there are no constraints of motion.
 We can furthur simplify this by using \[\vb{r}=(r_1,r_2,\cdots,r_{3N})\]
-\subsection{Constraint}
-Constraints can be of various types. The one which is of particular interest to use(and, easier to deal with) is
+
+\subsection{Constraints}
+Constraints can be of various types. The one which is of particular interest to us(and, easier to deal with) is
 \begin{framed}
-	\begin{defn}[Holonomic constraints]
+	\begin{defn}[Holonomic constraint]
 		\[f(\vb{r},t)=0\]
 	\end{defn}
 \end{framed}
@@ -59,26 +60,30 @@ Constraints introduce two basic problems to us:
 	\end{enumerate}
 	In case of holonomic constraints, (1) is solved by introducing \emph{generalised coordinates}. If we have $k$ number of constraints, we transform to
 	\[ \vb{q}=(q_1,q_2,\cdots,q_{3N-k})\]
-	The constriants are now implicitly contained in the equation of motion.\\
+	The constriants are now implicitly contained in the equations of motion.\\
 	Later, we will see that (2) is solved by deriving the equations of motion in the generalized coordinates.
 \end{framed}
 
 \section{Lagrangian Formulation}
-While Newton's equation are sufficient to solve for motion, we may use an equivalent formulation by Lagrange which deals with generalized coordinates. This takes care of constraints and we only have to work with scalars.
-Newton's method depends heavily on the identification of forces in a system. In Lagrangian mechanics, we may not have a direct analogy to this, but almost always we find the
+While Newton's equation is sufficient to solve for motion, we may use an equivalent formulation by Lagrange which deals with generalized coordinates. This takes care of constraints and we only have to work with scalars.
+
+Newton's method depends heavily on the identification of forces in a system. In Lagrangian mechanics, we may not have a direct analogy to this, but the most important quantity is probably the
 \begin{framed}
 	\begin{defn}[Lagrangian]
-		\[\mathcal{L}=K-V\] where $K,V$ are the kinetic and potential energies, respectively of the system.
+		\[\mathcal{L}=K-V\] where $K,V$ are the kinetic and potential energies, respectively, of the system.
 	\end{defn}
 \end{framed}
 The equations of motion are then given by
 \begin{framed}
 \begin{thm}[Euler-Lagrange equation]
 	\[\frac{d}{dt}\left(\pdv{\mathcal{L}}{\dot{q}}\right)-\pdv{\mathcal{L}}{q}=0\]
-	The number of such equations depends on the number of generalized coordinates $q$, i.e., the degrees of freedom of the system, which makes sense.
+	The number of such independent equations depends on the number of generalized coordinates $q$, i.e., the degrees of freedom of the system, which makes sense.
 \end{thm}
 \begin{note*}
 	We need all the initial $q$ and $\dot{q}$ to find an exact solution to this system of equations.
+\end{note*}
+\begin{note*}
+The Lagrangian does not represent any physical observable. However, it is a very important mathematical construct for our purposes.
 \end{note*}
 \end{framed}
 \end{document}

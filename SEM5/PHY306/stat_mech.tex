@@ -70,23 +70,26 @@ Now, we extend this idea to $N$ particles in 3 dimensions. This time instead of 
 
 \subsection{Ensemble of a classical gas}
 We need to understand the ensemble for a gas of $N$ particles in volume $V$ and energy between $E$ and $E+\Delta E$.
+
 All the states of this system can be represented as a $6N$ dimensional region $\Gamma$ in the $6N$ dimensional phase space.
 
-Say, we have an initial state $(q,p)$ of our system. Here, $(q,p)$ is a shorthand notation for $(q_1,\cdots,q_{3N},p_1,\cdots,p_{3N})$. $(q,p)$ represents some point in $\Gamma$. As time passes, the point `swims' in $\Gamma$. From here onwards, when we say `phase space of the system' we will be talking about $\Gamma$, i.e., the region of allowed states.
+Say, we have an initial state $(q,p)$ of our system. Here, $(q,p)$ is a shorthand notation for $(q_1,\cdots,q_{3N},p_1,\cdots,p_{3N})$. $(q,p)$ represents some point in $\Gamma$. As time passes, the point `swims' in $\Gamma$. 
 
-Now, our system can be in any point(state) in $\Gamma$ but its macroscopic properties would not change, i.e. energy would still lie between $E$ and $\Delta E$ and its volume would still be $V$.
+From here onwards, when we say `phase space' we will be talking about $\Gamma$, i.e., the region of allowed states.
+
+Now, our system can be in any point(state) in $\Gamma$ but its macroscopic properties would not change, i.e. energy would still lie between $E$ and $E+\Delta E$ and its volume would still be $V$.
 
 Hence, the region $\Gamma$ forms an ensemble. Every point in $\Gamma$ is an ensemble member called a \emph{microstate}. Each microstate represents the system at some point in time.
 
 \begin{defn}[Unit cell in phase space]
-	We assume that there exists some small hypercube in the phase space inside which all points represent the same state. The volume of the cube is given by $h_0^{3N}$.
+	We assume that there exists some small hypercube in the phase space inside which all points represent the same state. Its volume is given by $h_0^{3N}$.
 
 	Ideally, this hypercube should be infinesimally small as every point represents a different state. Hence, we will later take the limit as $h_0\to 0$.
 
 	Also, the physics of our system(measurable quantities) should not depend on $h_0$.
 \end{defn}
 \begin{note*}
-	A unit cell represents a microstate of the system as all points in it are equivalent.
+	A unit cell represents a single microstate of the system as all points in it are equivalent.
 \end{note*}
 \begin{note*}
 	$h_0$ has the dimension of angular momentum.
@@ -117,7 +120,7 @@ We want to calculate the average(over all the possible microstates) of any macro
 		The denominator is for normalization purposes.
 	\end{defn}
 	\begin{note*}
-		The ensemble average of a macroscopic parameter does not depend on $h_0$.
+		The ensemble average of a macroscopic parameter does not depend on $h_0$ which makes sense.
 	\end{note*}
 \end{framed}
 

@@ -70,12 +70,27 @@ We can also calculate
 	\end{thm}
 \end{framed}
 
+Here we have used
+\begin{thm}[Product of levi-cevitas]
+	\begin{align*}
+		\varepsilon_{ijk}\varepsilon_{lmn} & = \begin{vmatrix}
+			\delta_{il} & \delta_{im} & \delta_{in} \\
+			\delta_{jl} & \delta_{jm} & \delta_{jn} \\
+			\delta_{kl} & \delta_{km} & \delta_{kn} \\
+		\end{vmatrix}                                                                                                                                                                                                          \\[6pt]
+		                                   & = \delta_{il}\left( \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\right) - \delta_{im}\left( \delta_{jl}\delta_{kn} - \delta_{jn}\delta_{kl} \right) + \delta_{in} \left( \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \right).
+	\end{align*}
+
+	\[\sum_{i=1}^3 \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\]
+	\[\sum_{i=1}^3 \sum_{j=1}^3 \varepsilon_{ijk}\varepsilon_{ijn} = 2\delta_{kn}\]
+\end{thm}
+
 \begin{ex}
 	Show that
 	\[(\vb{A}\times\vb{B})\times(\vb{C}\times\vb{D})=[\vb{ABD}]\vb{C}-[\vb{ABC}]\vb{D}\]
 \end{ex}
 
-\subsection{Coordinate Transformation}
+\subsection{Rotation Transformation}
 The rotation of the 2D coordinate axes by an angle $\phi$, keeping the origin fixed, leads to the
 \begin{framed}
 	\begin{defn}[Rotation transformation]
@@ -92,7 +107,7 @@ This is a special property of vectors in physics. There is another kind of quant
 \begin{framed}
 	\begin{defn}[Pseudovectors]
 		\[\vb{A'}=|S|S\vb{A}\]
-		This is how these quantities transform under rotation, where, $S$ is again a orthogonal transformation and $|S|$ represents the determinant of $S$.
+		This is how these quantities transform under rotation, where, $S$ is again an orthogonal transformation and $|S|$ represents the determinant of $S$.
 	\end{defn}
 \end{framed}
 
@@ -120,18 +135,18 @@ We require the del operator
 	\begin{defn}[Laplacian]
 		\[\laplacian f=\div(\grad f)\]
 		The Laplacian is also defined for a vector field as
-		\[\laplacian\vb{A}=\sum_i \vu{e_i}\laplacian A_i\]
+		\[\laplacian\vb{A}=\sum_i \vu{e_i}\pdv[2]{A_i}{i}\]
 	\end{defn}
 \end{framed}
-These can also be calculated in curvilinear coordinate systems as given in \href{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}{this Wikipedia article}. 
+These can also be calculated in curvilinear coordinate systems as given in \href{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}{this Wikipedia article}.
 
 Some useful properties of vector derivatives are
 \begin{framed}
 	\begin{thm}
 		\begin{align*}
-			\curl(\grad f)&=0\\
-			\div(\curl\vb{A})&=0\\
-		\curl(\curl\vb{A})&=\grad(\div\vb{A})-\laplacian\vb{A}
+			\curl(\grad f)     & =0                                  \\
+			\div(\curl\vb{A})  & =0                                  \\
+			\curl(\curl\vb{A}) & =\grad(\div\vb{A})-\laplacian\vb{A}
 		\end{align*}
 		The last one is only valid in Cartesian coordinates.
 	\end{thm}
@@ -161,28 +176,28 @@ Vector fields can be decomposed into solenoidal and irrotational components usin
 A very useful quantity for integration is
 \begin{framed}
 	\begin{thm}[Infintesimal length]
-	\begin{align*}
-		d\vb{l}&=dx\ \vu{e_x}+dy\ \vu{e_y}+dz\ \vu{e_z}\\
-			   &=dr\ \vu{e_r}+r\ d\theta\ \vu{e_\theta}+r\sin\theta\ d\phi\ \vu{e_\phi}\\
-			   &=ds\ \vu{e_s}+s\ d\phi\ \vu{e_\phi}+dz\ \vu{e_z}
-	\end{align*}
-\end{thm}
+		\begin{align*}
+			d\vb{l} & =dx\ \vu{e_x}+dy\ \vu{e_y}+dz\ \vu{e_z}                                 \\
+			        & =dr\ \vu{e_r}+r\ d\theta\ \vu{e_\theta}+r\sin\theta\ d\phi\ \vu{e_\phi} \\
+			        & =ds\ \vu{e_s}+s\ d\phi\ \vu{e_\phi}+dz\ \vu{e_z}
+		\end{align*}
+	\end{thm}
 \end{framed}
 Now, we may define some of the most important vector integrals in physics.
 \begin{framed}
-\begin{defn}[Line integral]
-	\[\int_C \vb{A}\cdot d\vb{l}\]
-\end{defn}
+	\begin{defn}[Line integral]
+		\[\int_C \vb{A}\cdot d\vb{l}\]
+	\end{defn}
 
-\begin{defn}[Surface integral]
-	\[\iint_S \vb{A}\cdot d\pmb{\sigma}\]
-	The contour enclosing a surface $S$ is represented by $\partial S$.
-\end{defn}
+	\begin{defn}[Surface integral]
+		\[\iint_S \vb{A}\cdot d\pmb{\sigma}\]
+		The contour enclosing a surface $S$ is represented by $\partial S$.
+	\end{defn}
 
-\begin{defn}[Volume integral]
-	\[\iiint_V \vb{A}\ d\tau\]
-	The surface enclosing a volume $V$ is represented by $\partial V$.
-\end{defn}
+	\begin{defn}[Volume integral]
+		\[\iiint_V \vb{A}\ d\tau\]
+		The surface enclosing a volume $V$ is represented by $\partial V$.
+	\end{defn}
 \end{framed}
 
 Some important theorems that will help simplify integrals are
@@ -212,11 +227,11 @@ Let $\vu{q_i}$ be the unit vectors of our generalized system. We would like to t
 \end{note*}
 The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^2=dx^2+dy^2+dz^2$ in Cartesian coordinates. This arc length is invariant of our coordinate system.
 \[ds^2=\sum_{ij}g_{ij}\ dq_i\ dq_j\]
-		The $g_{ij}$ depend on the geometry of the coordinate system and are given by
-		\[g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\]
-		For orthogonality,
-		\[g_{ij}=0,\ i\neq j\]\[\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\]
-		We can take $g_{ii}=h_i^2>0$. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
+The $g_{ij}$ depend on the geometry of the coordinate system and are given by
+\[g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\]
+For orthogonality,
+\[g_{ij}=0,\ i\neq j\]\[\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\]
+We can take $g_{ii}=h_i^2>0$. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
 \begin{framed}
 	\begin{thm}[Scale factors]
 		\[ds^2=\sum_i(h_i\ dq_i)^2\]
@@ -227,7 +242,7 @@ The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^
 Thus, we can define our differential operators as
 \begin{framed}
 	\begin{defn}[Gradient]
-		\[\grad{\phi}=\frac{1}{h_1}\pdv{\phi}{q_i}\vu{q_i}\]
+		\[\grad{\phi}=\sum_i\frac{1}{h_i}\pdv{\phi}{q_i}\vu{q_i}\]
 	\end{defn}
 	\begin{defn}[Divergence]
 		\[\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{ijk}\epsilon_{ijk}\pdv{A_i}{q_i}h_jh_j\]
@@ -235,11 +250,11 @@ Thus, we can define our differential operators as
 	\begin{defn}[Curl]
 		\[\curl{\vb{A}}=\frac{1}{h_1h_2h_3}\left|
 			\begin{matrix}
-				h_1\vu{q_1}&h_2\vu{q_2}&h_3\vu{q_3}\\
-				\pdv{}{q_1}&\pdv{}{q_2}&\pdv{}{q_3}\\
-				h_1A_1&h_2A_2&h_3A_3
+				h_1\vu{q_1} & h_2\vu{q_2} & h_3\vu{q_3} \\
+				\pdv{}{q_1} & \pdv{}{q_2} & \pdv{}{q_3} \\
+				h_1A_1      & h_2A_2      & h_3A_3
 			\end{matrix}
-		\right|\]
+			\right|\]
 	\end{defn}
 \end{framed}
 
