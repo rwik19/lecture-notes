@@ -14,6 +14,7 @@
 \newtheorem{cor}{Corollary}[thm]
 \newtheorem{defn}{Definition}
 \newtheorem{eg}{Example}
+\newtheorem*{note*}{Note}
 
 \begin{document}
 \begin{center}
@@ -40,10 +41,18 @@
 		\item $\delta:Q\times\Sigma\to Q$ is the \emph{transition function}.
 		\item $q_0\in Q$ is the start state.
 		\item $F\subseteq Q$ is the set of \emph{accepting states}.
-\end{enumerate}
+	\end{enumerate}
 \end{defn}
 We will use automata to solve set membership problems, i.e., given a finite alphabet $\Sigma$ and a finite language $L\subset \Sigma^*$, we need to find whether a given string $x\in L$.
 
+\begin{note*}
+	Before a finite automaton has received any input, it is in its initial state, which is an accepting state precisely if the null string is accepted.
+\end{note*}
+
+\begin{note*}
+	At each step, a finite automaton is in one of a finite number of states (it is a finite automaton because its set of states is finite). Its response depends only on the current state and the current symbol.
+\end{note*}
+\subsection{Language of Finite Automata}
 \begin{defn}[Language of Automaton]
 	$L(M)$ of an automaton $M$ is the set of all strings $x$ that are accepted by the automaton.
 \end{defn}
@@ -51,9 +60,9 @@ We will use automata to solve set membership problems, i.e., given a finite alph
 \begin{defn}[Extended transition function]
 	Let $M(Q,\Sigma,\delta,q_0,F)$ be a finite automaton. The extended transition function is given by
 	\begin{align*}
-		\delta^*&:Q\to\Sigma^*\\
-		\delta^*(q,\epsilon)&=q\\
-		\delta^*(q,xa)&=\delta(\delta^*(q,x),a)
+		\delta^*             & :Q\to\Sigma^*            \\
+		\delta^*(q,\epsilon) & =q                       \\
+		\delta^*(q,xa)       & =\delta(\delta^*(q,x),a)
 	\end{align*}
 	for all $q\in Q, x\in\Sigma^*, a\in\Sigma$. $\epsilon\in\Sigma^*$ represents the empty string.
 \end{defn}
@@ -63,5 +72,30 @@ Hence, $x\in L(M)$ if $\delta^*(q_0,x)\in F$.
 \begin{defn}[Regular language]
 	A language $L$ is a regular language if $\exists$ some finite automaton $M$ such that $L(M)=L$.
 \end{defn}
+
+\subsection{Set Operations on Regular Languages}
+Regular languages are closed under certain operations.
+
+\begin{thm}
+	If $M(Q,\Sigma,\delta,q_0,F)$ accepts $L$, $L^C$ is accepted by the finite automaton $M'(Q,\Sigma,\delta,q_0,F')$ where \[F'=Q\backslash F=F^C\]
+\end{thm}
+
+\begin{lem}
+	$L$ is a regular language $\implies$ $L^C$ is a regular language.
+\end{lem}
+
+\begin{thm}
+	Let $M_1(Q_1,\Sigma,\delta_1,q_1,F_1)$ accept $L_1$ and $M_2(Q_2,\Sigma,\delta_2,q_2,F_2)$ accept $L_2$. Let $M(Q,\Sigma,\delta,q_0,F)$ be a finite automaton with
+	\[Q=Q_1\times Q_2\]\[q_0=(q_1,q_2)\]\[\delta((p,q),a)=(\delta_1(p,a),\delta_2(q,a))\]
+	We have $L(M)=$
+	\begin{enumerate}
+		\item $L_1\cup L_2$ if $F=\{(p,q)|p\in F_1\text{ or }q\in F_2\}$
+		\item $L_1\cap L_2$ if $F=\{(p,q)|p\in F_1\text{ and }q\in F_2\}$
+		\item $L_1\backslash L_2$ if $F=\{(p,q)|p\in F_1\text{ and }q\notin F_2\}$
+\end{enumerate}
+\end{thm}
+\begin{lem}
+	$L_1,L_2$ are regular languages with the same alphabet $\implies$ $L_1\cup L_2, L_1\cap L_2$ and $L_1\backslash L_2$ are regular languages.
+\end{lem}
 
 \end{document}
