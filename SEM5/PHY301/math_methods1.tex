@@ -38,23 +38,26 @@
 
 \section{Vector Analysis}
 Let $\{\vu{e_i}\}$ be an orthonormal basis, i.e., $\vu{e_i}\cdot\vu{e_j}=\delta_{ij}$(where $\delta_{ij}$ represents the Kroneker delta function), of our vector space. For any vector $\vb{A}$ we have
-\[\vb{A}=\sum_{i}A_i\vu{e_i}\]
+\[\vb{A}=\underbrace{A_i\vu{e_i}}_{\text{Einstein summation}}\]
 where $A_i$ belong to the scalar field over which the vector space is defined, like $\mathbb{R}$ or $\mathbb{C}$.
 \subsection{Products}
 \begin{framed}
+	\begin{defn}[Scalar product]
+		\[\vu{e_i}\cdot\vu{e_j}=\delta_{ij}\]
+		The result is a scalar, hence, the name. Using this and the fact that scalar product is distributive over addition we arrive at
+		\[\vb{A}\cdot\vb{B}=A_iB_i\]
+	\end{defn}
 	\begin{defn}[Vector Product]
-		We define a vector product on our basis set
-		\[\vu{e_i}\times\vu{e_j}=\sum_k \epsilon_{ijk}\ \vu{e_k}\]
-		The R.H.S. is a vector itself, hence, the name. Using this and the fact that vector product is distributive over addition we arrive at
-		\[\vb{C}=\vb{A}\times\vb{B}=\sum_i \vu{e_i}\sum_{jk}\epsilon_{ijk}A_jB_k\]
-		where \[C_i=\sum_{jk}\epsilon_{ijk}A_jB_k\]
+		\[(\vu{e_i}\times\vu{e_j})_k=\varepsilon_{ijk}\]
+		The result is a vector, hence, the name. Using this and the fact that vector product is distributive over addition we arrive at
+		\[C_i=(\vb{A}\times\vb{B})_i=\varepsilon_{ijk}A_jB_k\]
 	\end{defn}
 \end{framed}
 \hfill\\
 Using this we can find
 \begin{framed}
 	\begin{thm}[Scalar triple product]
-		\[\vb{A}\cdot(\vb{B}\times\vb{C})=\sum_{ijk}\epsilon_{ijk}A_iB_jC_k\]
+		\[\vb{A}\cdot(\vb{B}\times\vb{C})=A_i\ \varepsilon_{ijk}B_jC_k\]
 		This is also represented as $[\vb{ABC}]$.
 	\end{thm}
 \end{framed}
@@ -62,10 +65,7 @@ Using this we can find
 We can also calculate
 \begin{framed}
 	\begin{thm}[Vector triple product]
-		\begin{align*}
-			\vb{A}\times(\vb{B}\times\vb{C}) & =\sum_i \vu{e_i}\sum_{jk}\epsilon_{ijk}A_j\sum_{pq}\epsilon_{kpq}B_pC_q \\
-			                                 & =\vb{B}(\vb{A}\cdot\vb{C})-\vb{C}(\vb{A}\cdot\vb{B})
-		\end{align*}
+		\[\vb{A}\times(\vb{B}\times\vb{C})=\vb{B}(\vb{A}\cdot\vb{C})-\vb{C}(\vb{A}\cdot\vb{B})\]
 		The vector product is not associative, hence the position of the parenthesis is important in the triple product.
 	\end{thm}
 \end{framed}
@@ -78,11 +78,10 @@ Here we have used
 			\delta_{jl} & \delta_{jm} & \delta_{jn} \\
 			\delta_{kl} & \delta_{km} & \delta_{kn} \\
 		\end{vmatrix}                                                                                                                                                                                                          \\[6pt]
-		                                   & = \delta_{il}\left( \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\right) - \delta_{im}\left( \delta_{jl}\delta_{kn} - \delta_{jn}\delta_{kl} \right) + \delta_{in} \left( \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \right).
+		                                   & = \delta_{il}\left( \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\right) - \delta_{im}\left( \delta_{jl}\delta_{kn} - \delta_{jn}\delta_{kl} \right) + \delta_{in} \left( \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \right)\\
+			\varepsilon_{ijk}\varepsilon_{imn} &= \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\\
+			\varepsilon_{ijk}\varepsilon_{ijn} &= 2\delta_{kn}
 	\end{align*}
-
-	\[\sum_{i=1}^3 \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\]
-	\[\sum_{i=1}^3 \sum_{j=1}^3 \varepsilon_{ijk}\varepsilon_{ijn} = 2\delta_{kn}\]
 \end{thm}
 
 \begin{ex}
@@ -113,7 +112,7 @@ This is a special property of vectors in physics. There is another kind of quant
 
 \subsection{Differential Calculus}
 We require the del operator
-\[\grad\equiv \sum_i\vu{e_i}\pdv{}{i}\] in Cartesian coordinates. Using this we can define quantities like
+\[\nabla_i\equiv\pdv{}{e_i}\] in Cartesian coordinates. Using this we can define quantities like
 \begin{framed}
 	\begin{defn}[Gradient]
 		\[\text{Grad }f=\grad f\]
@@ -135,7 +134,7 @@ We require the del operator
 	\begin{defn}[Laplacian]
 		\[\laplacian f=\div(\grad f)\]
 		The Laplacian is also defined for a vector field as
-		\[\laplacian\vb{A}=\sum_i \vu{e_i}\pdv[2]{A_i}{i}\]
+		\[(\laplacian\vb{A})_i=\pdv[2]{A_i}{e_i}\]
 	\end{defn}
 \end{framed}
 These can also be calculated in curvilinear coordinate systems as given in \href{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}{this Wikipedia article}.
@@ -223,20 +222,20 @@ Some important theorems that will help simplify integrals are
 \subsection{Orthogonal Curvilinear Coordinate Systems}
 Let $\vu{q_i}$ be the unit vectors of our generalized system. We would like to transform among coordinate systems.
 \begin{note*}
-	A vector $\vb{A}$ can be written as $\sum_i A_i\vu{q_i}$ in the generalized coordinate system. However, the position $\vb{r}\neq \sum_i q_i\vu{q_i}$, in general though the equality holds in Cartesian system.
+	A vector $\vb{A}$ can be written as $A_i\vu{q_i}$ in the generalized coordinate system. However, the position $\vb{r}\neq q_i\vu{q_i}$, in general, though the equality holds in Cartesian system.
 \end{note*}
-The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^2=dx^2+dy^2+dz^2$ in Cartesian coordinates. This arc length is invariant of our coordinate system.
-\[ds^2=\sum_{ij}g_{ij}\ dq_i\ dq_j\]
+The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^2=dx^2+dy^2+dz^2$ in Cartesian coordinates. This arc length is invariant of our coordinate system. In the generalized system, we have
+\[ds^2=g_{ij}dq_idq_j\]
 The $g_{ij}$ depend on the geometry of the coordinate system and are given by
 \[g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\]
 For orthogonality,
 \[g_{ij}=0,\ i\neq j\]\[\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\]
-We can take $g_{ii}=h_i^2>0$. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
+We can take $g_{ii}=h_i^2>0$ \footnote[1]{not Einstein summation}. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
 \begin{framed}
 	\begin{thm}[Scale factors]
 		\[ds^2=\sum_i(h_i\ dq_i)^2\]
 		\[d\vb{r}=\sum_i h_i\ dq_i\vu{q_i}\]
-		\[\pdv{\vb{r}}{q_i}=h_i\vu{q_i}\]
+		\[\pdv{\vb{r}}{q_i}=h_i\vu{q_i}\ \footnote[1]{}\]
 	\end{thm}
 \end{framed}
 Thus, we can define our differential operators as
@@ -245,7 +244,7 @@ Thus, we can define our differential operators as
 		\[\grad{\phi}=\sum_i\frac{1}{h_i}\pdv{\phi}{q_i}\vu{q_i}\]
 	\end{defn}
 	\begin{defn}[Divergence]
-		\[\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{ijk}\epsilon_{ijk}\pdv{A_i}{q_i}h_jh_j\]
+		\[\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{\text{cyclic }ijk}\pdv{A_i}{q_i}h_jh_j\]
 	\end{defn}
 	\begin{defn}[Curl]
 		\[\curl{\vb{A}}=\frac{1}{h_1h_2h_3}\left|
