@@ -16,6 +16,7 @@
 \newtheorem{defn}{Definition}
 \newtheorem{eg}{Example}
 \newtheorem*{note*}{Note}
+\newtheorem*{hyp*}{Hypothesis}
 
 \begin{document}
 \begin{center}
@@ -115,9 +116,10 @@ We want to calculate the average(over all the possible microstates) of any macro
 	\begin{defn}[Ensemble average]
 		\begin{align*}
 			\langle F\rangle_E&=\frac{\int_{\Gamma}F\ \rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}}{\int_{\Gamma}\rho(q,p,t)\frac{d^{3N}q\ d^{3N}p}{h_0^{3N}}}\\
-							  &=\frac{\int_{\Gamma}F\rho(q,p,t)d^{3N}q\ d^{3N}p}{\int_{\Gamma}\rho(q,p,t)d^{3N}q\ d^{3N}p}
+							  &=\frac{\int_{\Gamma}F\rho(q,p,t)d^{3N}q\ d^{3N}p}{\int_{\Gamma}\rho(q,p,t)d^{3N}q\ d^{3N}p}\\
+							  &=\int_{\Gamma}d^{3N}qd^{3N}p\ F\ P(q,p,t)
 		\end{align*}
-		The denominator is for normalization purposes.
+		$P$ is just the normalized version of $\rho$.
 	\end{defn}
 	\begin{note*}
 		The ensemble average of a macroscopic parameter does not depend on $h_0$ which makes sense.
@@ -132,5 +134,33 @@ In actual experiments, we measure the
 \end{framed}
 \begin{note*}
 	For the formulation of statistical mechanics to be valid, we must have $\langle F\rangle_E=\langle F\rangle_T$.
+\end{note*}
+
+\subsection{Ergodic Hypothesis}
+Let us look into the time average in detail. We assume that our observable $F$ does not explicitly depend on time, i.e., a change in $F$ is only caused by a change in the microstate and not by when we measure the same microstate.
+\[\therefore \langle F\rangle_T=\lim_{T\to\infty}\frac{1}{T}\int_{0}^T F(q(t),p(t))\ dt\]
+Let us now divide the phase space into $M$ volume elements. Let the total time spent by the system in the $i$\textsuperscript{th} volume element, be $T_i$. Note that the system may visit the the $i$\textsuperscript{th} volume element several times but we are only concerned with the total time it spends there. Clearly,
+\[\sum_{i=1}^{M}T_i=T\]
+Also, if we take these volume elements to be infintesimally small, $(q,p)$ does not change much inside each volume element. Let $(q_i,p_i)$ be the state of the system in the $i$\textsuperscript{th} volume element.
+\[\therefore \langle F\rangle_T=\lim_{T\to\infty}\frac{1}{T}\sum_{i=1}^M F(q_i,p_i)T_i\]
+Now, $\tilde{P}(i)=\frac{T_i}{T}$ is simply the probability of finding the system in the $i$\textsuperscript{th} volume element.
+
+\[\therefore\langle F\rangle_T=\lim_{T\to\infty}\sum_{i=1}^M F(q_i,p_i)\tilde{P}(i)\]
+In the continuous limit, instead of summing over $M$ discrete volume elements we can take an integral over the phase space.
+\[\therefore \langle F\rangle_T =\int_{\Gamma}d^{3N}q\ d^{3N}p\ F(q,p)\tilde{P}(q,p)\]
+\begin{framed}
+\begin{hyp*}[Ergodic hypothesis]
+	If one waits for a sufficient amount of time, the system visits all its possible microstates.
+
+	This means that in the limit $T\to\infty$, the system visits all the volume elements several times. Hence,
+	\[P(q,p)=\tilde{P}(q,p)\]\[\therefore \langle F\rangle_E=\langle F\rangle_T\]
+\end{hyp*}
+\end{framed}
+\begin{note*}
+	There is no reason to assume that $P(q,p)=\tilde{P}(q,p)$ a priori. While $P$ is the probability that tells us how many microstates there is in some volume element, $\tilde{P}$ tells us how much time the system spends in that volume element.
+
+	From the Ergodic hypothesis, it is clear that the time the system spends in a volume element of the phase space is propotional to the number of microstates in that volume element, provided we observe the system for a sufficiently long(ideally, infinite) amount of time. As a result the ensemble average(calculated in statistical mechanics) of an observable is equal to its time average(measured in experiment).
+
+	Thus, the Ergodic hypothesis forms the backbone of statistical mechanics.
 \end{note*}
 \end{document}
