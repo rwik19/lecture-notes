@@ -9,6 +9,7 @@
 \usepackage{anyfontsize}
 \usepackage{amsthm}
 \usepackage{framed}
+\usepackage[bottom]{footmisc}
 
 
 \theoremstyle{definition}
@@ -19,6 +20,8 @@
 \newtheorem{eg}{Example}
 \newtheorem{ex}{Exercise}
 \newtheorem*{note*}{Note}
+
+\numberwithin{equation}{subsection}
 
 \begin{document}
 \begin{center}
@@ -38,103 +41,99 @@
 
 \section{Vector Analysis}
 Let $\{\vu{e_i}\}$ be an orthonormal basis, i.e., $\vu{e_i}\cdot\vu{e_j}=\delta_{ij}$(where $\delta_{ij}$ represents the Kroneker delta function), of our vector space. For any vector $\vb{A}$ we have
-\[\vb{A}=\underbrace{A_i\vu{e_i}}_{\text{Einstein summation}}\]
+\begin{equation}\vb{A}=\underbrace{A_i\vu{e_i}}_{\text{Einstein summation}}\end{equation}
 where $A_i$ belong to the scalar field over which the vector space is defined, like $\mathbb{R}$ or $\mathbb{C}$.
 \subsection{Products}
 \begin{framed}
 	\begin{defn}[Scalar product]
-		\[\vu{e_i}\cdot\vu{e_j}=\delta_{ij}\]
+		\begin{equation}\vu{e_i}\cdot\vu{e_j}=\delta_{ij}\end{equation}
 		The result is a scalar, hence, the name. Using this and the fact that scalar product is distributive over addition we arrive at
-		\[\vb{A}\cdot\vb{B}=A_iB_i\]
+		\begin{equation}\vb{A}\cdot\vb{B}=A_iB_i\end{equation}
 	\end{defn}
 	\begin{defn}[Vector Product]
-		\[(\vu{e_i}\times\vu{e_j})_k=\varepsilon_{ijk}\]
+		\begin{equation}(\vu{e_i}\times\vu{e_j})_k=\varepsilon_{ijk}\end{equation}
 		The result is a vector, hence, the name. Using this and the fact that vector product is distributive over addition we arrive at
-		\[C_i=(\vb{A}\times\vb{B})_i=\varepsilon_{ijk}A_jB_k\]
+		\begin{equation}\label{cross product}C_i=(\vb{A}\times\vb{B})_i=\varepsilon_{ijk}A_jB_k\end{equation}
 	\end{defn}
 \end{framed}
 \hfill\\
-Using this we can find
+Using \eqref{cross product} we can find
 \begin{framed}
 	\begin{thm}[Scalar triple product]
-		\[\vb{A}\cdot(\vb{B}\times\vb{C})=A_i\ \varepsilon_{ijk}B_jC_k\]
+		\begin{equation}\vb{A}\cdot(\vb{B}\times\vb{C})=A_i\ \varepsilon_{ijk}B_jC_k\end{equation}
 		This is also represented as $[\vb{ABC}]$.
 	\end{thm}
-\end{framed}
-\hfill\\
-We can also calculate
-\begin{framed}
 	\begin{thm}[Vector triple product]
-		\[\vb{A}\times(\vb{B}\times\vb{C})=\vb{B}(\vb{A}\cdot\vb{C})-\vb{C}(\vb{A}\cdot\vb{B})\]
+		\begin{equation}\label{vector triple product}\vb{A}\times(\vb{B}\times\vb{C})=\vb{B}(\vb{A}\cdot\vb{C})-\vb{C}(\vb{A}\cdot\vb{B})\end{equation}
 		The vector product is not associative, hence the position of the parenthesis is important in the triple product.
 	\end{thm}
 \end{framed}
-
-Here we have used
+\hfill\\
+\eqref{vector triple product} is derived using \eqref{cross product} and the identity \eqref{levi cevita}.
 \begin{thm}[Product of levi-cevitas]
-	\begin{align*}
+	\begin{align}
 		\varepsilon_{ijk}\varepsilon_{lmn} & = \begin{vmatrix}
 			\delta_{il} & \delta_{im} & \delta_{in} \\
 			\delta_{jl} & \delta_{jm} & \delta_{jn} \\
 			\delta_{kl} & \delta_{km} & \delta_{kn} \\
-		\end{vmatrix}                                                                                                                                                                                                          \\[6pt]
-		                                   & = \delta_{il}\left( \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\right) - \delta_{im}\left( \delta_{jl}\delta_{kn} - \delta_{jn}\delta_{kl} \right) + \delta_{in} \left( \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \right)\\
-			\varepsilon_{ijk}\varepsilon_{imn} &= \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\\
-			\varepsilon_{ijk}\varepsilon_{ijn} &= 2\delta_{kn}
-	\end{align*}
+		\end{vmatrix}
+		                                   & = \delta_{il}\left( \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\right) - \delta_{im}\left( \delta_{jl}\delta_{kn} - \delta_{jn}\delta_{kl} \right) + \delta_{in} \left( \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \right) \\
+		\varepsilon_{ijk}\varepsilon_{imn} & = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}\label{levi cevita}                                                                                                                                                                \\
+		\varepsilon_{ijk}\varepsilon_{ijn} & = 2\delta_{kn}
+	\end{align}
 \end{thm}
 
 \begin{ex}
 	Show that
-	\[(\vb{A}\times\vb{B})\times(\vb{C}\times\vb{D})=[\vb{ABD}]\vb{C}-[\vb{ABC}]\vb{D}\]
+	\begin{equation}(\vb{A}\times\vb{B})\times(\vb{C}\times\vb{D})=[\vb{ABD}]\vb{C}-[\vb{ABC}]\vb{D}\end{equation}
 \end{ex}
 
 \subsection{Rotation Transformation}
 The rotation of the 2D coordinate axes by an angle $\phi$, keeping the origin fixed, leads to the
 \begin{framed}
 	\begin{defn}[Rotation transformation]
-		\[\vb{A'}=S\vb{A}\]
+		\begin{equation}\vb{A'}=S\vb{A}\end{equation}
 		where $S$ is the rotation transformation represented by the matrix
-		\[S=\left(\begin{matrix}
-					\cos\phi  & \sin\phi \\
-					-\sin\phi & \cos\phi
-				\end{matrix}\right)\] in our orthonormal basis.
-		It is clear that $SS^T=I$, i.e., the rotation transformation is orthogonal. It takes the same form in higher dimensions, i.e., rotation of vectors is an orthogonal transformation.
+		\begin{equation}S=\left(\begin{matrix}
+				\cos\phi  & \sin\phi \\
+				-\sin\phi & \cos\phi
+			\end{matrix}\right)\end{equation} in our orthonormal basis.
+		It is clear that $SS^T=I$, i.e., the rotation transformation is orthogonal.
 	\end{defn}
 \end{framed}
-This is a special property of vectors in physics. There is another kind of quantity called
+It takes the same form in higher dimensions, i.e., rotation of vectors is an orthogonal transformation. This is a special property of vectors in physics. There is another kind of quantity called
 \begin{framed}
 	\begin{defn}[Pseudovectors]
-		\[\vb{A'}=|S|S\vb{A}\]
+		\begin{equation}\vb{A'}=|S|S\vb{A}\end{equation}
 		This is how these quantities transform under rotation, where, $S$ is again an orthogonal transformation and $|S|$ represents the determinant of $S$.
 	\end{defn}
 \end{framed}
 
 \subsection{Differential Calculus}
 We require the del operator
-\[\nabla_i\equiv\pdv{}{e_i}\] in Cartesian coordinates. Using this we can define quantities like
+\begin{equation}\nabla_i\equiv\pdv{}{e_i}\end{equation} in Cartesian coordinates. Using this we can define quantities like
 \begin{framed}
 	\begin{defn}[Gradient]
-		\[\text{Grad }f=\grad f\]
+		\begin{equation*}\text{Grad }f=\grad f\end{equation*}
 		A small change in a scalar field along $\vb{r}$ is given by
-		\[df=\vb{r}\cdot\grad f\]
+		\begin{equation}\label{differential}df=\vb{r}\cdot\grad f\end{equation}
 		Say, the direction of $\grad f$ is given by some $\vu{r}$. We have the most rapid increase in $f$ along $\vu{r}$ and $|\grad f|=\frac{Df}{D\vu{r}}$ is the directional derivative of $f$ along $\vu{r}$.
 	\end{defn}
 
 	\begin{defn}[Divergence]
-		\[\text{Div }\vb{A}=\div\vb{A}\]
+		\begin{equation*}\text{Div }\vb{A}=\div\vb{A}\end{equation*}
 		This gives a measure of the accumulation or depletion of $\vb{A}$ at a point. In other words, it finds how strongly a point acts as a source or sink. It is also known as the \emph{source density} of the vector field.
 	\end{defn}
 
 	\begin{defn}[Curl]
-		\[\text{Curl }\vb{A}=\curl\vb{A}\]
+		\begin{equation*}\text{Curl }\vb{A}=\curl\vb{A}\end{equation*}
 		This gives a measure of the circulation of $\vb{A}$ at a point. It is also known as the \emph{circulation density} of the vector field.
 	\end{defn}
 
 	\begin{defn}[Laplacian]
-		\[\laplacian f=\div(\grad f)\]
+		\begin{equation}\laplacian f=\div(\grad f)\end{equation}
 		The Laplacian is also defined for a vector field as
-		\[(\laplacian\vb{A})_i=\pdv[2]{A_i}{e_i}\]
+		\begin{equation}(\laplacian\vb{A})_i=\pdv[2]{A_i}{e_i}\end{equation}
 	\end{defn}
 \end{framed}
 These can also be calculated in curvilinear coordinate systems as given in \href{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}{this Wikipedia article}.
@@ -142,12 +141,12 @@ These can also be calculated in curvilinear coordinate systems as given in \href
 Some useful properties of vector derivatives are
 \begin{framed}
 	\begin{thm}
-		\begin{align*}
-			\curl(\grad f)     & =0                                  \\
-			\div(\curl\vb{A})  & =0                                  \\
-			\curl(\curl\vb{A}) & =\grad(\div\vb{A})-\laplacian\vb{A}
-		\end{align*}
-		The last one is only valid in Cartesian coordinates.
+		\begin{align}
+			\curl(\grad f)     & =0                                                      \\
+			\div(\curl\vb{A})  & =0                                                      \\
+			\curl(\curl\vb{A}) & =\grad(\div\vb{A})-\laplacian\vb{A}\label{curl of curl}
+		\end{align}
+		\eqref{curl of curl} is only valid in Cartesian coordinates.
 	\end{thm}
 \end{framed}
 \begin{framed}
@@ -158,43 +157,43 @@ Some useful properties of vector derivatives are
 Two special kinds of vector fields that often appear in physics are
 \begin{framed}
 	\begin{defn}[Solenoidal]
-		\[\div\vb{A}=0\]
+		\begin{equation}\div\vb{A}=0\end{equation}
 	\end{defn}
 	\begin{defn}[Irrotational]
-		\[\curl\vb{A}=0\]
+		\begin{equation}\curl\vb{A}=0\end{equation}
 	\end{defn}
 \end{framed}
 Vector fields can be decomposed into solenoidal and irrotational components using
 \begin{framed}
 	\begin{thm}[Helmholtz]
 		Suppose, $\div \vb{F}$ and $\curl\vb{F}$ vanish at infinity and $\vb{F}$ is smooth. $\exists f,\vb{A}$ such that
-		\[\vb{F}=\underbrace{-\grad f}_{\text{irrotational}}+\underbrace{\curl\vb{A}}_{\text{solenoidal}}\]
+		\begin{equation}\vb{F}=\underbrace{-\grad f}_{\text{irrotational}}+\underbrace{\curl\vb{A}}_{\text{solenoidal}}\end{equation}
 	\end{thm}
 \end{framed}
 \subsection{Integral Calculus}
 A very useful quantity for integration is
 \begin{framed}
 	\begin{thm}[Infintesimal length]
-		\begin{align*}
+		\begin{align}
 			d\vb{l} & =dx\ \vu{e_x}+dy\ \vu{e_y}+dz\ \vu{e_z}                                 \\
 			        & =dr\ \vu{e_r}+r\ d\theta\ \vu{e_\theta}+r\sin\theta\ d\phi\ \vu{e_\phi} \\
 			        & =ds\ \vu{e_s}+s\ d\phi\ \vu{e_\phi}+dz\ \vu{e_z}
-		\end{align*}
+		\end{align}
 	\end{thm}
 \end{framed}
 Now, we may define some of the most important vector integrals in physics.
 \begin{framed}
 	\begin{defn}[Line integral]
-		\[\int_C \vb{A}\cdot d\vb{l}\]
+		\begin{equation*}\int_C \vb{A}\cdot d\vb{l}\end{equation*}
 	\end{defn}
 
 	\begin{defn}[Surface integral]
-		\[\iint_S \vb{A}\cdot d\pmb{\sigma}\]
+		\begin{equation*}\iint_S \vb{A}\cdot d\pmb{\sigma}\end{equation*}
 		The contour enclosing a surface $S$ is represented by $\partial S$.
 	\end{defn}
 
 	\begin{defn}[Volume integral]
-		\[\iiint_V \vb{A}\ d\tau\]
+		\begin{equation*}\iiint_V \vb{A}\ d\tau\end{equation*}
 		The surface enclosing a volume $V$ is represented by $\partial V$.
 	\end{defn}
 \end{framed}
@@ -202,21 +201,21 @@ Now, we may define some of the most important vector integrals in physics.
 Some important theorems that will help simplify integrals are
 \begin{framed}
 	\begin{thm}[Conservation of gradient]
-		\[\int_C(\grad f)\cdot d\vb{l}=f(\vb{b})-f(\vb{a})\]
+		\begin{equation}\int_C(\grad f)\cdot d\vb{l}=f(\vb{b})-f(\vb{a})\end{equation}
 		where $\vb{a}, \vb{b}$ are the endpoints of $C$(which is directed from $\vb{a}$ to $\vb{b}$).
 	\end{thm}
 	\begin{thm}[Green]
-		\[\oint_{\partial S}P(x,y)\ dx+Q(x,y)\ dy=\iint_S\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ dA\]
+		\begin{equation}\oint_{\partial S}P(x,y)\ dx+Q(x,y)\ dy=\iint_S\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ dA\end{equation}
 	\end{thm}
 	\begin{thm}[Gauss]
-		\[\varoiint_{\partial V} \vb{A}\cdot d\pmb{\sigma}=\iiint_V \div \vb{A}\ d\tau\]
+		\begin{equation}\varoiint_{\partial V} \vb{A}\cdot d\pmb{\sigma}=\iiint_V \div \vb{A}\ d\tau\end{equation}
 	\end{thm}
 
 	\begin{thm}[Stokes]
-		\[\oint_{\partial S} \vb{A}\cdot d\vb{l}=\iint_S (\curl\vb{A})\cdot d\pmb{\sigma}\]
+		\begin{equation}\oint_{\partial S} \vb{A}\cdot d\vb{l}=\iint_S (\curl\vb{A})\cdot d\pmb{\sigma}\end{equation}
 	\end{thm}
 	\hfill\\
-	Note that $C,S,V$ need to be ``sufficiently nice" for these to be valid, which is often the case in physics.
+	Note that $C,S,V$ need to be ``sufficiently nice" for these theorems to be valid, which is often the case in physics.
 \end{framed}
 
 \subsection{Orthogonal Curvilinear Coordinate Systems}
@@ -225,36 +224,157 @@ Let $\vu{q_i}$ be the unit vectors of our generalized system. We would like to t
 	A vector $\vb{A}$ can be written as $A_i\vu{q_i}$ in the generalized coordinate system. However, the position $\vb{r}\neq q_i\vu{q_i}$, in general, though the equality holds in Cartesian system.
 \end{note*}
 The square of the infinitesimal arc length is given by $d\vb{r}\cdot d\vb{r}=ds^2=dx^2+dy^2+dz^2$ in Cartesian coordinates. This arc length is invariant of our coordinate system. In the generalized system, we have
-\[ds^2=g_{ij}dq_idq_j\]
+\begin{equation}ds^2=g_{ij}dq_idq_j\end{equation}
 The $g_{ij}$ depend on the geometry of the coordinate system and are given by
-\[g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\]
+\begin{equation}g_{ij}=\pdv{\vb{r}}{q_i}\cdot\pdv{\vb{r}}{q_j}\end{equation}
 For orthogonality,
-\[g_{ij}=0,\ i\neq j\]\[\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\]
-We can take $g_{ii}=h_i^2>0$ \footnote[1]{not Einstein summation}. Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
+\begin{equation*}g_{ij}=0,\ i\neq j\end{equation*}\begin{equation*}\vu{q_i}\cdot\vu{q_j}=\delta_{ij}\end{equation*}
+We can take $g_{ii}=h_i^2>0$(not Einstein summation). Now, to represent $d\vb{r}$ in our generalized orthogonal coordinate system, we use
 \begin{framed}
 	\begin{thm}[Scale factors]
-		\[ds^2=\sum_i(h_i\ dq_i)^2\]
-		\[d\vb{r}=\sum_i h_i\ dq_i\vu{q_i}\]
-		\[\pdv{\vb{r}}{q_i}=h_i\vu{q_i}\ \footnote[1]{}\]
+		\begin{equation}ds^2=\sum_i(h_i\ dq_i)^2\end{equation}
+		\begin{equation}d\vb{r}=\sum_i h_i\ dq_i\vu{q_i}\end{equation}
+		\begin{equation}\label{scale factor derivative}\pdv{\vb{r}}{q_i}=h_i\vu{q_i}\end{equation}
+		\eqref{scale factor derivative} does not involve Einstein summation.
 	\end{thm}
 \end{framed}
 Thus, we can define our differential operators as
 \begin{framed}
 	\begin{defn}[Gradient]
-		\[\grad{\phi}=\sum_i\frac{1}{h_i}\pdv{\phi}{q_i}\vu{q_i}\]
+		\begin{equation}\grad{\phi}=\sum_i\frac{1}{h_i}\pdv{\phi}{q_i}\vu{q_i}\end{equation}
 	\end{defn}
 	\begin{defn}[Divergence]
-		\[\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{\text{cyclic }ijk}\pdv{A_i}{q_i}h_jh_j\]
+		\begin{equation}\div{\vb{A}}=\frac{1}{h_1h_2h_3}\sum_{\text{cyclic }ijk}\pdv{A_i}{q_i}h_jh_j\end{equation}
 	\end{defn}
 	\begin{defn}[Curl]
-		\[\curl{\vb{A}}=\frac{1}{h_1h_2h_3}\left|
+		\begin{equation}\curl{\vb{A}}=\frac{1}{h_1h_2h_3}\left|
 			\begin{matrix}
 				h_1\vu{q_1} & h_2\vu{q_2} & h_3\vu{q_3} \\
 				\pdv{}{q_1} & \pdv{}{q_2} & \pdv{}{q_3} \\
 				h_1A_1      & h_2A_2      & h_3A_3
 			\end{matrix}
-			\right|\]
+			\right|\end{equation}
 	\end{defn}
 \end{framed}
 
+\newpage
+\section{Tensor Analysis}
+Scalars and vectors are special cases of tensors. We will consider Cartesian coordinate systems.
+\subsection{Rank 1 tensors}
+Rank 1 tensors are called vectors. These are of two types.\\
+Position vector $\vb{A}$ transforms in the following way
+\begin{equation*}
+	A'_i=(\vu{e_i}\cdot \vu{e_j})A_j=a_{ij}A_j\label{a}
+\end{equation*}
+This $a_{ij}$ can be found by writing down the transformation of the differential element using \eqref{differential}
+\begin{equation*}dx'_i=\pdv{x'_i}{x_j}dx_j\end{equation*}
+Now, we can set $a_{ij}=\pdv{x'_i}{x_j}$. Vectors that transform like this are called \emph{contravarient vectors} and their indices are writen as superscripts. The cartesian coordinates are an example of contravarient vectors. Thus, we have
+\begin{framed}
+	\begin{defn}[Contravarient vector]
+		\begin{equation}
+			A'^i=a^{ij}A^j
+		\end{equation}
+		where \begin{equation}a^{ij}=\pdv{x'^i}{x^j}\end{equation}
+	\end{defn}
+\end{framed}
+Note that we have defined the contravarient vectors using a transformation law. This is the standard way of defining tensors in physics.
+
+The gradient of a scalar function $\phi$ is given by
+\begin{align*}
+	(\grad\phi)'_i & =\pdv{\phi}{x'_i}                                  \\
+	               & =\pdv{x_j}{x'_i}\pdv{\phi}{x_j}\tag*{(chain rule)} \\
+	               & =\pdv{x_j}{x'_i} \left(\grad \phi\right)_j         \\
+	               & =b_{ji}\left(\grad \phi\right)_j
+\end{align*}
+Vectors that transform like this are called \emph{covarient vectors} and their indices are writen as subscripts. Thus we have
+\begin{framed}
+	\begin{defn}[Covarient vector]
+		\begin{equation}
+			B'_i=b_{ji}B_j
+		\end{equation}
+		where \begin{equation}b_{ji}=\pdv{x^j}{x'^i}\end{equation}
+	\end{defn}
+\end{framed}
+
+\subsection{Rank 2 tensors}
+Rank 2 tensors are of 3 types.
+\begin{framed}
+	\begin{defn}[Contravarient]
+		\begin{equation}
+			A'^{ij}=a^{ik}a^{jl}A^{kl}
+		\end{equation}
+	\end{defn}
+	\begin{defn}[Mixed]
+		\begin{equation}\label{mixed}
+			B'^i_j=a^{ik}b_{lj}B^k_l
+		\end{equation}
+	\end{defn}
+	\begin{defn}[Covarient]
+		\begin{equation}
+			C'_{ij}=b_{ki}b_{lj}C_{kl}
+		\end{equation}
+	\end{defn}
+\end{framed}
+\begin{eg}[Kronecker delta]
+	The familiar Kronecker delta function is a mixed rank 2 tensor $\delta^i_j$.
+	We have
+	\begin{align*}
+		a^{ik}b_{lj}\delta_l^k&=a^{ik}b_{kj}\tag*{(property of Kronecker delta function)}\\
+							  &=\pdv{x'^i}{x^k}\pdv{x^k}{x'{j}}\\
+							  &=\pdv{x'^i}{x'^j}\\
+							  &=\delta'^i_j\tag*{($x_i,x_j$ are independent if $i\neq j$)}
+	\end{align*}
+	Thus, it transforms like \eqref{mixed}.
+\end{eg}
+The order in which the indices appear in our description of a tensor is important. In general, $A^{mn}$ is independent of $A^{nm}$, but there are some cases of special interest.
+\begin{framed}
+	\begin{defn}[Symmetric]
+		\begin{equation}
+			A^{mn}=A^{nm},\forall m,n
+		\end{equation}
+	\end{defn}
+	\begin{defn}[Antisymmetric]
+		\begin{equation}
+			A^{mn}=-A^{nm},\forall m,n
+		\end{equation}
+	\end{defn}
+	\begin{thm}
+		Every second rank tensor can be decomposed into a symmetric and antisymmetric tensor.
+		\begin{equation}
+			A^{mn}=\frac{1}{2}(A^{mn}+A^{nm})+\frac{1}{2}(A^{mn}-A^{nm})
+		\end{equation}
+	\end{thm}
+\end{framed}
+\begin{framed}
+	\begin{defn}[Contraction]
+		\begin{equation}
+			B'^i_i=B^k_k
+		\end{equation}
+		The contracted tensor is invariant and therefore a scalar(rank 0). In general, we set one contravarient index equal to a covarient index and sum over the repeated indices. Contraction reduces the rank of a tensor by 2.
+	\end{defn}
+	\begin{defn}[Direct product]
+		It can be shown that $A_iB^j$ is a second rank mixed tensor
+		\begin{equation}
+			A'_iB'^j=b_{ki}a^{jl}A_iB^j
+		\end{equation}
+		This is called the direct product which is a technique for creating new, higher-rank tensors.
+		If we contract $A_iB^j$, we get \[A'_iB'^i=A_kB^k\] which is the familiar scalar product.
+	\end{defn}
+\end{framed}
+\subsection{Quotient Rule}
+The quotient rule gives us a way to determine the rank of tensors in a given equation of the form
+\[\vb{KA}=\vb{B}\]
+where $\vb{K}$ is the unknown tensor. The rank of $\vb{K}$ is given by the following equations
+\begin{framed}
+	\begin{thm}[Quotient rule]
+		\begin{align}
+			K_iA_i&=B\\
+			K_{ij}A_j&=B_i\\
+			K_{ij}A_{jk}&=B_{kl}\\
+			K_{ijkl}A_{ij}&=B_{kl}\\
+			K_{ij}A_{k}&=B_{ijk}
+		\end{align}
+		We can go to higher ranks but this will be enough for our purposes. As mentioned before, the number of indices is the rank of the tensor.
+	\end{thm}
+\end{framed}
 \end{document}
