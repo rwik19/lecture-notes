@@ -33,13 +33,14 @@
 \newpage
 
 \section{Finite Automata}
+\subsection{Deterministic Finite Automaton(DFA)}
 \begin{defn}[Deterministic Finite Automaton]
 	A collection $(Q,\Sigma,\delta,q_0,F)$ such that
 	\begin{enumerate}
 		\item $Q$ is a finite set of \emph{states}.
 		\item $\Sigma$ is a finite \emph{alphabet}.
 		\item $\delta:Q\times\Sigma\to Q$ is the \emph{transition function}.
-		\item $q_0\in Q$ is the start state.
+		\item $q_0\in Q$ is the \emph{start state}.
 		\item $F\subseteq Q$ is the set of \emph{accepting states}.
 	\end{enumerate}
 \end{defn}
@@ -52,12 +53,16 @@ We will use automata to solve set membership problems, i.e., given a finite alph
 \begin{note*}
 	At each step, a finite automaton is in one of a finite number of states (it is a finite automaton because its set of states is finite). Its response depends only on the current state and the current symbol.
 \end{note*}
-\subsection{Language of Finite Automata}
+
+\begin{defn}[String accepted by DFA]
+	A DFA has one only one final state for a given string. The string is said to be accepted by the DFA if the final state is also an accepting state of the DFA.
+\end{defn}
+\subsection{Regular Language}
 \begin{defn}[Language of Automaton]
 	$L(M)$ of an automaton $M$ is the set of all strings $x$ that are accepted by the automaton.
 \end{defn}
 
-\begin{defn}[Extended transition function]
+\begin{defn}[Extended transition function of DFA]
 	Let $M(Q,\Sigma,\delta,q_0,F)$ be a finite automaton. The extended transition function is given by
 	\begin{align*}
 		\delta^*             & :Q\to\Sigma^*            \\
@@ -92,10 +97,95 @@ Regular languages are closed under certain operations.
 		\item $L_1\cup L_2$ if $F=\{(p,q)|p\in F_1\text{ or }q\in F_2\}$
 		\item $L_1\cap L_2$ if $F=\{(p,q)|p\in F_1\text{ and }q\in F_2\}$
 		\item $L_1\backslash L_2$ if $F=\{(p,q)|p\in F_1\text{ and }q\notin F_2\}$
-\end{enumerate}
+	\end{enumerate}
 \end{thm}
 \begin{lem}
 	$L_1,L_2$ are regular languages with the same alphabet $\implies$ $L_1\cup L_2, L_1\cap L_2$ and $L_1\backslash L_2$ are regular languages.
 \end{lem}
 
+\begin{thm}[Contatenation]
+	If $L_1,L_2$ are regular languages, so is
+	\[L_1L_2=\{xy|x\in L_1,y\in L_2\}\]
+\end{thm}
+
+\begin{thm}[Kleene Closure]
+	If $L$ is a regular language, so is
+	\[L^*=\bigcup_{i=0}^{\infty}L^i\]
+\end{thm}
+\begin{note*}
+	$L^0=\{\epsilon\},L^1=L,L^2=LL$ and so on.
+\end{note*}
+\subsection{Regular Expression}
+\begin{defn}[Regular Expression]
+	A regular expression over a finite alphabet $\Sigma$ and operators $*,+,\cdot$  is defined as
+	\begin{enumerate}
+		\item $\varnothing,\epsilon$ and $a\in\Sigma$ are regular expressions.
+		\item If $R$ is a regular expression so is $R^*$.
+		\item If $R_1,R_2$ are regular expressions so are $R_1+R_2$ and $R_1R_2$.
+	\end{enumerate}
+\end{defn}
+\begin{eg}
+	Let $\Sigma=\{0,1\}$.
+	$\epsilon,1,0^*,1+0,11,(1+01)^*$ are all examples of regular expressions.
+\end{eg}
+
+\begin{defn}[Precedence of Operators]
+	$*,\cdot,+$ is the order of decreasing precedence.
+\end{defn}
+
+\begin{defn}[Language represented by a regular expression]
+	\hfill
+	\begin{enumerate}
+		\item $\varnothing\rightarrow\varnothing$
+		\item $\epsilon\rightarrow\{\epsilon\}$
+		\item $a\rightarrow \{a\}$
+		\item $R\rightarrow L\implies R^*\rightarrow L^*$
+		\item $R_1\rightarrow L_1$ and $R_2\rightarrow L_2\implies R_1+R_2\rightarrow L_1\cup L_2$
+		\item $R_1\rightarrow L_1$ and $R_2\rightarrow L_2\implies R_1R_2\rightarrow L_1L_2$
+	\end{enumerate}
+\end{defn}
+
+\begin{thm}
+	Every regular expression represents a unique regular language.
+\end{thm}
+\begin{note*}
+	Every regular language represents a regular expression. However, this expression is not unique.
+\end{note*}
+
+\begin{defn}[Equality]
+	Two regular expressions are said to be equal if they represent the same language.
+\end{defn}
+
+\begin{thm}
+	For $\Sigma=\{0,1\}$, $(0^*1^*)^*=(0+1)^*$. Both represent $\Sigma^*$.
+\end{thm}
+
+\subsection{Non-deterministic Finite Automaton(NFA)}
+\begin{defn}[Non-deterministic Finite Automaton]
+	A collection $(Q,\Sigma,\delta,q_0,F)$ such that
+	\begin{enumerate}
+		\item $Q$ is a finite set of states.
+		\item $\Sigma$ is a finite alphabet.
+		\item $\delta:Q\times\Sigma_\epsilon\to \mathcal{P}(Q)$ is the transition `function'.
+		\item $q_0\in Q$ is the start state.
+		\item $F\subseteq Q$ is the set of accepting states.
+	\end{enumerate}
+\end{defn}
+\begin{note*}
+	$\Sigma_\epsilon=\Sigma\cup\{\epsilon\}$
+\end{note*}
+\begin{note*}
+	$\mathcal{P}(Q)$ is the set of all subsets of $Q$.
+\end{note*}
+\begin{note*}
+	The transition function of an NFA is not a mathematical function. For a given state $q\in Q$ and symbol $a\in\Sigma$, $\delta(q,a)$ may not exist or may have multiple values in $Q$. This is what mathematicians call a relation.
+\end{note*}
+
+\begin{note*}
+	The definition of regular languages refers to finite automaton which includes NFA.
+\end{note*}
+
+\begin{defn}[String accepted by NFA]
+	An NFA can end up in mutiple final states or no state at all with some input string. If \textbf{any one} of these final states is an accepting state of the NFA, we say the NFA accepts the string.
+\end{defn}
 \end{document}
